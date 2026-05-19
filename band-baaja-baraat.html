@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Band Baaja Baraat – A marketplace for wedding industry vendors in Pakistan. Product project by Taha.">
+<title>Band Baaja Baraat – Taha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --subtle: #9a9a9a;
+    --border: #e8e4dc;
+    --tag-bg: #f0ede8;
+    --nav-height: 64px;
+    --max-w: 860px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  .nav-logo img { height: 36px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted); font-size: 14px;
+    font-weight: 400; letter-spacing: 0.01em; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-hamburger img { width: 24px; height: 24px; }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--nav-height); left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 40px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { text-decoration: none; color: var(--text); font-size: 18px; }
+
+  main { padding-top: var(--nav-height); }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+  section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 36px; transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--text); }
+
+  .project-tag-chip {
+    display: inline-block; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--subtle);
+    background: var(--tag-bg); padding: 4px 10px; border-radius: 4px; margin-bottom: 20px;
+  }
+
+  .project-page-title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700; line-height: 1.15; color: var(--text); margin-bottom: 20px;
+  }
+
+  .project-page-tagline {
+    font-size: 18px; color: var(--muted); line-height: 1.7;
+    max-width: 680px; margin-bottom: 40px;
+  }
+
+  .meta-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 24px; padding: 28px 0;
+    border-top: 1px solid var(--border); margin-bottom: 48px;
+  }
+
+  .meta-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--subtle); display: block; margin-bottom: 8px;
+  }
+  .meta-value { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+  figure { margin: 32px 0; }
+  figure:first-child { margin-top: 0; }
+  figure:last-child { margin-bottom: 0; }
+  figure img { width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block; }
+  figcaption { font-size: 13px; color: var(--subtle); text-align: center; margin-top: 10px; line-height: 1.5; }
+
+  .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 32px 0; }
+  .image-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+
+  .prose {
+    font-size: 16px; color: var(--muted); line-height: 1.8;
+    max-width: 720px; margin-bottom: 20px;
+  }
+  .prose:last-child { margin-bottom: 0; }
+
+  /* PROCESS STEPS */
+  .process-steps {
+    display: flex;
+    gap: 0;
+    margin: 32px 0;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .process-step {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .step-pill {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .step-arrow {
+    font-size: 16px;
+    color: var(--border);
+    padding: 0 8px;
+    flex-shrink: 0;
+  }
+
+  /* INSIGHT ITEMS */
+  .insight-list { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  .insight-item {
+    display: flex; gap: 16px; padding: 16px 20px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; align-items: flex-start;
+  }
+  .i-bullet { font-size: 14px; color: var(--subtle); flex-shrink: 0; line-height: 1.6; margin-top: 0; }
+  .insight-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* STAT CALLOUT */
+  .stat-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .stat-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--text);
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .stat-desc {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* FINDING LIST WITH AUDIENCE */
+  .finding-group { margin-bottom: 36px; }
+  .finding-group:last-child { margin-bottom: 0; }
+
+  .finding-group-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .finding-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .finding-item:last-child { border-bottom: none; }
+  .f-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink: 0; margin-top: 8px; }
+  .finding-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* WEBSITE VERSIONS */
+  .versions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  .version-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  .version-card img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .version-card-body { padding: 14px 16px; }
+
+  .version-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--subtle); margin-bottom: 4px;
+  }
+
+  .version-card-body p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* QUOTE */
+  .callout {
+    font-size: 17px; font-style: italic; color: var(--muted);
+    line-height: 1.7; padding: 24px 28px; border-left: 3px solid var(--border);
+    margin: 28px 0;
+  }
+
+  /* OUTCOME */
+  .outcome-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 28px 0;
+  }
+
+  .outcome-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  .outcome-card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+
+  .outcome-card-body { padding: 16px; }
+  .outcome-card-body p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+  /* REFLECTION */
+  .reflection-box {
+    font-size: 16px; font-style: italic; color: var(--muted);
+    line-height: 1.8; padding: 32px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  }
+
+  /* NEXT */
+  .next-project {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 40px 0; text-decoration: none; color: inherit;
+    border-top: 1px solid var(--border); transition: opacity 0.2s;
+  }
+  .next-project:hover { opacity: 0.7; }
+  .next-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--subtle); margin-bottom: 8px; }
+  .next-title { font-size: 18px; font-weight: 500; color: var(--text); }
+
+  footer { padding: 40px 0; }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo img { height: 28px; width: auto; display: block; }
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a { text-decoration: none; color: var(--muted); font-size: 13px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text); }
+
+  @media (max-width: 700px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-menu { padding: 24px 20px; }
+    .container { padding: 0 20px; }
+    section { padding: 52px 0; }
+    .meta-grid { grid-template-columns: 1fr; }
+    .image-grid { grid-template-columns: 1fr; }
+    .image-grid.three { grid-template-columns: 1fr 1fr; }
+    .versions-grid { grid-template-columns: 1fr; }
+    .outcome-grid { grid-template-columns: 1fr; }
+    .stat-box { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+  }
+
+  @media (max-width: 480px) {
+    .image-grid.three { grid-template-columns: 1fr; }
+    .project-page-title { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#Projects">Projects</a></li>
+    <li><a href="index.html#Research">Research</a></li>
+    <li><a href="index.html#About">About</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65dd546c278a2ace8a9cbc36_menu-icon.png" alt="">
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#Projects" onclick="closeMenu()">Projects</a>
+  <a href="index.html#Research" onclick="closeMenu()">Research</a>
+  <a href="index.html#About" onclick="closeMenu()">About</a>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section style="padding-top: 60px;">
+    <div class="container">
+      <a class="back-link" href="index.html#Projects">← Back to Projects</a>
+      <span class="project-tag-chip">Product</span>
+      <h1 class="project-page-title">Band Baaja Baraat</h1>
+      <p class="project-page-tagline">A marketplace for wedding vendors.</p>
+
+      <div class="meta-grid">
+        <div>
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Co-founder</span>
+        </div>
+        <div>
+          <span class="meta-label">Duration</span>
+          <span class="meta-value">5 months (Summer 2021)</span>
+        </div>
+      </div>
+
+      <figure style="margin: 0;">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bf97b226af9a6fa325a80_Frame%2045.png" alt="Band Baaja Baraat wedding marketplace" loading="eager">
+        <figcaption>Band Baaja Baraat — a one-stop marketplace for Pakistani wedding planning.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- INTRODUCTION -->
+  <section>
+    <div class="container">
+      <p class="section-label">The Context</p>
+      <p class="prose">2021 was an interesting year for the Pakistani startup space. Pakistan raised close to $350 million in VC funding. Airlift and Bazaar were at the forefront, leading the entrepreneurial wave of the country. Investors were pooling money into the fifth most populous country, having one of the world's largest youth markets.</p>
+      <p class="prose">It felt good. It sounded cool. As a Junior year student, I could see myself working on a moonshot project. I started reading Paul Graham's essays in my free time, watching Y-Combinator's summer school playlist while eating breakfast, and scanning through books on entrepreneurship during study breaks.</p>
+      <p class="prose">All set with the theoretical knowledge, in the summer of 2021, it was time to do something big. And that is where Band Baaja Baraat started.</p>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <span class="step-pill">Problem Identification</span>
+          <span class="step-arrow">→</span>
+        </div>
+        <div class="process-step">
+          <span class="step-pill">User Research</span>
+          <span class="step-arrow">→</span>
+        </div>
+        <div class="process-step">
+          <span class="step-pill">Designed Solution</span>
+          <span class="step-arrow">→</span>
+        </div>
+        <div class="process-step">
+          <span class="step-pill">MVP Development</span>
+          <span class="step-arrow">→</span>
+        </div>
+        <div class="process-step">
+          <span class="step-pill">Outcome</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section>
+    <div class="container">
+      <p class="section-label">The Problem</p>
+
+      <div class="stat-box">
+        <span class="stat-number">₨900B</span>
+        <p class="stat-desc">The wedding industry in Pakistan is a thriving market worth RS 900 billion per annum. However, despite the growth of the industry, there has been no effort to digitize the wedding process and bring all of the vendors together in a single, easily accessible marketplace.</p>
+      </div>
+
+      <div class="callout">
+        "How might we provide a comprehensive and convenient one-stop-shop for wedding planning, connecting customers with hundreds of reliable wedding vendors and offering a range of services, deals, and prices all in one place?"
+      </div>
+    </div>
+  </section>
+
+  <!-- USER RESEARCH -->
+  <section>
+    <div class="container">
+      <p class="section-label">User Research</p>
+      <p class="prose">Vendors: Any businesses or individuals who contribute to the planning and execution of a wedding event. These may include videographers, florists, or wedding planners.</p>
+
+      <p class="prose">Customers: Individuals seeking goods or services related to planning and executing a wedding event.</p>
+
+      <p class="prose">We reached out to businesses and individuals to understand the user pain points and internalize the end-to-end process of planning a wedding. We asked people we knew around us belonging to different educational, social, and financial backgrounds if they are willing to be part of this study and if they believe in this problem space. Similarly, we identified the hotspots of various wedding vendors in the city and talked to the business managers.</p>
+
+      <div class="image-grid">
+        <figure style="margin: 0;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67202dea0b7b2b422372c7f2_wedding%20hall.jpg" alt="Wedding hall in Faisal Town" loading="lazy">
+          <figcaption>Visiting a wedding hall in Faisal Town to understand the booking procedure, and get an estimate of the expenses involved. Wedding hall owners only allowed the customers to choose from their selected list of vendors.</figcaption>
+        </figure>
+        <figure style="margin: 0;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67202e273b6403d743d91914_vendor%20sheet.jpg" alt="Vendor pricing sheets" loading="lazy">
+          <figcaption>We gathered the menu items, and business cards from all venues to analyze how the rates differed region to region.</figcaption>
+        </figure>
+      </div>
+
+      <div class="image-grid" style="margin-top: 0;">
+        <figure style="margin: 0;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67202e3d119fb7e0980e929e_florists%20(2).jpg" alt="Interviews with florists" loading="lazy">
+          <figcaption>We interviewed florists of Allama Iqbal Town to check if they could use mobile applications. The vendors used WhatsApp for bookings and kept digital catalogues in the form of pictures.</figcaption>
+        </figure>
+        <figure style="margin: 0;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67202e55befd4e6492f4fbc1_wedding%20cards.jpg" alt="Wedding card market" loading="lazy">
+          <figcaption>Shadman Market is famous for wedding card vendors. The vendors were seriously concerned about theft of their card designs which is the major reason they did not want to open online shops.</figcaption>
+        </figure>
+      </div>
+
+      <p class="prose" style="margin-top: 8px;">At the start of our interviewing phase with customers, we selected participants male between 25–29 years of age since this is the average age by which a Pakistani gets married. However, we quickly realized we were targeting the wrong demographic. The primary decision-makers in wedding planning are the elders of the family.</p>
+
+      <p class="prose">We gathered the following insights:</p>
+
+      <div class="finding-group">
+        
+        <div class="finding-item">
+          <div class="f-dot"></div>
+          <p>One of the critical factors when choosing a wedding hall is the quality of food served by them. The hall owners invite potential customers to test food quality before finalizing the booking.</p>
+        </div>
+        <div class="finding-item">
+          <div class="f-dot"></div>
+          <p>Customers do not invest many resources in wedding cards. Their primary expense is on the wedding venue.</p>
+        </div>
+        <div class="finding-item">
+          <div class="f-dot"></div>
+          <p>Word-of-mouth plays a crucial role when selecting potential vendors. Customers always prefer traveling to the vendor offices and viewing physical samples of the goods.</p>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- BRAND -->
+  <section>
+    <div class="container">
+      <p class="section-label">Brand Development</p>
+      <p class="prose">We named our startup after a famous Bollywood movie, Band Baaja Baraat (BBB). The movie is about the challenges two youngsters face when they start a wedding enterprise in India. Since the name has three words all starting from a 'B,' we chose to base our logo on the same premise. Similarly, we chose red color to display strong emotion of love and passion.</p>
+
+      <div class="image-grid">
+        <figure style="margin: 0;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67214025c56d94ca50de8f7f_logo%20iteration.jpg" alt="Logo iteration sketches" loading="lazy">
+          <figcaption>Early logo sketches exploring the triple-B concept.</figcaption>
+        </figure>
+        <figure style="margin: 0;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/6721403cdeea100e23189d3f_logo.jpg" alt="Final Band Baaja Baraat logo" loading="lazy">
+          <figcaption>The final logo — a triple-B monogram in signature red.</figcaption>
+        </figure>
+      </div>
+
+      <p class="prose">We created social media handles of BBB and started posting regularly. We decided to share our startup experience in the form of blog posts for the budding entrepreneurs to get inspired from our work. In addition, we launched a fortnightly newsletter to keep our subscribers updated with the recent developments.</p>
+    </div>
+  </section>
+
+  <!-- MVP -->
+  <section>
+    <div class="container">
+      <p class="section-label">MVP Development</p>
+      <p class="prose">With vendors on board, we decided to launch our MVP to finally start serving our first customers. Abdullah and I settled on creating a static website and releasing a form for the customers to avail our services. Since we did not have any knowledge on how websites are made, I took up an online course on web development. Within a week, after quick iterations on the design, we launched the MVP.</p>
+
+      <div class="versions-grid">
+        <div class="version-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67214315868bc92ceeda7d83_website%20zero%20version.png" alt="Website version zero" loading="lazy">
+          <div class="version-card-body">
+            <p class="version-label">Version 0</p>
+            <p>Initial launch — a simple static page with a contact form and brief pitch.</p>
+          </div>
+        </div>
+        <div class="version-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67214333d0c23c36f596823a_website%20first%20version.png" alt="Website first iteration" loading="lazy">
+          <div class="version-card-body">
+            <p class="version-label">Version 1</p>
+            <p>First iteration — added vendor categories and improved information structure.</p>
+          </div>
+        </div>
+        <div class="version-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bfe8b2b6bb0d87cb162a9_website.png" alt="Website third iteration" loading="lazy">
+          <div class="version-card-body">
+            <p class="version-label">Version 3</p>
+            <p>Final iteration — refined design with clearer CTAs and expanded vendor listings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOME -->
+  <section>
+    <div class="container">
+      <p class="section-label">Outcome</p>
+      <p class="prose">Yes! But for a while…</p>
+
+      <p class="prose">We had started serving actual customers. We provided them with a tailored list of vendors according to their requirements, provided deals and discounts, accompanied them to wedding planners and wedding card outlets.</p>
+
+      <p class="prose">Despite the initial success, we had to shut down.</p>
+
+      <div class="outcome-grid">
+        <div class="outcome-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67214b159a4e977e69b035ae_serving%20customers.jpg" alt="Serving customers" loading="lazy">
+          <div class="outcome-card-body">
+            <p>Documentation from a customer service session — matching vendors to wedding requirements.</p>
+          </div>
+        </div>
+        <div class="outcome-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67214b3c614df579c5caa81c_wedding%20card.jpg" alt="Wedding card sample" loading="lazy">
+          <div class="outcome-card-body">
+            <p>A wedding card sample sourced through a vendor partnership — part of our curated vendor network.</p>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="insight-list">
+        <div class="insight-item">
+          <span class="i-bullet">1</span>
+          <p>Our semester had taken off and we were finding it hard to manage the startup and our studies.</p>
+        </div>
+        <div class="insight-item">
+          <span class="i-bullet">2</span>
+          <p>We were not getting enough customers as we had anticipated. We did not have enough time to market the product outside of our circle.</p>
+        </div>
+        <div class="insight-item">
+          <span class="i-bullet">3</span>
+          <p>We did not have enough expertise at the time to develop a complete mobile/ web application.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFLECTION -->
+  <section>
+    <div class="container">
+      <p class="section-label">Reflection</p>
+      <div class="reflection-box">
+        <p>Band Baaja Baraat taught me more about product thinking and user research than any course could. The most valuable lesson was being wrong about our users — we assumed we were building for young, tech-savvy couples when the real decision-makers were family elders who valued personal relationships and physical trust signals over digital convenience.</p>
+        <br>
+        <p>The experience of teaching myself web development in a week, building a brand from scratch, going into the field to interview florists and wedding hall owners, and actually serving customers — all of this gave me a visceral understanding of the gap between a problem statement and a viable product. The startup didn't survive, but the instinct to understand users before building anything became foundational to everything I've done since.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT PROJECT -->
+  <section style="border-bottom: none; padding: 0;">
+    <div class="container">
+      <a class="next-project" href="ideawave.html">
+        <div>
+          <p class="next-label">Back to start</p>
+          <p class="next-title">IdeaWave →</p>
+        </div>
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08efb86ee29db88804_Frame%2017-2.jpg" alt="IdeaWave" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border);">
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+      </a>
+      <ul class="footer-links">
+        <li><a href="index.html#Projects">Projects</a></li>
+        <li><a href="index.html#Research">Publications</a></li>
+        <li><a href="index.html#About">About</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Designing for Urdu – Developing a design guideline for Urdu language in mobile applications. UX Research by Taha.">
+<title>Designing for Urdu – Taha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --subtle: #9a9a9a;
+    --border: #e8e4dc;
+    --tag-bg: #f0ede8;
+    --nav-height: 64px;
+    --max-w: 860px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  .nav-logo img { height: 36px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted); font-size: 14px;
+    font-weight: 400; letter-spacing: 0.01em; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-hamburger img { width: 24px; height: 24px; }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--nav-height); left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 40px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { text-decoration: none; color: var(--text); font-size: 18px; }
+
+  main { padding-top: var(--nav-height); }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+  section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 36px; transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--text); }
+
+  .project-tag-chip {
+    display: inline-block; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--subtle);
+    background: var(--tag-bg); padding: 4px 10px; border-radius: 4px; margin-bottom: 20px;
+  }
+
+  .project-page-title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700; line-height: 1.15; color: var(--text); margin-bottom: 20px;
+  }
+
+  .project-page-tagline {
+    font-size: 18px; color: var(--muted); line-height: 1.7;
+    max-width: 680px; margin-bottom: 40px;
+  }
+
+  .meta-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px; padding: 28px 0;
+    border-top: 1px solid var(--border); margin-bottom: 48px;
+  }
+
+  .meta-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--subtle); display: block; margin-bottom: 8px;
+  }
+  .meta-value { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+  figure { margin: 32px 0; }
+  figure:first-child { margin-top: 0; }
+  figure:last-child { margin-bottom: 0; }
+  figure img { width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block; }
+  figcaption { font-size: 13px; color: var(--subtle); text-align: center; margin-top: 10px; line-height: 1.5; }
+
+  .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 32px 0; }
+  .image-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+  .image-grid.four { grid-template-columns: repeat(4, 1fr); }
+
+  .prose {
+    font-size: 16px; color: var(--muted); line-height: 1.8;
+    max-width: 720px; margin-bottom: 20px;
+  }
+  .prose:last-child { margin-bottom: 0; }
+
+  /* PROBLEM ITEMS */
+  .problem-list { display: flex; flex-direction: column; }
+  .problem-item {
+    display: grid; grid-template-columns: 52px 1fr;
+    gap: 16px; padding: 24px 0; border-top: 1px solid var(--border);
+  }
+  .problem-item:last-child { border-bottom: 1px solid var(--border); }
+  .p-num { font-family: 'Inter', sans-serif; font-size: 28px; color: var(--border); line-height: 1; padding-top: 4px; }
+  .problem-item h3 { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .problem-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* SCRIPT COMPARISON */
+  .script-compare {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 32px 0;
+  }
+  .script-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+  }
+  .script-card img { width: 100%; display: block; }
+  .script-card-label {
+    padding: 12px 16px;
+    font-size: 13px; color: var(--subtle); text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  /* APP GRID */
+  .app-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 32px 0; }
+  .app-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .app-card img { width: 100%; display: block; aspect-ratio: 3/4; object-fit: cover; }
+  .app-card-body { padding: 16px; }
+  .app-card-body h4 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+  .app-card-body p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .app-type {
+    display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--subtle); background: var(--tag-bg);
+    padding: 2px 8px; border-radius: 3px; margin-bottom: 6px;
+  }
+
+  /* RESULTS TABLE */
+  .results-table-wrap { overflow-x: auto; margin: 28px 0; }
+
+  .results-table {
+    width: 100%; border-collapse: collapse; font-size: 14px; min-width: 480px;
+  }
+  .results-table th {
+    text-align: left; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--subtle);
+    padding: 12px 16px; border-bottom: 2px solid var(--border);
+  }
+  .results-table td {
+    padding: 14px 16px; color: var(--muted); border-bottom: 1px solid var(--border);
+  }
+  .results-table tr:last-child td { border-bottom: none; }
+  .results-table tr:hover td { background: var(--tag-bg); }
+  .results-table .worst { color: #c0392b; font-weight: 500; }
+  .results-table .best { color: #27ae60; font-weight: 500; }
+
+  /* GUIDELINE ITEMS */
+  .guideline-item { margin-bottom: 52px; }
+  .guideline-item:last-child { margin-bottom: 0; }
+
+  .guideline-item h3 {
+    font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 12px;
+  }
+
+  /* INSIGHT ITEMS */
+  .insight-list { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  .insight-item {
+    display: flex; gap: 16px; padding: 16px 20px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; align-items: flex-start;
+  }
+  .i-bullet { font-size: 18px; color: var(--border); flex-shrink: 0; line-height: 1; margin-top: 2px; }
+  .insight-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* QUOTE */
+  .callout {
+    font-size: 17px; font-style: italic; color: var(--muted);
+    line-height: 1.7; padding: 24px 28px; border-left: 3px solid var(--border);
+    margin: 24px 0;
+  }
+
+  /* REFLECTION */
+  .reflection-box {
+    font-size: 16px; font-style: italic; color: var(--muted);
+    line-height: 1.8; padding: 32px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  }
+
+  /* NEXT */
+  .next-project {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 40px 0; text-decoration: none; color: inherit;
+    border-top: 1px solid var(--border); transition: opacity 0.2s;
+  }
+  .next-project:hover { opacity: 0.7; }
+  .next-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--subtle); margin-bottom: 8px; }
+  .next-title { font-size: 18px; font-weight: 500; color: var(--text); }
+
+  footer { padding: 40px 0; }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo img { height: 28px; width: auto; display: block; }
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a { text-decoration: none; color: var(--muted); font-size: 13px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text); }
+
+  @media (max-width: 700px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-menu { padding: 24px 20px; }
+    .container { padding: 0 20px; }
+    section { padding: 52px 0; }
+    .meta-grid { grid-template-columns: 1fr 1fr; }
+    .image-grid { grid-template-columns: 1fr; }
+    .image-grid.three { grid-template-columns: 1fr 1fr; }
+    .image-grid.four { grid-template-columns: 1fr 1fr; }
+    .app-grid { grid-template-columns: 1fr; }
+    .script-compare { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+  }
+
+  @media (max-width: 480px) {
+    .meta-grid { grid-template-columns: 1fr; }
+    .image-grid.three { grid-template-columns: 1fr; }
+    .image-grid.four { grid-template-columns: 1fr; }
+    .project-page-title { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#Projects">Projects</a></li>
+    <li><a href="index.html#Research">Research</a></li>
+    <li><a href="index.html#About">About</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65dd546c278a2ace8a9cbc36_menu-icon.png" alt="">
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#Projects" onclick="closeMenu()">Projects</a>
+  <a href="index.html#Research" onclick="closeMenu()">Research</a>
+  <a href="index.html#About" onclick="closeMenu()">About</a>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section style="padding-top: 60px;">
+    <div class="container">
+      <a class="back-link" href="index.html#Projects">← Back to Projects</a>
+      <span class="project-tag-chip">UX Research</span>
+      <h1 class="project-page-title">Designing for Urdu</h1>
+      <p class="project-page-tagline">A usability analysis of a multilingual application to propose design guidelines for better integrating Urdu into digital solutions.</p>
+
+      <div class="meta-grid">
+        <div>
+          <span class="meta-label">Role</span>
+          <span class="meta-value">UX Researcher</span>
+        </div>
+        <div>
+          <span class="meta-label">Duration</span>
+          <span class="meta-value">8 weeks</span>
+        </div>
+        <div>
+          <span class="meta-label">Design Tools</span>
+          <span class="meta-value">Figma, Google Forms</span>
+        </div>
+        <div>
+          <span class="meta-label">Methods</span>
+          <span class="meta-value">Expert Interviews, UX Audit, Usability Testing, High Fidelity Design</span>
+        </div>
+      </div>
+
+      <figure style="margin: 0;">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/6697b74b40b8855ee5327143_Main%20image.png" alt="Multilingual prototypes used for usability testing" loading="eager">
+        <figcaption>Multilingual prototypes used for usability testing — English, Urdu, Roman Urdu, and Bilingual versions of a health application.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section>
+    <div class="container">
+      <p class="section-label">The Problem</p>
+      <p class="prose">The majority of mobile applications in Pakistan are in English language, despite Urdu being the lingua franca of the country. This is primarily due to:</p>
+      <div class="problem-list">
+        <div class="problem-item">
+          <span class="p-num">01</span>
+          <div>
+            <h3>Limited Technological Support</h3>
+            <p>Limited technological support for the Urdu language due to the complex nature of its script.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <span class="p-num">02</span>
+          <div>
+            <h3>High Illiteracy Rates</h3>
+            <p>High illiteracy levels (42%) among users in Pakistan, with even lower levels of English literacy.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <span class="p-num">03</span>
+          <div>
+            <h3>No Standard Design Guidelines</h3>
+            <p>No standard design guidelines for Urdu language to support application development.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOTIVATION -->
+  <section>
+    <div class="container">
+      <p class="section-label">Motivation</p>
+      <p class="prose">Due to the limited technological support for the Urdu language, a significant portion of Pakistan's population — particularly older adults and residents of rural areas — struggles with mobile interfaces that are exclusively in English. However, in recent years, specifically since 2020, we have witnessed a surge in local startups developing mobile applications with Urdu interfaces.</p>
+      <p class="prose">Despite this growing interest in Urdu applications, many developers still struggle to implement best practices for Urdu design. We cannot blame the developers too. There is no Urdu-specific design guideline!</p>
+      <p class="prose">We set out to develop a standardized design guideline for Urdu language that developers can consult when creating Urdu mobile interfaces.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT URDU -->
+  <section>
+    <div class="container">
+      <p class="section-label">Understanding Urdu</p>
+
+      <p class="prose">Before I tell you about my design process, I want to explain why Urdu — despite being the world's 10th most spoken language — is hard to integrate into technology.</p>
+
+      <h3 style="font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 16px; margin-top: 40px;">Right-to-Left Script</h3>
+      <p class="prose">Like Hebrew and Arabic, Urdu is a right-to-left (RTL) language. A key distinction between RTL and left-to-right (LTR) languages is "mirroring," where the direction of content is reversed, affecting the alignment of icons, text, and numbers.</p>
+      <p class="prose">The RTL design guidelines must be tailored to the specific script and language. Unfortunately, there has been no effort to develop RTL design guidelines specifically for Urdu.</p>
+
+      <div class="script-compare">
+        <div class="script-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/669d1e0a3e780c3cd1b3a99d_Eng.png" alt="WhatsApp in English (LTR)" loading="lazy">
+          <div class="script-card-label">WhatsApp — English (LTR)</div>
+        </div>
+        <div class="script-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/669d1e1c1de4199df1030acd_Urdu.png" alt="WhatsApp in Urdu (RTL)" loading="lazy">
+          <div class="script-card-label">WhatsApp — Urdu (RTL)</div>
+        </div>
+      </div>
+
+      <h3 style="font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 16px; margin-top: 48px;">Nastaliq vs. Naskh Script</h3>
+      <p class="prose">The RTL languages like Persian, Urdu and Arabic can be written in Naskh script. However, Naskh is less familiar to Pakistanis, as most physical Urdu content is traditionally written in the Nastaliq script.</p>
+      <p class="prose">However, Nastaliq script complicates coding in modern technology due to its complex vertical and horizontal strokes.</p>
+
+      <div class="script-compare">
+        <div class="script-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/669d4f86fa335ea9c9e0cbe6_naqsh.png" alt="Naskh script example" loading="lazy">
+          <div class="script-card-label">Naskh Script — commonly used in apps</div>
+        </div>
+        <div class="script-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/669d4f90a7c8dc5ece969ff8_nastaliq.png" alt="Nastaliq script example" loading="lazy">
+          <div class="script-card-label">Nastaliq Script — traditional Urdu writing</div>
+        </div>
+      </div>
+
+      <h3 style="font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 16px; margin-top: 48px;">Roman Urdu</h3>
+      <p class="prose">Most Urdu speakers use Latin characters for texting, a practice known as Roman Urdu. For example, the Urdu term for 'language,' زبان, can be transliterated as zubān, zubaan, or other phonetic equivalents in Latin script.</p>
+      <p class="prose">However, there is no standardized spelling for Roman Urdu, leading to inconsistencies in its representation.</p>
+    </div>
+  </section>
+
+  <!-- DESIGN PROCESS -->
+  <section>
+    <div class="container">
+      <p class="section-label">Identifying Issues with Existing Applications</p>
+      <p class="prose">We conducted a two-part usability study to identify workflow issues in existing applications and evaluate usability problems in a newly designed interface. Insights from both studies were used to develop an Urdu-specific design guideline.</p>
+
+      <p class="prose">We selected 3 applications with different language interfaces: English, Urdu, and Bilingual (a combination of English and Urdu). We began with a testing of popular user workflows with 4 participants and noted down the task completion time. The goal was to pinpoint usability problems unique to Urdu digital content to develop a mobile application tailored for Urdu, adhering to best practices in design guidelines.</p>
+
+      <div class="app-grid">
+        <div class="app-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66a7ed5101d450ba71fde2ef_Uber%20Eats.png" alt="Uber Eats app" loading="lazy">
+          <div class="app-card-body">
+            <span class="app-type">English</span>
+            <h4>Uber Eats</h4>
+            <p>Online food ordering and delivery platform — tested as the English-only baseline.</p>
+          </div>
+        </div>
+        <div class="app-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66a7ed68e5f3c75575414fe5_News.png" alt="Urdu News app" loading="lazy">
+          <div class="app-card-body">
+            <span class="app-type">Urdu</span>
+            <h4>Urdu News</h4>
+            <p>Urdu-language news platform — tested as the fully Urdu application.</p>
+          </div>
+        </div>
+        <div class="app-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66a7ed78b4f0cc9ee00dd4bd_Bykea.png" alt="Careem bilingual app" loading="lazy">
+          <div class="app-card-body">
+            <span class="app-type">Bilingual</span>
+            <h4>Careem</h4>
+            <p>Ride-sharing platform — tested as the bilingual application in Urdu and English.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="prose" style="margin-top: 8px;">Three key insights emerged from these tests:</p>
+      <div class="insight-list">
+        <div class="insight-item">
+          <span class="i-bullet">→</span>
+          <p>Users apply mental models developed from their experience with English applications when navigating Urdu applications.</p>
+        </div>
+        <div class="insight-item">
+          <span class="i-bullet">→</span>
+          <p>Users find it challenging to comprehend Urdu content presented in the Nastaliq script.</p>
+        </div>
+        <div class="insight-item">
+          <span class="i-bullet">→</span>
+          <p>The visual elements of Urdu applications significantly impact the ease of navigation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROTOTYPE TESTING -->
+  <section>
+    <div class="container">
+      <p class="section-label">Designing and Testing Applications</p>
+      <p class="prose">The insights from our initial usability tests helped us identify key considerations for integrating Urdu into digital solutions. Building on these findings, we developed prototypes of a health application with four distinct interfaces: English, Urdu, Roman Urdu, and Bilingual. We then conducted between-subject usability tests with 12 participants.</p>
+
+      <p class="prose">We chose a health application because users are familiar with medical processes such as booking appointments, making it a relevant and practical choice. The inclusion of a Roman Urdu interface was a deliberate design decision to assess user reactions to this format.</p>
+
+      <div class="image-grid four">
+        <figure style="margin: 0;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66acabdfc8c118614b0419bd_Main%20screen.png" alt="Home screen" loading="lazy">
+          <figcaption>Home Screen</figcaption>
+        </figure>
+        <figure style="margin: 0;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66acb20b786ca6d0a9b02f51_Doctor%20list.png" alt="List of Doctors screen" loading="lazy">
+          <figcaption>List of Doctors</figcaption>
+        </figure>
+        <figure style="margin: 0;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66aca5cc84f3bc82100bb6c6_app%20screens.png" alt="Doctor Profile screen" loading="lazy">
+          <figcaption>Doctor's Profile</figcaption>
+        </figure>
+        <figure style="margin: 0;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66accb5d42cf0f2492456fd7_appointment.png" alt="Booking an appointment" loading="lazy">
+          <figcaption>Booking an Appointment</figcaption>
+        </figure>
+      </div>
+
+      <p class="prose" style="margin-top: 8px;">Each variant — English, Urdu, Roman Urdu, and Bilingual — was tested with participants on identical tasks. Results revealed significant performance differences:</p>
+
+      <div class="results-table-wrap">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Application</th>
+              <th>Completion Rate</th>
+              <th>Time per Task (s)</th>
+              <th>Error Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>English</td>
+              <td class="best">100%</td>
+              <td class="best">9.31 ± 0.06</td>
+              <td>0.17 ± 0.07</td>
+            </tr>
+            <tr>
+              <td>Urdu</td>
+              <td class="worst">88%</td>
+              <td class="worst">19.08 ± 5.62</td>
+              <td class="worst">0.5 ± 0.33</td>
+            </tr>
+            <tr>
+              <td>Roman Urdu</td>
+              <td class="best">100%</td>
+              <td>11.37 ± 0.5</td>
+              <td>0.17 ± 0.19</td>
+            </tr>
+            <tr>
+              <td>Bilingual</td>
+              <td>96%</td>
+              <td>14.96 ± 1.01</td>
+              <td>0.17 ± 0.07</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        "The complete Urdu version of the prototype performed the poorest in our usability tests. These results confirm our hypothesis that users' mental models are more aligned with systems that use and support the English language. This preference for English systems is largely due to English being the dominant language in digital interfaces throughout Pakistan, including mobile applications, televisions, and desktop software."
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN GUIDELINES -->
+  <section>
+    <div class="container">
+      <p class="section-label">Design Guidelines</p>
+
+      <p class="prose">Based on our evaluations, we propose developers use a combination of Urdu and English when designing interfaces for Urdu users. Our design guideline provides insights into UI elements that could enhance the presentation of the Urdu language.</p>
+
+      <div class="guideline-item" style="margin-top: 40px;">
+        <h3>Text Size</h3>
+        <p class="prose">Size. Apply a larger font size and greater vertical height for the Nastaliq script than its English equivalent to enhance content visibility.</p>
+        <figure>
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66bbdda5ba5a69525ce979be_size.png" alt="Text size guideline for Urdu" loading="lazy">
+        </figure>
+      </div>
+
+      <div class="guideline-item">
+        <h3>Spacing</h3>
+        <p class="prose">Spacing. Increase vertical spacing between Urdu words and other elements to establish textual hierarchy and prevent words from intercepting vertically.</p>
+        <figure>
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66bbdebfcbb097a448584905_Spacing.png" alt="Spacing guideline for Urdu" loading="lazy">
+        </figure>
+      </div>
+
+      <div class="guideline-item">
+        <h3>Terminology</h3>
+        <p class="prose">Use English for domain-specific technical terms. For example, the term 'cardiologist' in Urdu typically retains its English pronunciation.</p>
+        <figure>
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66be6de7a48636b43fd7a7f0_terminology.png" alt="Terminology guideline for Urdu" loading="lazy">
+        </figure>
+      </div>
+
+      <div class="guideline-item">
+        <h3>Calls to Action</h3>
+        <p class="prose">Use English for CTA phrases. Urdu translations of these phrases, when available, are typically less common and usually only transliterations.</p>
+        <figure>
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66be6ed0f0bbf0ed3608639a_ctas.png" alt="CTA guideline for Urdu" loading="lazy">
+        </figure>
+        <p class="prose" style="margin-top: 20px;">When a CTA accompanies Urdu text, align it with the parent component's orientation.</p>
+        <figure>
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66be6f4b3c414b8ddddb96d5_orientation%20with%20cta.png" alt="CTA orientation with Urdu text" loading="lazy">
+        </figure>
+      </div>
+
+      <div class="guideline-item">
+        <h3>Numbers and Time</h3>
+        <p class="prose">Retain numbers and time in Latin script.</p>
+        <figure>
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66be7071aa5c863f013e583c_time%20and%20numbers.png" alt="Numbers and time guideline for Urdu" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFLECTION -->
+  <section>
+    <div class="container">
+      <p class="section-label">Reflection</p>
+      <div class="reflection-box">
+        <p>This project holds a special place in my heart, as I have seen my parents and other older family members struggle with mobile interfaces that are exclusively in English. It was my first endeavor to create a practical solution for mobile developers aiming to design applications for Urdu-speaking users. The project emphasized heuristic evaluations, providing me with a significant learning opportunity. Setting up usability tests and analyzing data on this scale was a valuable experience, as I had never conducted such extensive usability studies before.</p>
+        <br>
+        <p>However, our study was not without limitations. For instance, we used a stopwatch to record task completion times, which may have introduced inaccuracies. Additionally, some reviewers might critique the fact that the mobile applications selected for the initial usability test serve different purposes, which could complicate comparisons between their usability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT PROJECT -->
+  <section style="border-bottom: none; padding: 0;">
+    <div class="container">
+      <a class="next-project" href="band-baaja-baraat.html">
+        <div>
+          <p class="next-label">Next Project</p>
+          <p class="next-title">Band Baaja Baraat →</p>
+        </div>
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bf97b226af9a6fa325a80_Frame%2045.png" alt="Band Baaja Baraat" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border);">
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+      </a>
+      <ul class="footer-links">
+        <li><a href="index.html#Projects">Projects</a></li>
+        <li><a href="index.html#Research">Publications</a></li>
+        <li><a href="index.html#About">About</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+</script>
+
+</body>
+</html>

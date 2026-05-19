@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Embodied Shopping – A grocery toolkit fostering financial responsibility and critical thinking in children. UX Research project by Taha.">
+<title>Embodied Shopping – Taha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --subtle: #9a9a9a;
+    --border: #e8e4dc;
+    --tag-bg: #f0ede8;
+    --nav-height: 64px;
+    --max-w: 860px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  .nav-logo img { height: 36px; width: auto; display: block; }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-hamburger img { width: 24px; height: 24px; }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 40px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { text-decoration: none; color: var(--text); font-size: 18px; }
+
+  main { padding-top: var(--nav-height); }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+  section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 36px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--text); }
+
+  .project-tag-chip {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--subtle);
+    background: var(--tag-bg);
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  .project-page-title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .project-page-tagline {
+    font-size: 18px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 680px;
+    margin-bottom: 40px;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .meta-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--subtle);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .meta-value { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+  figure { margin: 32px 0; }
+  figure:first-child { margin-top: 0; }
+  figure:last-child { margin-bottom: 0; }
+
+  figure img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  figcaption {
+    font-size: 13px;
+    color: var(--subtle);
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  .image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  .image-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+
+  .prose {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 20px;
+  }
+  .prose:last-child { margin-bottom: 0; }
+
+  /* INSIGHT CARDS */
+  .insight-list { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+
+  .insight-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    align-items: flex-start;
+  }
+
+  .i-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    color: var(--border);
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .insight-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* COMPETENCY CARDS */
+  .competency-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .competency-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .competency-card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+
+  .competency-card-body { padding: 16px; }
+
+  .competency-card-body h4 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .competency-card-body p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* STEPS */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .step-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  .step-card img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    display: block;
+  }
+
+  .step-card-body { padding: 16px 18px; }
+
+  .step-num {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--subtle);
+    margin-bottom: 4px;
+  }
+
+  .step-card-body p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+  /* OBSERVATION AGES */
+  .age-list { display: flex; flex-direction: column; }
+
+  .age-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+  }
+  .age-item:last-child { border-bottom: 1px solid var(--border); }
+
+  .age-range {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--subtle);
+    padding-top: 2px;
+  }
+
+  .age-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* REFLECTION */
+  .reflection-box {
+    font-size: 16px;
+    font-style: italic;
+    color: var(--muted);
+    line-height: 1.8;
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  /* NEXT */
+  .next-project {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0;
+    text-decoration: none;
+    color: inherit;
+    border-top: 1px solid var(--border);
+    transition: opacity 0.2s;
+  }
+  .next-project:hover { opacity: 0.7; }
+  .next-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--subtle);
+    margin-bottom: 8px;
+  }
+  .next-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  footer { padding: 40px 0; }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo img { height: 28px; width: auto; display: block; }
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a { text-decoration: none; color: var(--muted); font-size: 13px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text); }
+
+  @media (max-width: 700px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-menu { padding: 24px 20px; }
+    .container { padding: 0 20px; }
+    section { padding: 52px 0; }
+
+    .meta-grid { grid-template-columns: 1fr 1fr; }
+    .image-grid { grid-template-columns: 1fr; }
+    .image-grid.three { grid-template-columns: 1fr 1fr; }
+    .competency-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+  }
+
+  @media (max-width: 480px) {
+    .meta-grid { grid-template-columns: 1fr; }
+    .image-grid.three { grid-template-columns: 1fr; }
+    .project-page-title { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#Projects">Projects</a></li>
+    <li><a href="index.html#Research">Research</a></li>
+    <li><a href="index.html#About">About</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65dd546c278a2ace8a9cbc36_menu-icon.png" alt="">
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#Projects" onclick="closeMenu()">Projects</a>
+  <a href="index.html#Research" onclick="closeMenu()">Research</a>
+  <a href="index.html#About" onclick="closeMenu()">About</a>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section style="padding-top: 60px;">
+    <div class="container">
+      <a class="back-link" href="index.html#Projects">← Back to Projects</a>
+      <span class="project-tag-chip">UX Research · Product</span>
+      <h1 class="project-page-title">Embodied Shopping</h1>
+      <p class="project-page-tagline">Making shopping a learning experience for kids — a grocery toolkit to foster financial responsibility, nutritional awareness, and enhanced decision-making abilities among children.</p>
+
+      <div class="meta-grid">
+        <div>
+          <span class="meta-label">Role</span>
+          <span class="meta-value">UX Researcher</span>
+        </div>
+        <div>
+          <span class="meta-label">Duration</span>
+          <span class="meta-value">8 weeks</span>
+        </div>
+        <div>
+          <span class="meta-label">Design Tools</span>
+          <span class="meta-value">Figma, Photoshop</span>
+        </div>
+        <div>
+          <span class="meta-label">Methods</span>
+          <span class="meta-value">Observations, Physical Prototyping, Usability Testing</span>
+        </div>
+      </div>
+
+      <figure style="margin: 0;">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66e359d279e250e136db28a6_compressed%20fin%20resp.jpg" alt="Embodied Shopping grocery toolkit for children" loading="eager">
+        <figcaption>The Embodied Shopping toolkit — a physical kit designed to make grocery shopping educational and engaging for children aged 7–12.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- WALMART OBSERVATIONS -->
+  <section>
+    <div class="container">
+      <p class="section-label">We went observing at Walmart</p>
+      <p class="prose">As a part of our course project, we were tasked with optimizing the grocery shopping experience. We started off by visiting Walmart and observing shopping behaviors.</p>
+      <p class="prose">We observed:</p>
+      <div class="insight-list">
+        <div class="insight-item">
+          <span class="i-num">→</span>
+          <p>Customers (e.g. families, elderly, students' groups, individual shoppers)</p>
+        </div>
+        <div class="insight-item">
+          <span class="i-num">→</span>
+          <p>Employees (e.g. cashiers, warehouse workers)</p>
+        </div>
+        <div class="insight-item">
+          <span class="i-num">→</span>
+          <p>Store locations (e.g. check-out, section layouts, product placements)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY KIDS -->
+  <section>
+    <div class="container">
+      <p class="section-label">Kids influence shopping behaviors</p>
+      <p class="prose">After reflecting on our observations and brainstorming amongst each other, we decided to center our solution around kids who go for shopping with their parents because:</p>
+      <div class="insight-list">
+        <div class="insight-item">
+          <span class="i-num">1</span>
+          <p>Children influence shopping decisions; they hold a purchase power within the family.</p>
+        </div>
+        <div class="insight-item">
+          <span class="i-num">2</span>
+          <p>Western families are categorized as negotiation families where children have a greater sense of autonomy.</p>
+        </div>
+        <div class="insight-item">
+          <span class="i-num">3</span>
+          <p>Tech-solutions are not suitable for children because they tend to interact more with their surroundings during shopping.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBSERVING CHILDREN -->
+  <section>
+    <div class="container">
+      <p class="section-label">We went observing children at Walmart</p>
+      <p class="prose">Having narrowed down our user base, we went to Walmart again. This time, we shadowed around 30 families with kids to gather insights.</p>
+      <p class="prose">We found that:</p>
+
+      <div class="image-grid three" style="margin-bottom: 32px;">
+        <figure style="margin: 0;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb1cc9e467640e926daba0_1.png" alt="Observation 1 at Walmart" loading="lazy">
+        </figure>
+        <figure style="margin: 0;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb1cdbb5ff4e0f988ac005_2.png" alt="Observation 2 at Walmart" loading="lazy">
+        </figure>
+        <figure style="margin: 0;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb1ceef9e43ee2235d696f_3.png" alt="Observation 3 at Walmart" loading="lazy">
+        </figure>
+      </div>
+
+      <div class="age-list">
+        <div class="age-item">
+          <span class="age-range">Under 4</span>
+          <p>Younger children need to be distracted. They throw tantrums while making demands to buy products.</p>
+        </div>
+        <div class="age-item">
+          <span class="age-range">Ages 4–7</span>
+          <p>Children aged 4-7 are energetic. They are eager to observe/ touch items but may become annoying at times too.</p>
+        </div>
+        <div class="age-item">
+          <span class="age-range">Ages 7–12</span>
+          <p>Children aged 7-12 help their parents with shopping. They discuss what to buy, fetch items, search for products, and read information on them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7–12 FOCUS -->
+  <section>
+    <div class="container">
+      <p class="section-label">Shopping can be educational for 7–12 year-olds</p>
+      <p class="prose">We noticed grocery shopping could be a valuable source of cognitive development among children aged between 7-12 years since they take interest in shopping and actively participate in the experience with their parents.</p>
+
+      <p class="prose">To get a better sense of our user needs and pain points, we developed a user persona of 7-12 year olds based off our observations and field interviews with children and families.</p>
+
+      <p class="prose">After having an understanding of our target user, we decided to build a toolkit for the 7-12 year olds which they can use while shopping. We performed Crazy-4 ideation to identify core cognitive development competencies that could be incorporated in our grocery toolkit. We chose to focus on: Financial responsibility, Nutritional awareness, and Decision-making.</p>
+
+      <figure>
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb1f8f2a92c7f08016ae74_Persona.png" alt="User persona for a child aged 7–12" loading="lazy">
+        <figcaption>User persona representing a child aged 7–12 who actively participates in family grocery shopping.</figcaption>
+      </figure>
+
+      <div class="competency-grid">
+        <div class="competency-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb431a7edca567f9a0995c_fin-min.png" alt="Financial responsibility" loading="lazy">
+          <div class="competency-card-body">
+            <h4>Financial Responsibility</h4>
+            <p>Understanding budgets, comparing prices, and making value-based purchasing decisions.</p>
+          </div>
+        </div>
+        <div class="competency-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb435a4b35afc213fcce26_nut.png" alt="Nutritional awareness" loading="lazy">
+          <div class="competency-card-body">
+            <h4>Nutritional Awareness</h4>
+            <p>Reading food labels, identifying healthy options, and understanding nutritional information.</p>
+          </div>
+        </div>
+        <div class="competency-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb436c82e4556a97015995_dec-min.png" alt="Decision-making" loading="lazy">
+          <div class="competency-card-body">
+            <h4>Decision-Making</h4>
+            <p>Evaluating options, weighing tradeoffs, and making confident, reasoned choices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE TOOLKIT: 5 STEPS -->
+  <section>
+    <div class="container">
+      <p class="section-label">Step-by-Step Grocery Toolkit</p>
+      <p class="prose">We started sketching ideas for a grocery toolkit and developed a step-by-step guide for using it:</p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb569dece5f6d83acf8503_Step%201-min%20(1)-min_compressed.webp" alt="Step 1: Budget Planning" loading="lazy">
+          <div class="step-card-body">
+            <p class="step-num">Step 01</p>
+            <p>Budget Planning — set a shopping budget before entering the store and learn to plan spending in advance.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb56ae34c9b768dc218f47_Step%202.png" alt="Step 2: Store Layout Navigation" loading="lazy">
+          <div class="step-card-body">
+            <p class="step-num">Step 02</p>
+            <p>Store Layout Navigation — use a store map to find sections efficiently and understand how supermarkets are organized.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb56bca163d69db6510d37_Step%203-min%20(1).png" alt="Step 3: Product Information Review" loading="lazy">
+          <div class="step-card-body">
+            <p class="step-num">Step 03</p>
+            <p>Product Information Review — read nutrition labels and ingredient lists to evaluate product choices critically.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb56d2eaf40d01b1034e5f_Step%204-min%20(1).png" alt="Step 4: Gamified Produce Selection" loading="lazy">
+          <div class="step-card-body">
+            <p class="step-num">Step 04</p>
+            <p>Gamified Produce Selection — use a decision tree to identify and select the freshest fruit and vegetables.</p>
+          </div>
+        </div>
+        <div class="step-card" style="grid-column: 1 / -1; max-width: 50%;">
+          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb5c04b35b23e7a19fb98d_Step%205-min%20(1).png" alt="Step 5: Family Reflection" loading="lazy">
+          <div class="step-card-body">
+            <p class="step-num">Step 05</p>
+            <p>Family Reflection — discuss the shopping experience together and reinforce the lessons learned during the trip.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USABILITY TESTING -->
+  <section>
+    <div class="container">
+      <p class="section-label">We asked kids how they felt about the kit</p>
+      <p class="prose">We approached 2 children with families at Walmart and shadowed them while they used our grocery toolkit. We found that:</p>
+
+      <figure>
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb6275b35b23e7a1a60637_eval.jpg" alt="Usability testing evaluation session at Walmart" loading="lazy">
+        <figcaption>Observing a family using the grocery toolkit during a live shopping session at Walmart.</figcaption>
+      </figure>
+
+      <div class="insight-list" style="margin-top: 32px;">
+        <div class="insight-item">
+          <span class="i-num">→</span>
+          <p>The store layout map (Step 2) was not comprehensive and the "Know your product" sheet (Step 3) was too text-heavy for skimming.</p>
+        </div>
+        <div class="insight-item">
+          <span class="i-num">→</span>
+          <p>The "Know your product" (Step 3) sparked a conversation between parents and the child about nutritional value of products.</p>
+        </div>
+        <div class="insight-item" style="background: #f5f3ef;">
+          <span class="i-num">✓</span>
+          <p>The gamified decision tree (Step 4) helped children identify fresh produce items.</p>
+        </div>
+        <div class="insight-item" style="background: #f5f3ef;">
+          <span class="i-num">✓</span>
+          <p>After the qualitative interview, we asked participants to provide feedback about their experience on the evaluation sheet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFLECTION -->
+  <section>
+    <div class="container">
+      <p class="section-label">Reflection</p>
+      <div class="reflection-box">
+        <p>This was my first project where I extensively performed ethnographic observations and conducted shadowing exercises. This was also the first time I worked with children. The design choices in the toolkit's layout were carefully thought-out. For instance, we incorporated avatars and playful interactions to make the toolkit look fun to the kids. Moreover, we used emojis to signify the likert scale ratings, which made the questions more understandable for the children.</p>
+        <br>
+        <p>The physical prototype of the toolkit was designed in such a way that it could carry the toolkit components in a compact format. To do this, we incorporated pockets inside the folds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT PROJECT -->
+  <section style="border-bottom: none; padding: 0;">
+    <div class="container">
+      <a class="next-project" href="urdu.html">
+        <div>
+          <p class="next-label">Next Project</p>
+          <p class="next-title">Designing for Urdu →</p>
+        </div>
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08e310dce802dcb54f_Frame%2043.png" alt="Designing for Urdu" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border);">
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+      </a>
+      <ul class="footer-links">
+        <li><a href="index.html#Projects">Projects</a></li>
+        <li><a href="index.html#Research">Publications</a></li>
+        <li><a href="index.html#About">About</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+</script>
+
+</body>
+</html>
