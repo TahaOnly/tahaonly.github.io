@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="is usable security science? – a blog by Taha">
+<title>is usable security science? – Taha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --subtle: #9a9a9a;
+    --border: #e8e4dc;
+    --tag-bg: #f0ede8;
+    --nav-height: 64px;
+    --max-w: 680px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  .nav-logo img { height: 36px; width: auto; display: block; }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-hamburger img { width: 24px; height: 24px; }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 40px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { text-decoration: none; color: var(--text); font-size: 18px; }
+
+  /* LAYOUT */
+  main { padding-top: var(--nav-height); }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+
+  /* BACK LINK */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-top: 60px;
+    margin-bottom: 48px;
+    display: block;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--text); }
+
+  /* POST HEADER */
+  .post-header {
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+  }
+
+  .post-title {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .post-date {
+    font-size: 13px;
+    color: var(--subtle);
+  }
+
+  /* POST BODY */
+  .post-body { padding: 0 0 60px; }
+
+  .post-body p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .post-body p:last-child { margin-bottom: 0; }
+
+  sup {
+    font-size: 11px;
+    color: var(--subtle);
+    vertical-align: super;
+    line-height: 0;
+  }
+
+  sup a {
+    color: var(--subtle);
+    text-decoration: none;
+  }
+  sup a:hover { color: var(--text); }
+
+  /* FOOTNOTES */
+  .footnotes {
+    margin-top: 60px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    padding-bottom: 80px;
+  }
+
+  .footnotes ol {
+    list-style: decimal;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footnotes li {
+    font-size: 13px;
+    color: var(--subtle);
+    line-height: 1.6;
+  }
+
+  .footnotes li a {
+    color: var(--subtle);
+    text-underline-offset: 2px;
+  }
+  .footnotes li a:hover { color: var(--text); }
+
+  /* FOOTER */
+  footer { padding: 40px 0; border-top: 1px solid var(--border); }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo img { height: 28px; width: auto; display: block; }
+
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--text); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-menu { padding: 24px 20px; }
+    .container { padding: 0 20px; }
+    .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#Projects">Projects</a></li>
+    <li><a href="index.html#Research">Research</a></li>
+    <li><a href="index.html#Blogs">Blogs</a></li>
+    <li><a href="index.html#About">About</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65dd546c278a2ace8a9cbc36_menu-icon.png" alt="">
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#Projects" onclick="closeMenu()">Projects</a>
+  <a href="index.html#Research" onclick="closeMenu()">Research</a>
+  <a href="index.html#Blogs" onclick="closeMenu()">Blogs</a>
+  <a href="index.html#About" onclick="closeMenu()">About</a>
+</div>
+
+<main>
+  <div class="container">
+
+    <a class="back-link" href="index.html#Blogs">← Back to Blogs</a>
+
+    <div class="post-header">
+      <h1 class="post-title">is usable security science?</h1>
+      <p class="post-date">21 May 2026</p>
+    </div>
+
+    <div class="post-body">
+      <p>There are often instances when usable security researchers have to justify the science-ness of their work. Often these comments come from technical security researchers during paper reviewing. I would be dishonest to say this question never occurred in my head.</p>
+
+      <p>Before I think about usable security, maybe I should think about what science is.</p>
+
+      <p>I remember in middle school there was this 'Science' book which included a schematic in the form of a flow chart. The individual components of this chart included observation, hypothesis, test, analysis and results in this order. So, if someone solves a problem by following these steps, are they doing science?</p>
+
+      <p>I believe so.</p>
+
+      <p>So maybe anyone who follows a scientific process to solve a problem about anything is doing science. Hence, essentially, science is a process and not a discipline or field or topic.</p>
+
+      <p>But then following a scientific process is not enough. There has to be rigor in it.<sup><a href="#fn1" id="ref1">1</a></sup> The methods used to study a problem must be very well-established and validated. By that I mean, there should be evidence, either by precedence or concrete proof, that the method is measuring what it is intended to measure. By precedence I mean prior work has established the robustness of the method. By proof I mean there should be numbers or consistent observations confirming its validity.</p>
+
+      <p>When Computer Science came into existence, the same question was asked of it. Is Computer Science actually science? In 1967, three of its founding figures, Herbert Simon, Alan Perlis, and Allan Newell, felt compelled to write a letter to Science magazine defending CS as a legitimate science, pushing back against critics who argued that man-made artifacts like computers were not a valid object of scientific study.<sup><a href="#fn2" id="ref2">2</a></sup> So the skepticism usable security faces today is not unique, it is almost a rite of passage for fields that don't fit neatly into existing boxes.</p>
+
+      <p>Usable security follows all scientific processes. It observes how real people interact with security systems, whether that's a developer misconfiguring a cryptographic library, or a user reusing passwords because the alternative is too cognitively demanding. They form hypotheses, design controlled studies, and measure outcomes using methods with long validated histories in psychology and human factors research, fields that predate computer science entirely. The seminal papers that got the community talking in the late 1990s<sup><a href="#fn3" id="ref3">3</a></sup> showed through careful human-subjects research that even well-designed security systems fail when they ignore the humans operating them. The methods were not new. What was new was applying them to security.</p>
+
+      <p>So where is this question of "Is usable security science?" even coming from? The field of CS has historically been a technical field, and computer security even more so. Usable security only officially began in the late 1990s, and it is hard to imagine security and human factors in one equation given how the field of computer security evolved, largely without the human in the picture. This is probably why hardcore technical security experts do not always perceive usable security as sufficiently rigorous. For them, there could be something uncomfortable about systems built on years of hard technical work being challenged by user studies. But I do not think usable security researchers are trying to undermine that work. Rather, they are pushing technical researchers to think more grounded when building systems, to ask not just whether a system is secure in theory, but whether it remains secure in the hands of actual people. Both camps need one another. It is unlikely that one would be an expert in the craft of the other. The common goal should be the same: safer and more usable technology, whatever means necessary.</p>
+
+      <div class="footnotes">
+        <ol>
+          <li id="fn1">A colleague pointed this out and I found it super accurate. (Not naming the colleague since I do not know how comfortable they are being named) <a href="#ref1">↩</a></li>
+          <li id="fn2"><a href="https://www.goodreads.com/author_blog_posts/16596717-contra-corey-pein-computer-science-is-a-science" target="_blank" rel="noopener">https://www.goodreads.com/author_blog_posts/16596717-contra-corey-pein-computer-science-is-a-science</a> <a href="#ref2">↩</a></li>
+          <li id="fn3">Why Johnny can't encrypt &nbsp;·&nbsp; Users are not the enemy &nbsp;·&nbsp; User-centered security <a href="#ref3">↩</a></li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+      </a>
+      <ul class="footer-links">
+        <li><a href="index.html#Projects">Projects</a></li>
+        <li><a href="index.html#Blogs">Blogs</a></li>
+        <li><a href="index.html#About">About</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+</script>
+
+</body>
+</html>
