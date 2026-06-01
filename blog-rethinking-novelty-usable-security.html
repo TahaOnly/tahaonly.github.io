@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="rethinking novelty in usable security research – a blog by Taha">
+<title>rethinking novelty in usable security research – Taha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --subtle: #9a9a9a;
+    --border: #e8e4dc;
+    --tag-bg: #f0ede8;
+    --nav-height: 64px;
+    --max-w: 680px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  .nav-logo img { height: 36px; width: auto; display: block; }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-hamburger img { width: 24px; height: 24px; }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 40px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { text-decoration: none; color: var(--text); font-size: 18px; }
+
+  /* LAYOUT */
+  main { padding-top: var(--nav-height); }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+
+  /* BACK LINK */
+  .back-link {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-top: 60px;
+    margin-bottom: 48px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--text); }
+
+  /* POST HEADER */
+  .post-header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+
+  .post-title {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .post-date {
+    font-size: 13px;
+    color: var(--subtle);
+  }
+
+  /* POST BODY */
+  .post-body { padding: 0 0 60px; }
+
+  .post-body p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .post-body p:last-child { margin-bottom: 0; }
+
+  sup {
+    font-size: 11px;
+    color: var(--subtle);
+    vertical-align: super;
+    line-height: 0;
+  }
+  sup a {
+    color: var(--subtle);
+    text-decoration: none;
+  }
+  sup a:hover { color: var(--text); }
+
+  /* FOOTNOTES */
+  .footnotes {
+    margin-top: 60px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    padding-bottom: 80px;
+  }
+
+  .footnotes ol {
+    list-style: decimal;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footnotes li {
+    font-size: 13px;
+    color: var(--subtle);
+    line-height: 1.6;
+  }
+
+  .footnotes li a {
+    color: var(--subtle);
+    text-underline-offset: 2px;
+  }
+  .footnotes li a:hover { color: var(--text); }
+
+  /* FOOTER */
+  footer { padding: 40px 0; border-top: 1px solid var(--border); }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo img { height: 28px; width: auto; display: block; }
+
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--text); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-menu { padding: 24px 20px; }
+    .container { padding: 0 20px; }
+    .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#Projects">Projects</a></li>
+    <li><a href="index.html#Research">Research</a></li>
+    <li><a href="index.html#Blogs">Blogs</a></li>
+    <li><a href="index.html#About">About</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65dd546c278a2ace8a9cbc36_menu-icon.png" alt="">
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#Projects" onclick="closeMenu()">Projects</a>
+  <a href="index.html#Research" onclick="closeMenu()">Research</a>
+  <a href="index.html#Blogs" onclick="closeMenu()">Blogs</a>
+  <a href="index.html#About" onclick="closeMenu()">About</a>
+</div>
+
+<main>
+  <div class="container">
+
+    <a class="back-link" href="index.html#Blogs">← Back to Blogs</a>
+
+    <div class="post-header">
+      <h1 class="post-title">rethinking novelty in usable security research</h1>
+      <p class="post-date">1 June 2026</p>
+    </div>
+
+    <div class="post-body">
+      <p>I consider usable security research as advocacy, and advocacy does not stop simply because the cause is no longer considered new.</p>
+
+      <p>This is what I find myself returning to every time a reviewer asks me to prove the novelty of my work, which in my experience as a usable security researcher working with the non-WEIRD (Western, Educated, Industrialized, Rich, and Democratic) contexts is in nearly every submission.</p>
+
+      <p>I wonder what novelty even means. In my view, novelty is a unique method or result that has not been implemented or reported in prior literature. If we imagine the solution to a problem as a box kept on the roof, novelty is one step on the ladder that helps the community reach it.</p>
+
+      <p>But I often wonder whether novelty is even required when the very first novel steps of the ladder end up not changing the world. Whatever we produce on top of that novelty is essentially additional information, with the hope that it will be noticed and implemented one day. Consider digital safety. Activists, policymakers, and researchers have long argued for its importance and published clear guidelines on how to make the internet safer. Unfortunately, the primary benefactors of the internet, social media companies for instance, do not adopt those guidelines because doing so does not profit them.</p>
+
+      <p>Facebook never developed a cohesive vocabulary of digital abuse terms suited to individual contexts around the world. Women are still harassed on the platform. Snapchat never implemented sufficient guardrails for child safety. In 2024, two teenager boys contacted a 15-year-old girl through Snapchat, raped her repeatedly while filming and laughing, and shared the video on the platform. Seven weeks later they enlisted a third boy to target a 14-year-old. All three were convicted but walked free without custodial sentences in May 2026.<sup><a href="#fn1" id="ref1">1</a></sup> App stores on mobile devices still host deepfake applications that men use to undress women and circulate the images.<sup><a href="#fn2" id="ref2">2</a></sup></p>
+
+      <p>Researchers have repeatedly warned internet companies about the harms emerging from their platforms, but to no avail. This is why I feel research should be allowed to produce findings that are not particularly novel, so that these issues remain relevant at every conference until problems are fixed.</p>
+
+      <p>When I say research is advocacy, I do not mean that every paper changes the world the week it is published. I mean something more patient than that. Researchers have to resist. They have to keep showing up. And sometimes that persistence does lead somewhere.</p>
+
+      <p>Yixin Zou published work on how to effectively convey privacy choices to users through icons, and their recommendation was eventually adopted into the official CCPA regulations in California.<sup><a href="#fn3" id="ref3">3</a></sup> Patrick Gage Kelley's work on privacy nutrition labels, first published in 2009, took over a decade to become a mandated feature on both the Apple App Store and Google Play Store.<sup><a href="#fn4" id="ref4">4</a></sup> Zakir Durumeric's research characterizing the MrDeepFakes marketplace contributed to the public and legal scrutiny that ultimately led to the site's shutdown in 2025.<sup><a href="#fn5" id="ref5">5</a></sup></p>
+
+      <p>None of these changes happened the moment those papers were published. The change happened because the community kept talking. Each paper was one more voice saying the problem still existed, still mattered, and still needed a response.</p>
+
+      <p>This raises something the novelty requirement tends to obscure. There are many communities about whom we know almost nothing in the usable security literature. The field has largely built its findings on WEIRD populations and often assumed those findings travel broadly. They frequently do not. When researchers study other populations, like our work on Pakistani immigrants to the US which found that first-generation immigrants perceive heightened risks of discrimination, surveillance, and self-censorship as Muslim immigrants,<sup><a href="#fn6" id="ref6">6</a></sup> reviewers asked us to justify why we chose that population and how well the findings generalize. I am not sure that is a fair question to ask. We cannot expect generalizability from studies on populations we have barely examined at all. The point of such work is to start building a literature that does not yet exist.</p>
+
+      <p>It is also worth noting that the structural conditions reviewers work under are getting harder. Academic peer review runs on voluntary labor, and that labor is now under real strain. CHI 2025 received over 5,000 completed submissions, a 58% increase from just two years earlier, and projections suggest the numbers could keep climbing as AI-assisted writing accelerates paper production.<sup><a href="#fn7" id="ref7">7</a></sup> In that kind of environment, novelty becomes less of a principled criterion and more of a quick filter for someone trying to get through an overwhelming stack of papers.</p>
+
+      <p>On top of this, funding for the kinds of research that most need sustained attention is shrinking. In April 2025, NSF terminated hundreds of grants under the directive that they were no longer aligned with agency priorities. Misinformation and disinformation research was explicitly named as a category that would no longer be supported.<sup><a href="#fn8" id="ref8">8</a></sup> Over 1,300 NSF grants representing around $700 million in unspent funds were cut or frozen by November 2025.<sup><a href="#fn9" id="ref9">9</a></sup> When funding disappears for research on online harms and platform accountability, publication becomes one of the few remaining ways to keep those conversations alive in the scientific community at all.</p>
+
+      <p>So what I am observing is something like a narrowing from both ends. The novelty requirement makes it harder to publish work that is persistent and community-centered. Funding cuts make it harder to support such work in the first place. And the communities that research in this space tends to serve are not going anywhere. The harms are not going anywhere either. I am not sure the research community has fully reckoned with what it means to keep demanding novelty in this environment, but it seems like a question worth sitting with.</p>
+
+      <div class="footnotes">
+        <ol>
+          <li id="fn1"><a href="https://www.cnn.com/2026/05/22/uk/three-teens-uk-rape-walked-free-sentences-reviewed/index.html" target="_blank" rel="noopener">Three UK teens convicted of rape walked free. After a nationwide outcry their sentences will be reviewed — CNN</a> <a href="#ref1">↩</a></li>
+          <li id="fn2"><a href="https://www.404media.co/apple-and-google-offer-nudify-apps-despite-policies-against-them/" target="_blank" rel="noopener">Apple, Google Offer 'Nudify' Apps Despite Policies Against Them</a> <a href="#ref2">↩</a></li>
+          <li id="fn3"><a href="https://dl.acm.org/doi/10.1145/3411764.3445387" target="_blank" rel="noopener">Toggles, Dollar Signs, and Triangles: How to (In)Effectively Convey Privacy Choices with Icons and Link Texts — CHI 2021</a> <a href="#ref3">↩</a></li>
+          <li id="fn4"><a href="https://dl.acm.org/doi/10.1145/1572532.1572538" target="_blank" rel="noopener">A "nutrition label" for privacy — SOUPS 2009</a> <a href="#ref4">↩</a></li>
+          <li id="fn5"><a href="https://www.usenix.org/system/files/usenixsecurity25-han.pdf" target="_blank" rel="noopener">Characterizing the MrDeepFakes Sexual Deepfake Marketplace — USENIX Security 2025</a> <a href="#ref5">↩</a></li>
+          <li id="fn6"><a href="https://ieeexplore.ieee.org/document/11023485" target="_blank" rel="noopener">Security and Privacy Experiences of First- and Second-Generation Pakistani Immigrants to the US — IEEE S&amp;P 2025</a> <a href="#ref6">↩</a></li>
+          <li id="fn7"><a href="https://dl.acm.org/doi/10.1145/3805711" target="_blank" rel="noopener">What Happens When CHI Reaches 30,000 Submissions in 2030? Preparing for the Tsunami of AI-Accelerated Papers</a> <a href="#ref7">↩</a></li>
+          <li id="fn8"><a href="https://niemanlab.org/2025/04/national-science-foundation-cancels-research-grants-related-to-misinformation-and-disinformation/" target="_blank" rel="noopener">National Science Foundation cancels research grants related to misinformation and disinformation — Nieman Journalism Lab</a> <a href="#ref8">↩</a></li>
+          <li id="fn9"><a href="https://www.science.org/content/article/see-alarming-extent-nih-nsf-funding-cuts-2025" target="_blank" rel="noopener">See the alarming extent of NIH and NSF funding cuts in 2025 — Science</a> <a href="#ref9">↩</a></li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+      </a>
+      <ul class="footer-links">
+        <li><a href="index.html#Projects">Projects</a></li>
+        <li><a href="index.html#Blogs">Blogs</a></li>
+        <li><a href="index.html#About">About</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+</script>
+
+</body>
+</html>
