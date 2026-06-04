@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="decolonizing methods – a blog by Taha">
+<title>decolonizing methods – Taha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --subtle: #9a9a9a;
+    --border: #e8e4dc;
+    --tag-bg: #f0ede8;
+    --nav-height: 64px;
+    --max-w: 680px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  .nav-logo img { height: 36px; width: auto; display: block; }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-hamburger img { width: 24px; height: 24px; }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 40px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { text-decoration: none; color: var(--text); font-size: 18px; }
+
+  /* LAYOUT */
+  main { padding-top: var(--nav-height); }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+
+  /* BACK LINK */
+  .back-link {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-top: 60px;
+    margin-bottom: 48px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--text); }
+
+  /* POST HEADER */
+  .post-header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+
+  .post-title {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .post-date {
+    font-size: 13px;
+    color: var(--subtle);
+  }
+
+  /* POST BODY */
+  .post-body { padding: 0 0 60px; }
+
+  .post-body p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .post-body p:last-child { margin-bottom: 0; }
+
+  sup {
+    font-size: 11px;
+    color: var(--subtle);
+    vertical-align: super;
+    line-height: 0;
+  }
+  sup a {
+    color: var(--subtle);
+    text-decoration: none;
+  }
+  sup a:hover { color: var(--text); }
+
+  /* FOOTNOTES */
+  .footnotes {
+    margin-top: 60px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    padding-bottom: 80px;
+  }
+
+  .footnotes ol {
+    list-style: decimal;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footnotes li {
+    font-size: 13px;
+    color: var(--subtle);
+    line-height: 1.6;
+  }
+
+  .footnotes li a {
+    color: var(--subtle);
+    text-underline-offset: 2px;
+  }
+  .footnotes li a:hover { color: var(--text); }
+
+  /* FOOTER */
+  footer { padding: 40px 0; border-top: 1px solid var(--border); }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo img { height: 28px; width: auto; display: block; }
+
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--text); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-menu { padding: 24px 20px; }
+    .container { padding: 0 20px; }
+    .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#Projects">Projects</a></li>
+    <li><a href="index.html#Research">Research</a></li>
+    <li><a href="index.html#Blogs">Blogs</a></li>
+    <li><a href="index.html#About">About</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65dd546c278a2ace8a9cbc36_menu-icon.png" alt="">
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#Projects" onclick="closeMenu()">Projects</a>
+  <a href="index.html#Research" onclick="closeMenu()">Research</a>
+  <a href="index.html#Blogs" onclick="closeMenu()">Blogs</a>
+  <a href="index.html#About" onclick="closeMenu()">About</a>
+</div>
+
+<main>
+  <div class="container">
+
+    <a class="back-link" href="index.html#Blogs">← Back to Blogs</a>
+
+    <div class="post-header">
+      <h1 class="post-title">decolonizing methods</h1>
+      <p class="post-date">4 June 2026</p>
+    </div>
+
+    <div class="post-body">
+      <p>I have a very strong interest in trying out and building new methodologies in research work, especially to understand marginalized populations, like people from low-income backgrounds with limited access to formal literacy. For me, this practice is a form of advocacy where I provide appropriate tools to the research community to better understand the people they are trying to work with. However, this task comes with a great responsibility where the methodologies I build or use have their roots somewhere in imperialist and colonial structures.</p>
+
+      <p>I fear building methods or using methods through a colonial mindset. I am a product of a colonial world, however much my ancestry tries to argue otherwise. I was brought up in an environment where English proficiency was linked with intellect. I studied in an educational system which was developed and is managed by my former colonialists. Oftentimes, without realizing, I speak colonial language. Sometimes I even think with a colonial mind.</p>
+
+      <p>So what even is a colonized language, a colonized mind and, more importantly, colonized research? When I use the term "Middle East" without questioning it, I feel I am propagating a colonial language. The phrase centers Europe as a reference point, positioning an entire region of the world in relation to where the colonizer stood, not where its own people stand.<sup><a href="#fn1" id="ref1">1</a></sup> When I stop thinking about my participants beyond the publication, I feel I am developing a colonial mind. And hence, this is exactly how I breed colonized research.</p>
+
+      <p>Colonization has its foundations in extraction. Colonizers force the natives of the land to work for their profits. On top of that, those profits are not used to rehabilitate or benefit the natives. In a similar vein, what if the methods I use and build end up harming the community I wanted to give agency to? This fear is not without precedence.</p>
+
+      <p>People with disabilities are wary of extractive research. Tools which were built through research with people with disabilities, and which were meant to help them, risk becoming weapons against the very communities they were supposed to serve. Liz Jackson and Rua Williams have documented what they call the "wheelchair-to-warfare pipeline," where assistive technologies developed ostensibly for disabled people get repurposed for military use. A clear example from their research is DARPA's Revolutionizing Prosthetics program, which developed high-end modular prosthetic arms for injured veterans. By the end of the program, DARPA had "uncoupled" the prosthetic arm from the human operator entirely. The same arms designed to restore mobility to veterans were being repurposed as remote-controlled devices for bomb disposal and warfare. The research community's language of "benefit for the disabled" had served as a sanitizing cover for military funding and military ends.<sup><a href="#fn2" id="ref2">2</a></sup></p>
+
+      <p>The word "research" is considered to be one of the dirtiest words in the indigenous world's vocabulary.<sup><a href="#fn3" id="ref3">3</a></sup> The white anthropologist James Stevenson's betrayal of the Zia Pueblo community is still alive in memory. He effectively stole their sacred sun symbol while conducting ethnographic studies with the community, a symbol that now appears on New Mexico's state flag without consent or compensation from the Zia people.<sup><a href="#fn4" id="ref4">4</a></sup></p>
+
+      <p>Pakistanis are skeptical of surveyors. The CIA ran a fake hepatitis B vaccination program in Abbottabad to collect DNA from residents and confirm the presence of Osama bin Laden's family before the 2011 raid that killed him. When news of the program broke, the fallout was devastating. Pakistan moved from a country on the verge of eradicating polio to one whose cases accounted for 85% of the global share, as communities turned away health workers whom they now associated with state surveillance.<sup><a href="#fn5" id="ref5">5</a></sup></p>
+
+      <p>So how can I responsibly conduct decolonized research? I feel I first need to acknowledge the colonization in myself and the biases rooted in it. I need to question the biases in my hypotheses and go back to the people I built those hypotheses from, to confirm I am not misrepresenting them. Member-checking is one of the least employed techniques in research when it is arguably the most crucial part of it.<sup><a href="#fn6" id="ref6">6</a></sup> I am guilty of not member-checking myself in all of my previous work, but I do plan to finally do it and set an example for the research community.</p>
+
+      <p>Moreover, I feel research should be selfless. If I find an insight interesting and worth putting in a paper, I should think twice before doing it. Maybe that insight exposes a population's attitude which they do not want others to know. Exposing it to the world might risk the safety of the researched population. Hence, I should be skeptical of what I put in front of the world. After all, research is a process which should benefit people and benefit them on their own terms, not as defined by the researcher. I absolutely do not mean this in a sinister way where experiments like the Tuskegee Syphilis Study are approved for the greater good of humanity, a study in which the U.S. Public Health Service deliberately withheld syphilis treatment from Black men for decades without their knowledge or consent.<sup><a href="#fn7" id="ref7">7</a></sup> I mean it more carefully: researchers should be selfless and reciprocal when conducting research as well as publishing it. The question should not only be "what does this finding do for my career?" but "what does this finding do for the people whose lives made it possible?"</p>
+
+      <div class="footnotes">
+        <ol>
+          <li id="fn1">The term "Middle East" is a Eurocentric construction that emerged from British imperial geography in the early 20th century. <a href="https://www.e-ir.info/2021/02/25/the-middle-east-an-orientalist-creation/" target="_blank" rel="noopener">e-ir.info</a> <a href="#ref1">↩</a></li>
+          <li id="fn2">I am fortunate to have taken multiple courses from Dr. Rua Williams and attended a talk from Liz Jackson during my time at Purdue. <a href="https://www.deathpanel.net/transcripts/wheelchair-to-warfare" target="_blank" rel="noopener">Wheelchair-to-Warfare — Death Panel</a> <a href="#ref2">↩</a></li>
+          <li id="fn3">This is the opening line of Linda Tuhiwai Smith's foundational text and one of the most cited observations in decolonial research scholarship. <a href="https://www.goodreads.com/en/book/show/225063.Decolonizing_Methodologies" target="_blank" rel="noopener">Decolonizing Methodologies — Linda Tuhiwai Smith</a> <a href="#ref3">↩</a></li>
+          <li id="fn4">The Stevensons, James and his wife Matilda Coxe Stevenson, conducted ethnographic work with the Zia Pueblo in the 1880s. <a href="https://medium.com/@megoizzy/the-zia-symbol-8551605b8b6c" target="_blank" rel="noopener">The Zia Symbol — Medium</a> <a href="#ref4">↩</a></li>
+          <li id="fn5"><a href="https://www.nationalgeographic.com/science/article/150225-polio-pakistan-vaccination-virus-health" target="_blank" rel="noopener">How the CIA's fake vaccination program in Pakistan endured — National Geographic</a> <a href="#ref5">↩</a></li>
+          <li id="fn6">Member checking, also known as participant or respondent validation, is a technique for exploring the credibility of results. Data or results are returned to participants to check for accuracy and resonance with their experiences. <a href="https://kclpure.kcl.ac.uk/ws/portalfiles/portal/52859539/Member_checking_a_tool_BIRT_Accepted_2016_GREEN_AAM.pdf" target="_blank" rel="noopener">Member checking: a tool to enhance trustworthiness — KCL</a> <a href="#ref6">↩</a></li>
+          <li id="fn7">The U.S. Public Health Service Syphilis Study at Tuskegee (1932–1972) enrolled 399 Black men with syphilis and withheld treatment, even when it became available, in order to study the natural progression of the disease. <a href="https://www.cdc.gov/tuskegee/about/index.html" target="_blank" rel="noopener">The Tuskegee Study — CDC</a> <a href="#ref7">↩</a></li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+      </a>
+      <ul class="footer-links">
+        <li><a href="index.html#Projects">Projects</a></li>
+        <li><a href="index.html#Blogs">Blogs</a></li>
+        <li><a href="index.html#About">About</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+</script>
+
+</body>
+</html>
