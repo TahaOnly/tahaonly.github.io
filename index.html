@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Taha - PhD student at CISPA Helmholtz Center for Information Security. Usable Security researcher designing safer technologies for marginalized communities.">
-<meta property="og:title" content="Taha - Portfolio">
-<meta property="og:image" content="https://cdn.prod.website-files.com/5c6e6f46bf98b2013cf621c5/5cdbf62c56d6dd3315e2b16b_Portfolio%20SEO.jpg">
-<title>Taha – Portfolio</title>
+<meta name="description" content="Taha – Doctoral Researcher at CISPA. Security, privacy, and safety of marginalized communities.">
+<meta property="og:title" content="Taha">
+<title>Taha</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -21,10 +20,8 @@
     --muted: #6b6b6b;
     --subtle: #9a9a9a;
     --border: #e8e4dc;
-    --accent: #1a1a1a;
     --tag-bg: #f0ede8;
-    --nav-height: 64px;
-    --max-w: 860px;
+    --max-w: 780px;
   }
 
   html { scroll-behavior: smooth; }
@@ -38,263 +35,295 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    height: var(--nav-height);
-    background: rgba(250,249,247,0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-  }
-
-  .nav-logo img {
-    height: 36px;
-    width: auto;
-    display: block;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    color: var(--muted);
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--text); }
-
-  .nav-hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-  }
-  .nav-hamburger img { width: 24px; height: 24px; }
-
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: var(--nav-height);
-    left: 0; right: 0;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    padding: 24px 40px;
-    z-index: 99;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 18px;
-    font-weight: 400;
-  }
-
-  /* ── LAYOUT ── */
-  main { padding-top: var(--nav-height); }
-  .container {
+  /* ── SITE WRAPPER ── */
+  .wrap {
     max-width: var(--max-w);
     margin: 0 auto;
     padding: 0 40px;
   }
 
-  section { padding: 80px 0; }
-
-  /* ── HERO ── */
-  #hero {
-    padding: 80px 0 60px;
-    border-bottom: 1px solid var(--border);
+  /* ── HEADER ── */
+  header {
+    padding-top: 56px;
+    padding-bottom: 0;
   }
 
-  .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 260px;
-    gap: 60px;
-    align-items: center;
-  }
-
-  .hero-greeting {
-    font-size: clamp(40px, 6vw, 60px);
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 20px;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
-
-  .hero-bio {
-    font-size: 17px;
-    line-height: 1.75;
-    font-weight: 400;
-    color: var(--muted);
-    margin-bottom: 36px;
-    max-width: 600px;
-  }
-
-  .hero-links {
+  .header-top {
     display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 32px;
   }
 
-  .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    text-decoration: none;
+  .header-logo {
+    flex-shrink: 0;
+  }
+
+  .header-logo img {
+    height: 44px;
+    width: auto;
+    display: block;
+  }
+
+  .header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .header-tagline {
+    font-size: clamp(14px, 1.8vw, 16px);
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .header-meta {
     font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    background: var(--surface);
-    transition: background 0.18s, border-color 0.18s, transform 0.15s;
-    letter-spacing: 0.01em;
-  }
-  .btn:hover {
-    background: var(--tag-bg);
-    border-color: #d0ccc4;
-    transform: translateY(-1px);
+    color: var(--subtle);
   }
 
-  .hero-photo {
+  .header-meta a {
+    color: var(--subtle);
+    text-decoration: none;
+  }
+  .header-meta a:hover { color: var(--text); }
+
+  /* ── TAB NAV ── */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 0;
+    margin-right: 24px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--subtle);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.18s, border-color 0.18s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active {
+    color: var(--text);
+    font-weight: 500;
+    border-bottom-color: var(--text);
+  }
+
+  /* ── TAB PANELS ── */
+  .tab-panel { display: none; padding-bottom: 80px; }
+  .tab-panel.active { display: block; }
+
+  /* ── HOME PANEL ── */
+  .home-content::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  .home-right {
+    float: right;
+    width: 210px;
+    margin-left: 36px;
+    margin-bottom: 12px;
+  }
+
+  .home-portrait {
     width: 100%;
     aspect-ratio: 1;
-    border-radius: 12px;
+    border-radius: 10px;
     object-fit: cover;
     border: 1px solid var(--border);
+    display: block;
   }
 
-  /* ── SECTION LABELS ── */
-  .section-label {
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    color: var(--text);
-    margin-bottom: 40px;
-  }
-
-  /* ── PUBLICATIONS ── */
-  #Research { border-bottom: 1px solid var(--border); }
-
-  .pub-list { display: flex; flex-direction: column; gap: 0; }
-
-  .pub-item {
-    border-top: 1px solid var(--border);
-    overflow: hidden;
-  }
-  .pub-item:last-child { border-bottom: 1px solid var(--border); }
-
-  .pub-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 24px 0;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  .pub-title {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.55;
-    color: var(--text);
-    flex: 1;
-  }
-
-  .pub-icon {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    margin-top: 3px;
-    transition: transform 0.3s ease;
-  }
-  .pub-item.open .pub-icon { transform: rotate(180deg); }
-
-  .pub-body {
-    display: none;
-    padding-bottom: 28px;
-  }
-  .pub-item.open .pub-body { display: block; }
-
-  .pub-meta {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 16px 24px;
-    margin-bottom: 20px;
-  }
-
-  .pub-meta-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--subtle);
-    padding-top: 2px;
-  }
-
-  .pub-meta-value {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  .pub-abstract {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-top: 8px;
-  }
-
-  .pub-link {
-    display: inline-block;
-    margin-top: 12px;
-    font-size: 13px;
-    color: var(--text);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  .pub-video {
-    margin-top: 20px;
-    aspect-ratio: 16/9;
+  /* ── CV PANEL ── */
+  .cv-frame-wrap {
     width: 100%;
-    max-width: 560px;
+    height: 82vh;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid var(--border);
   }
-  .pub-video iframe {
+
+  .cv-frame-wrap iframe {
     width: 100%;
     height: 100%;
     border: none;
     display: block;
   }
 
-  /* ── PROJECTS ── */
-  #Projects { border-bottom: 1px solid var(--border); }
+  /* left column: bio text */
+  .home-bio {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
 
+  .home-bio a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--border);
+    transition: text-decoration-color 0.18s;
+  }
+  .home-bio a:hover { text-decoration-color: var(--text); }
+
+  .home-bio-list {
+    list-style: disc;
+    margin: -8px 0 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .home-bio-list li {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .home-bio-list li a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--border);
+    transition: text-decoration-color 0.18s;
+  }
+  .home-bio-list li a:hover { text-decoration-color: var(--text); }
+
+  /* Honors & Awards subsection */
+  .home-subheading {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 28px;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .honors-list {
+    list-style: disc;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .honors-list li {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  /* ── SECTION LABEL (within tabs) ── */
+  .section-label {
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 32px;
+  }
+
+  /* ── PUBLICATIONS ── */
+  .pub-year-group { margin-bottom: 44px; }
+  .pub-year-group:last-child { margin-bottom: 0; }
+
+  .pub-year-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--subtle);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pub-entries { display: flex; flex-direction: column; gap: 28px; }
+
+  .pub-entry-title {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 5px;
+    text-decoration: none;
+  }
+  a.pub-entry-title:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .pub-entry-authors {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 3px;
+  }
+
+  .pub-entry-authors strong {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .pub-entry-venue {
+    font-size: 13px;
+    color: var(--subtle);
+    font-style: italic;
+    margin-bottom: 9px;
+    line-height: 1.5;
+  }
+
+  .pub-entry-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .pub-tag {
+    display: inline-block;
+    padding: 2px 9px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    background: var(--surface);
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+  .pub-tag:hover { color: var(--text); border-color: #c8c4bc; background: var(--tag-bg); }
+
+  .pub-award-badge {
+    font-size: 12px;
+    color: var(--subtle);
+    font-style: italic;
+  }
+
+  /* ── PROJECTS ── */
   .project-filters {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 
   .filter-btn {
@@ -317,7 +346,7 @@
   .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 20px;
   }
 
   .project-card {
@@ -345,24 +374,15 @@
   }
 
   .project-card-body {
-    padding: 20px;
+    padding: 18px;
     flex: 1;
     display: flex;
     flex-direction: column;
   }
 
-  .project-tag {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--subtle);
-    margin-bottom: 8px;
-  }
-
   .project-title {
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
     line-height: 1.3;
     color: var(--text);
     margin-bottom: 4px;
@@ -371,7 +391,7 @@
   .project-subtitle {
     font-size: 13px;
     color: var(--muted);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     flex: 1;
   }
 
@@ -379,13 +399,9 @@
     font-size: 13px;
     font-weight: 500;
     color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 4px;
   }
-  .project-cta::after { content: '→'; }
+  .project-cta::after { content: ' →'; }
 
-  /* Full-width special project card */
   .project-card.full {
     grid-column: 1 / -1;
     flex-direction: row;
@@ -395,24 +411,29 @@
     aspect-ratio: auto;
     flex-shrink: 0;
   }
-  .project-card.full .project-card-body {
-    padding: 28px;
-  }
+  .project-card.full .project-card-body { padding: 24px; }
 
-  /* Non-linked special projects */
   .project-card.no-link { cursor: default; }
   .project-card.no-link:hover { transform: none; box-shadow: none; }
 
-  .project-links {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+  .project-links { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--surface);
+    transition: background 0.18s, border-color 0.18s;
   }
+  .btn:hover { background: var(--tag-bg); border-color: #c8c4bc; }
 
   /* ── EXPERIENCE ── */
-  #Experience { border-bottom: 1px solid var(--border); }
-
-  .exp-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-list { display: flex; flex-direction: column; }
 
   .exp-item {
     display: grid;
@@ -443,29 +464,19 @@
     gap: 16px;
   }
 
-  .exp-role {
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--text);
-  }
-  .exp-period {
-    font-size: 12px;
-    color: var(--subtle);
-    flex-shrink: 0;
-  }
-  .exp-org {
-    font-size: 13px;
-    color: var(--muted);
-    font-style: italic;
-  }
-  .exp-location {
-    font-size: 12px;
-    color: var(--subtle);
-    flex-shrink: 0;
-  }
+  .exp-role { font-weight: 600; font-size: 14px; color: var(--text); }
+  .exp-period { font-size: 12px; color: var(--subtle); flex-shrink: 0; }
+  .exp-org { font-size: 13px; color: var(--muted); font-style: italic; }
+  .exp-location { font-size: 12px; color: var(--subtle); flex-shrink: 0; }
 
-  /* ── BLOGS ── */
-  #Blogs { border-bottom: 1px solid var(--border); }
+  /* ── BLOG ── */
+  .blog-disclaimer {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--subtle);
+    margin-bottom: 28px;
+    margin-top: -8px;
+  }
 
   .blog-list { display: flex; flex-direction: column; }
 
@@ -474,7 +485,7 @@
     align-items: baseline;
     justify-content: space-between;
     gap: 20px;
-    padding: 20px 0;
+    padding: 18px 0;
     border-top: 1px solid var(--border);
     text-decoration: none;
     color: inherit;
@@ -483,33 +494,24 @@
   .blog-item:last-child { border-bottom: 1px solid var(--border); }
   .blog-item:hover { opacity: 0.6; }
 
-  .blog-title {
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--text);
-    line-height: 1.5;
-  }
-
-  .blog-date {
-    font-size: 13px;
-    color: var(--subtle);
-    flex-shrink: 0;
-  }
+  .blog-title { font-size: 15px; font-weight: 400; color: var(--text); }
+  .blog-date { font-size: 13px; color: var(--subtle); flex-shrink: 0; }
 
   /* ── ABOUT ── */
-  #About { border-bottom: 1px solid var(--border); }
-
   .about-text p {
     font-size: 16px;
     line-height: 1.8;
     color: var(--muted);
     margin-bottom: 20px;
+    max-width: 680px;
   }
   .about-text p:last-child { margin-bottom: 0; }
 
   /* ── FOOTER ── */
   footer {
-    padding: 40px 0;
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+    margin-top: 0;
   }
 
   .footer-inner {
@@ -518,411 +520,326 @@
     justify-content: space-between;
   }
 
-  .footer-logo img {
-    height: 28px;
-    width: auto;
-    display: block;
-  }
+  .footer-copy { font-size: 13px; color: var(--subtle); }
 
-  .footer-links {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-  }
-
+  .footer-links { display: flex; gap: 20px; list-style: none; }
   .footer-links a {
     text-decoration: none;
-    color: var(--muted);
+    color: var(--subtle);
     font-size: 13px;
     transition: color 0.2s;
   }
   .footer-links a:hover { color: var(--text); }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 700px) {
-    nav { padding: 0 20px; }
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
-    .mobile-menu { padding: 24px 20px; }
-    .container { padding: 0 20px; }
-    section { padding: 56px 0; }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+    header { padding-top: 36px; }
 
-    .hero-inner {
-      grid-template-columns: 1fr;
-      gap: 32px;
+    .header-top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
     }
-    .hero-inner > div:first-child { order: 2; }
-    .hero-photo { order: 1; width: 120px; height: 120px; border-radius: 50%; }
+
+    .home-right {
+      float: none;
+      width: 180px;
+      margin: 0 auto 24px;
+      display: block;
+    }
 
     .projects-grid { grid-template-columns: 1fr; }
     .project-card.full { flex-direction: column; }
     .project-card.full .project-card-img { width: 100%; aspect-ratio: 4/3; }
 
-    .exp-item { grid-template-columns: 36px 1fr; gap: 12px; }
-    .exp-top, .exp-bottom { gap: 8px; }
     .exp-period, .exp-location { display: none; }
 
-    .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
-
-    .pub-meta { grid-template-columns: 1fr; gap: 8px; }
-  }
-
-  @media (max-width: 480px) {
-    .hero-bio { font-size: 20px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#hero">
-    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
-  </a>
-  <ul class="nav-links">
-    <li><a href="#Research">Publications</a></li>
-    <li><a href="#Blogs">Blogs</a></li>
-    <li><a href="#Projects">Projects</a></li>
-    <li><a href="#Experience">Experience</a></li>
-    <li><a href="#About">About</a></li>
-  </ul>
-  <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
-    <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65dd546c278a2ace8a9cbc36_menu-icon.png" alt="">
-  </button>
-</nav>
+<div class="wrap">
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#Research" onclick="closeMenu()">Publications</a>
-  <a href="#Blogs" onclick="closeMenu()">Blogs</a>
-  <a href="#Projects" onclick="closeMenu()">Projects</a>
-  <a href="#Experience" onclick="closeMenu()">Experience</a>
-  <a href="#About" onclick="closeMenu()">About</a>
-</div>
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="header-top">
+      <div class="header-logo">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha">
+      </div>
+      <div class="header-text">
+        <p class="header-tagline">hi. i'm taha aka taha only, taha taha, taha -,...</p>
+        <p class="header-meta"><a href="mailto:taha.taha@cispa.de">taha.taha@cispa.de</a> &nbsp;·&nbsp; <a href="https://scholar.google.com/citations?user=c5__SBkAAAAJ&hl=en" target="_blank" rel="noopener">google scholar</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/tahaonly" target="_blank" rel="noopener">linkedIn</a></p>
+      </div>
+    </div>
 
-<main>
+    <!-- TAB NAVIGATION -->
+    <nav class="tab-nav" role="tablist">
+      <button class="tab-btn active" data-tab="home">home</button>
+      <button class="tab-btn" data-tab="cv">cv</button>
+      <button class="tab-btn" data-tab="publications">publications</button>
+      <button class="tab-btn" data-tab="projects">projects</button>
+      <button class="tab-btn" data-tab="blog">blog</button>
+    </nav>
+  </header>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="container">
-      <div class="hero-inner">
-        <div>
-          <p class="hero-greeting">Hi, it's Taha 👋🏼</p>
-          <p class="hero-bio">I'm a PhD student at CISPA Helmholtz Center for Information Security. I work in Usable Security where I try to design safer technologies for the marginalized communities. Previously, I did my MS in UX from Purdue and served as a Design Instructor for 2 years.</p>
-          <div class="hero-links">
-            <a class="btn" href="https://drive.google.com/file/d/1lCoUhodlJp6D2bPWnZb8rduLVWy4pbXT/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
-            <a class="btn" href="https://scholar.google.com/citations?user=c5__SBkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-            <a class="btn" href="https://www.linkedin.com/in/tahaonly" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
-        </div>
-        <img class="hero-photo"
+  <!-- ── HOME ── -->
+  <div class="tab-panel active" id="tab-home">
+    <div class="home-content">
+
+      <!-- photo floated right — text wraps around it -->
+      <div class="home-right">
+        <img class="home-portrait"
           src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66e371fa30c5f763e9a446f2_Portfolio.jpg"
           alt="Photo of Taha">
       </div>
+
+      <p class="home-bio">I'm a Doctoral Researcher at <a href="https://cispa.de/en" target="_blank" rel="noopener">CISPA</a> advised by <a href="https://cispa.de/en/people/katharina.krombholz" target="_blank" rel="noopener">Katharina Krombholz</a>. I study the security and privacy of communities that mainstream research overlooks, like immigrants and people from low socioeconomic backgrounds. I do this by building new methods to better understand the people I work with.</p>
+
+      <p class="home-bio">Previously, I did my Masters in UX Design from Purdue University where I also worked as a Design Instructor for 2 years. Even before that, I completed my Bachelors in Computer Science from LUMS university in Pakistan where I was advised by <a href="https://www.maryamustafa.com/" target="_blank" rel="noopener">Maryam Mustafa</a> and <a href="https://web.lums.edu.pk/~mobin/" target="_blank" rel="noopener">Mobin Javed</a>. My research interests lie at the intersections of security and privacy (S&amp;P) and human-computer interaction (HCI) beyond the WEIRD contexts. I publish in leading security, privacy, and HCI venues, including IEEE S&amp;P, CHI, and SOUPS.</p>
+
+      <p class="home-bio">My recent work has focused on designing better digital safety tools by:</p>
+      <ul class="home-bio-list">
+        <li>Understanding the perceptions of young adults around <a href="https://dl.acm.org/doi/10.1145/3772318.3793807" target="_blank" rel="noopener">harassment</a> and <a href="https://dl.acm.org/doi/10.5555/3632186.3632189" target="_blank" rel="noopener">cybercrime</a>;</li>
+        <li>Exploring the <a href="https://github.com/Usable-Security-and-Privacy-Lab/IEEESP-Immigrants/blob/main/Research_Paper.pdf" target="_blank" rel="noopener">S&amp;P experiences</a> and support systems of US immigrants.</li>
+      </ul>
+
+      <p class="home-bio">I have also worked on several UX projects which I really enjoyed doing. The people with whom I did these projects with are really awesome humans. I created an Urdu language design guideline for developers, a shopping toolkit for tweens, a platform for lived experience sharing for people with disabilities, and a card game to help undergraduate design students brainstorm. During my entrepreneurship era, I even ran a short-lived startup called Band Baaja Baraat which helped users to connect and book reliable vendors of the wedding industry.</p>
+
+      <p class="home-bio">I love reading history books and noticing tiny architectural details when strolling around cities. I was raised in Lahore, a city which saw the rise and fall of 4 empires. I also write blogs and post them on this website.</p>
+
+      <h3 class="home-subheading">Selected Honors &amp; Awards</h3>
+      <ul class="honors-list">
+        <li>Gave a research talk titled "Designing for Disabled People's Lived Experiences" at University of Washington (2025)</li>
+        <li>Gave a research talk titled "Designing for Security and Privacy beyond WEIRD" at Stanford University (2024)</li>
+        <li>IAPP SOUPS Privacy Award (2023)</li>
+        <li>SOUPS Travel Grant (2023)</li>
+      </ul>
+
     </div>
-  </section>
+  </div>
 
-  <!-- RESEARCH / PUBLICATIONS -->
-  <section id="Research">
-    <div class="container">
-      <p class="section-label">Publications</p>
-      <div class="pub-list">
+  <!-- ── CV ── -->
+  <div class="tab-panel" id="tab-cv">
+    <div class="cv-frame-wrap">
+      <iframe src="https://drive.google.com/file/d/1lCoUhodlJp6D2bPWnZb8rduLVWy4pbXT/preview" allow="autoplay" loading="lazy"></iframe>
+    </div>
+  </div>
 
-        <!-- Pub 1 -->
-        <div class="pub-item">
-          <div class="pub-header" onclick="togglePub(this)">
-            <p class="pub-title">Understanding Gendered Experiences of Harassment Among Pakistani Young Adults Using Human-Centered Threat Modeling <em>(CHI'26, Barcelona, Spain)</em></p>
-            <img class="pub-icon" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/6692fa2d13246c0782c81d86_down%20icon.png" alt="expand">
-          </div>
-          <div class="pub-body">
-            <div class="pub-meta">
-              <span class="pub-meta-label">Authors</span>
-              <span class="pub-meta-value">Warda Usman*, <strong>Taha*</strong>, Saba Iqbal, Amna Batool, Daniel Zappala [* Joint first authors]</span>
-              <span class="pub-meta-label">Abstract</span>
-              <span class="pub-meta-value pub-abstract">Harassment impacts the safety and well-being of young adults in Pakistan. Prior research has largely focused on women, often imposing external definitions of harm and overlooking how individuals themselves understand and respond to harassment. This study examines how Pakistani young adults define, experience, and cope with harassment. Drawing on 33 semi-structured interviews guided by a human-centered threat modeling framework, we surface context-specific threat models. Participants' definitions of harassment were shaped by gender norms, religious values, and moral judgments. Women described harassment as a routine part of life, tied to public visibility, modesty norms. Men also reported harassment, though framed by different dynamics such as pressure to maintain control, avoid vulnerability, and conform to masculinity. Across participants, formal reporting pathways were viewed as untrustworthy or unsafe. Our findings highlight the need for interventions that reflect local definitions of harm, address relational adversaries, and support safety within sociocultural contexts.</span>
-            </div>
-          </div>
-        </div>
+  <!-- ── EXPERIENCE ── -->
 
-        <!-- Pub 2 -->
-        <div class="pub-item">
-          <div class="pub-header" onclick="togglePub(this)">
-            <p class="pub-title">The Security and Privacy Experiences of First- and Second-Generation Pakistani Immigrants to America: Challenges, Parent-Child Dynamics, and Threat Models <em>(IEEE S&P'25, San Francisco, USA)</em></p>
-            <img class="pub-icon" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/6692fa2d13246c0782c81d86_down%20icon.png" alt="expand">
-          </div>
-          <div class="pub-body">
-            <div class="pub-meta">
-              <span class="pub-meta-label">Authors</span>
-              <span class="pub-meta-value">Warda Usman*, John Sadik*, <strong>Taha</strong>, Ran Elgedawy, Scott Routi, Daniel Zappala</span>
-              <span class="pub-meta-label">Abstract</span>
-              <span class="pub-meta-value pub-abstract">In this work, we consider the socio-technical challenges faced by Pakistani immigrants in the US. This includes the parent-child dynamics that affect how they learn about and adopt to security and privacy practices in the US. It also includes their online and offline threat models, including protective strategies. Through 25 semi-structured interviews with Pakistani immigrants, we find that first-generation immigrants perceive heightened risks of discrimination, surveillance, and isolation. They also report tensions regarding self-expression and self-censorship concerning their identity. In contrast, second-generation immigrants, quickly adapt and do not perceive most of these challenges. We find that parents and children mutually support each other in learning to use technology and reacting to perceived threats. Our findings highlight the need for tailored digital safety initiatives, as well as designs that consider the needs of at-risk populations. Recognizing and addressing these challenges can foster more inclusive digital landscapes, empowering immigrant populations with resilience and agency.</span>
-            </div>
-          </div>
-        </div>
 
-        <!-- Pub 3 -->
-        <div class="pub-item">
-          <div class="pub-header" onclick="togglePub(this)">
-            <p class="pub-title">🏆 "Stalking is immoral but not illegal": Understanding Security, Cyber Crimes and Threats in Pakistan <em>(SOUPS'23, Anaheim, USA | IAPP SOUPS Privacy Award)</em></p>
-            <img class="pub-icon" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/6692fa2d13246c0782c81d86_down%20icon.png" alt="expand">
-          </div>
-          <div class="pub-body">
-            <div class="pub-meta">
-              <span class="pub-meta-label">Authors</span>
-              <span class="pub-meta-value">Afaq Ashraf*, <strong>Taha*</strong>, Nida ul Habib Bajwa, Cornelius J. Konig, Mobin Javed, Maryam Mustafa [* Joint first authors] <a href="https://www.usenix.org/conference/soups2023/presentation/ashraf" class="pub-link" target="_blank" rel="noopener">[Paper]</a></span>
-              <span class="pub-meta-label">Abstract</span>
-              <span class="pub-meta-value pub-abstract">We explore the experiences, understandings, and perceptions of cyber-threats and crimes amongst young adults in Pakistan, focusing on their mechanisms for protecting themselves, for reporting cyber threats and for managing their digital identities. Relying on data from a qualitative study with 34 participants in combination with a repertory grid analysis with 18 participants, we map users mental models and constructs of cyber crimes and threats, their understanding of digital vulnerabilities, their own personal boundaries and their moral compasses on what constitutes an invasion of privacy of other users in a country where there is little legal legislation governing cyberspace and cyber crimes. Our findings highlight the importance of platform adaptation to accommodate the unique context of countries with limited legal mandates and reporting outlets, the ways in which digital vulnerabilities impact diverse populations, and how security and privacy design can be more inclusive.</span>
-            </div>
-            <div class="pub-video">
-              <iframe src="https://www.youtube.com/embed/1Dz4PG6WOVU?rel=0&controls=1&autoplay=0&mute=0&start=0" title="Stalking is immoral but not illegal – SOUPS'23" allowfullscreen loading="lazy"></iframe>
-            </div>
+  <!-- ── PUBLICATIONS ── -->
+  <div class="tab-panel" id="tab-publications">
+
+    <!-- 2026 -->
+    <div class="pub-year-group">
+      <p class="pub-year-label">2026</p>
+      <div class="pub-entries">
+
+        <div class="pub-entry">
+          <span class="pub-entry-title">Understanding Gendered Experiences of Harassment Among Pakistani Young Adults Using Human-Centered Threat Modeling</span>
+          <p class="pub-entry-authors">Warda Usman*, <strong>Taha*</strong>, Saba Iqbal, Amna Batool, Daniel Zappala <em style="font-size:12px; color:var(--subtle);">[* joint first authors]</em></p>
+          <p class="pub-entry-venue">In ACM CHI Conference on Human Factors in Computing Systems (CHI), Barcelona, Spain</p>
+          <div class="pub-entry-links">
+            <a class="pub-tag" href="https://dl.acm.org/doi/10.1145/3706599.3719939" target="_blank" rel="noopener">Paper</a>
           </div>
         </div>
 
       </div>
     </div>
-  </section>
 
-  <!-- BLOGS -->
-  <section id="Blogs">
-    <div class="container">
-      <p class="section-label">Blogs</p>
-      <p style="font-size: 13px; font-style: italic; color: var(--subtle); margin-bottom: 32px; margin-top: -20px;">Unless specifically noted, anything I write online is me speaking only for myself and not my current employer.</p>
-      <div class="blog-list">
-        <a class="blog-item" href="blog-decolonizing-methods.html">
-          <span class="blog-title">decolonizing methods</span>
-          <span class="blog-date">4 Jun 2026</span>
-        </a>
-        <a class="blog-item" href="blog-rethinking-novelty-usable-security.html">
-          <span class="blog-title">rethinking novelty in usable security research</span>
-          <span class="blog-date">1 Jun 2026</span>
-        </a>
-        <a class="blog-item" href="blog-is-usable-security-science.html">
-          <span class="blog-title">is usable security science?</span>
-          <span class="blog-date">21 May 2026</span>
-        </a>
-        <a class="blog-item" href="blog-choosing-phd-direction.html">
-          <span class="blog-title">choosing my phd direction</span>
-          <span class="blog-date">19 May 2026</span>
-        </a>
-      </div>
-    </div>
-  </section>
+    <!-- 2025 -->
+    <div class="pub-year-group">
+      <p class="pub-year-label">2025</p>
+      <div class="pub-entries">
 
-  <!-- PROJECTS -->
-  <section id="Projects">
-    <div class="container">
-      <p class="section-label">Projects</p>
-
-      <div class="project-filters">
-        <button class="filter-btn active" data-filter="ux">UX Research</button>
-        <button class="filter-btn" data-filter="visual">Visual Design</button>
-        <button class="filter-btn" data-filter="product">Product</button>
-      </div>
-
-      <div class="projects-grid">
-
-        <!-- IdeaWave -->
-        <a class="project-card" href="ideawave.html" data-tags="ux">
-          <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08efb86ee29db88804_Frame%2017-2.jpg" alt="IdeaWave project" loading="lazy">
-          <div class="project-card-body">
-            <h3 class="project-title">IdeaWave</h3>
-            <p class="project-subtitle">How to make brainstorming fun and effective for nonexperts?</p>
-            <span class="project-cta">See Project</span>
-          </div>
-        </a>
-
-        <!-- Embodied Shopping -->
-        <a class="project-card" href="shopping.html" data-tags="ux">
-          <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08e521f96303f31429_Frame%2042.png" alt="Embodied Shopping project" loading="lazy">
-          <div class="project-card-body">
-            <h3 class="project-title">Embodied Shopping</h3>
-            <p class="project-subtitle">How to incorporate critical thinking in kids through shopping?</p>
-            <span class="project-cta">See Project</span>
-          </div>
-        </a>
-
-        <!-- Designing for Urdu -->
-        <a class="project-card" href="urdu.html" data-tags="ux">
-          <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08e310dce802dcb54f_Frame%2043.png" alt="Designing for Urdu project" loading="lazy">
-          <div class="project-card-body">
-            <h3 class="project-title">Designing for Urdu</h3>
-            <p class="project-subtitle">How to create a design guideline for Urdu language?</p>
-            <span class="project-cta">See Project</span>
-          </div>
-        </a>
-
-        <!-- Tamaam-e-Muhabbat -->
-        <div class="project-card no-link" data-tags="visual">
-          <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/6716ec29ffd66e4318724e84_Tamaam.png" alt="Tamaam-e-Muhabbat" loading="lazy">
-          <div class="project-card-body">
-            <h3 class="project-title">Tamaam-e-Muhabbat</h3>
-            <p class="project-subtitle">A VR experience on folktales of Pakistan</p>
-            <div class="project-links">
-              <a class="btn" href="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/6716efdd43b30134feacd873_Tamaam%20e%20Muhabbat.pdf" target="_blank" rel="noopener">Process Book</a>
-              <a class="btn" href="https://youtu.be/p7qdHxmG5LU" target="_blank" rel="noopener">Trailer</a>
-              <a class="btn" href="https://youtu.be/eREl8gPtDhc" target="_blank" rel="noopener">Walkthrough</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Silent Strides -->
-        <div class="project-card no-link" data-tags="visual">
-          <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bb9feeb119147aa3391c9_Silent%20Strides.png" alt="Silent Strides" loading="lazy">
-          <div class="project-card-body">
-            <h3 class="project-title">Silent Strides</h3>
-            <p class="project-subtitle">A web application for people with disabilities to share their daily experiences</p>
-            <div class="project-links">
-              <a class="btn" href="https://www.figma.com/proto/jRY3SnKLjk1CxgRLxCqNsL/AD611%3A-Design-for-Good?page-id=0%3A1&node-id=95-907&node-type=canvas&viewport=2004%2C1101%2C0.39&t=F7vTqQ5SgFFnkDfN-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=95%3A907&show-proto-sidebar=1" target="_blank" rel="noopener">Figma Prototype</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Baby Names Legacy -->
-        <div class="project-card no-link" data-tags="visual">
-          <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bf09f2e05d0ae2e3e7ea2_Draft%207-min%201.png" alt="Baby Names Legacy" loading="lazy">
-          <div class="project-card-body">
-            <h3 class="project-title">Baby Names Legacy</h3>
-            <p class="project-subtitle">A visualization on the popularity of baby names in US</p>
-            <div class="project-links">
-              <a class="btn" href="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bee9a143851e1c9cb2e79_Taha_AD_542_Poster_Final-compressed.pdf" target="_blank" rel="noopener">Poster</a>
-              <a class="btn" href="https://rowzero.io/workbook/6BFA45B76193D9D838A46B56/3" target="_blank" rel="noopener">Dataset</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Band Baaja Baraat -->
-        <a class="project-card full" href="band-baaja-baraat.html" data-tags="product">
-          <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bf97b226af9a6fa325a80_Frame%2045.png" alt="Band Baaja Baraat" loading="lazy">
-          <div class="project-card-body">
-            <h3 class="project-title">Band Baaja Baraat</h3>
-            <p class="project-subtitle">A marketplace for wedding industry vendors</p>
-            <span class="project-cta">See Project</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="Experience">
-    <div class="container">
-      <p class="section-label">Experience</p>
-      <div class="exp-list">
-
-        <div class="exp-item">
-          <img class="exp-logo" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bf9f67a30054fb00658a0_CISPA_Circle_BLACK_RGB%201.png" alt="CISPA logo">
-          <div class="exp-body">
-            <div class="exp-top">
-              <p class="exp-role">Doctoral Researcher</p>
-              <p class="exp-period">Nov 2025 – Present</p>
-            </div>
-            <div class="exp-bottom">
-              <p class="exp-org">CISPA Helmholtz Center for Information Security</p>
-              <p class="exp-location">Saarland, Germany</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <img class="exp-logo" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/692db414cd1cbda66402fa9f_Screenshot%202025-12-01%20at%2016.28.12.png" alt="Purdue BYU Tennessee logo">
-          <div class="exp-body">
-            <div class="exp-top">
-              <p class="exp-role">Independent Researcher</p>
-              <p class="exp-period">Nov 2023 – Sep 2025</p>
-            </div>
-            <div class="exp-bottom">
-              <p class="exp-org">Purdue University, Brigham Young University, University of Tennessee</p>
-              <p class="exp-location">West Lafayette, USA</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <img class="exp-logo" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bf9f67a30054fb00658a0_CISPA_Circle_BLACK_RGB%201.png" alt="CISPA logo">
-          <div class="exp-body">
-            <div class="exp-top">
-              <p class="exp-role">Research Intern</p>
-              <p class="exp-period">May 2024 – Aug 2024</p>
-            </div>
-            <div class="exp-bottom">
-              <p class="exp-org">CISPA Helmholtz Center for Information Security</p>
-              <p class="exp-location">Saarland, Germany</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <img class="exp-logo" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/692db4d4bcc1e620fb2dc027_Logo_of_Saarland_University.svg.png" alt="Saarland University logo">
-          <div class="exp-body">
-            <div class="exp-top">
-              <p class="exp-role">Research Assistant</p>
-              <p class="exp-period">June 2022 – April 2023</p>
-            </div>
-            <div class="exp-bottom">
-              <p class="exp-org">Saarland University, Lahore University of Management Sciences</p>
-              <p class="exp-location">Lahore, Pakistan</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <img class="exp-logo" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bfc811dd03920d24bfa38_bbb%201.png" alt="Band Baaja Baraat logo">
-          <div class="exp-body">
-            <div class="exp-top">
-              <p class="exp-role">Co-founder</p>
-              <p class="exp-period">July 2021 – Jan 2022</p>
-            </div>
-            <div class="exp-bottom">
-              <p class="exp-org">Band Baaja Baraat</p>
-              <p class="exp-location">Lahore, Pakistan</p>
-            </div>
+        <div class="pub-entry">
+          <span class="pub-entry-title">The Security and Privacy Experiences of First- and Second-Generation Pakistani Immigrants to America: Challenges, Parent-Child Dynamics, and Threat Models</span>
+          <p class="pub-entry-authors">Warda Usman*, John Sadik*, <strong>Taha</strong>, Ran Elgedawy, Scott Routi, Daniel Zappala <em style="font-size:12px; color:var(--subtle);">[* joint first authors]</em></p>
+          <p class="pub-entry-venue">In IEEE Symposium on Security and Privacy (S&amp;P), San Francisco, USA</p>
+          <div class="pub-entry-links">
+            <a class="pub-tag" href="https://ieeexplore.ieee.org/document/11023485" target="_blank" rel="noopener">Paper</a>
+            <a class="pub-tag" href="https://github.com/Usable-Security-and-Privacy-Lab/IEEESP-Immigrants/blob/main/Research_Paper.pdf" target="_blank" rel="noopener">PDF</a>
           </div>
         </div>
 
       </div>
     </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="About">
-    <div class="container">
-      <p class="section-label">About</p>
-      <div class="about-text">
-        <p>I'm a PhD student at CISPA in Germany. Previously, I did my Masters in UX Design from Purdue University and worked as a Design Instructor for TECH120 course at TLI Department in the university. During my Masters, I worked on designing inclusive and accessible technologies for low-income, low-literate populations as a Summer Intern at CISPA, Germany. I also contributed to developing safe technologies for young adults and immigrants with folks at BYU and University of Tennessee. Even before that, I ran my own startups, Sutoon and Band Baaja Baraat, collaborating with government orphanages and wedding vendors.</p>
-        <p>Originally from Lahore, Pakistan – I completed my Bachelor's in Computer Science from LUMS. My interest in design was sparked when I took my first Human Computer Interaction course in undergrad. This interest was further scoped toward <em>Usable Privacy and Security</em> for emerging markets through my Teaching Assistantship for a Graduate-level course, ICTs for Development, and Research Assistantship on a cybercrime project.</p>
+    <!-- 2023 -->
+    <div class="pub-year-group">
+      <p class="pub-year-label">2023</p>
+      <div class="pub-entries">
+
+        <div class="pub-entry">
+          <a class="pub-entry-title" href="https://www.usenix.org/conference/soups2023/presentation/ashraf" target="_blank" rel="noopener">"Stalking is immoral but not illegal": Understanding Security, Cyber Crimes and Threats in Pakistan</a>
+          <p class="pub-entry-authors">Afaq Ashraf*, <strong>Taha*</strong>, Nida ul Habib Bajwa, Cornelius J. König, Mobin Javed, Maryam Mustafa <em style="font-size:12px; color:var(--subtle);">[* joint first authors]</em></p>
+          <p class="pub-entry-venue">In Symposium on Usable Privacy and Security (SOUPS), Anaheim, USA &nbsp;·&nbsp; <span class="pub-award-badge">🏆 IAPP SOUPS Privacy Award</span></p>
+          <div class="pub-entry-links">
+            <a class="pub-tag" href="https://www.usenix.org/conference/soups2023/presentation/ashraf" target="_blank" rel="noopener">Paper</a>
+            <a class="pub-tag" href="https://www.youtube.com/watch?v=1Dz4PG6WOVU" target="_blank" rel="noopener">Video</a>
+          </div>
+        </div>
+
       </div>
     </div>
-  </section>
 
-</main>
+  </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <a class="footer-logo" href="#hero">
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+  <!-- ── PROJECTS ── -->
+  <div class="tab-panel" id="tab-projects">
+    <div class="project-filters">
+      <button class="filter-btn active" data-filter="ux">UX Research</button>
+      <button class="filter-btn" data-filter="visual">Visual Design</button>
+      <button class="filter-btn" data-filter="product">Product</button>
+    </div>
+
+    <div class="projects-grid">
+
+      <a class="project-card" href="ideawave.html" data-tags="ux">
+        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08efb86ee29db88804_Frame%2017-2.jpg" alt="IdeaWave" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-title">IdeaWave</h3>
+          <p class="project-subtitle">How to make brainstorming fun and effective for nonexperts?</p>
+          <span class="project-cta">See Project</span>
+        </div>
       </a>
+
+      <a class="project-card" href="shopping.html" data-tags="ux">
+        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08e521f96303f31429_Frame%2042.png" alt="Embodied Shopping" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-title">Embodied Shopping</h3>
+          <p class="project-subtitle">How to incorporate critical thinking in kids through shopping?</p>
+          <span class="project-cta">See Project</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="urdu.html" data-tags="ux">
+        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08e310dce802dcb54f_Frame%2043.png" alt="Designing for Urdu" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-title">Designing for Urdu</h3>
+          <p class="project-subtitle">How to create a design guideline for Urdu language?</p>
+          <span class="project-cta">See Project</span>
+        </div>
+      </a>
+
+      <div class="project-card no-link" data-tags="visual">
+        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/6716ec29ffd66e4318724e84_Tamaam.png" alt="Tamaam-e-Muhabbat" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-title">Tamaam-e-Muhabbat</h3>
+          <p class="project-subtitle">A VR experience on folktales of Pakistan</p>
+          <div class="project-links">
+            <a class="btn" href="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/6716efdd43b30134feacd873_Tamaam%20e%20Muhabbat.pdf" target="_blank" rel="noopener">Process Book</a>
+            <a class="btn" href="https://youtu.be/p7qdHxmG5LU" target="_blank" rel="noopener">Trailer</a>
+            <a class="btn" href="https://youtu.be/eREl8gPtDhc" target="_blank" rel="noopener">Walkthrough</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card no-link" data-tags="visual">
+        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bb9feeb119147aa3391c9_Silent%20Strides.png" alt="Silent Strides" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-title">Silent Strides</h3>
+          <p class="project-subtitle">A web application for people with disabilities to share their daily experiences</p>
+          <div class="project-links">
+            <a class="btn" href="https://www.figma.com/proto/jRY3SnKLjk1CxgRLxCqNsL/AD611%3A-Design-for-Good?page-id=0%3A1&node-id=95-907&node-type=canvas&viewport=2004%2C1101%2C0.39&t=F7vTqQ5SgFFnkDfN-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=95%3A907&show-proto-sidebar=1" target="_blank" rel="noopener">Figma Prototype</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card no-link" data-tags="visual">
+        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bf09f2e05d0ae2e3e7ea2_Draft%207-min%201.png" alt="Baby Names Legacy" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-title">Baby Names Legacy</h3>
+          <p class="project-subtitle">A visualization on the popularity of baby names in US</p>
+          <div class="project-links">
+            <a class="btn" href="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bee9a143851e1c9cb2e79_Taha_AD_542_Poster_Final-compressed.pdf" target="_blank" rel="noopener">Poster</a>
+            <a class="btn" href="https://rowzero.io/workbook/6BFA45B76193D9D838A46B56/3" target="_blank" rel="noopener">Dataset</a>
+          </div>
+        </div>
+      </div>
+
+      <a class="project-card full" href="band-baaja-baraat.html" data-tags="product">
+        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bf97b226af9a6fa325a80_Frame%2045.png" alt="Band Baaja Baraat" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-title">Band Baaja Baraat</h3>
+          <p class="project-subtitle">A marketplace for wedding industry vendors</p>
+          <span class="project-cta">See Project</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ── BLOG ── -->
+  <div class="tab-panel" id="tab-blog">
+    <p class="blog-disclaimer">Unless specifically noted, anything I write online is me speaking only for myself and not my current employer.</p>
+    <div class="blog-list">
+      <a class="blog-item" href="blog-decolonizing-methods.html">
+        <span class="blog-title">decolonizing methods</span>
+        <span class="blog-date">4 Jun 2026</span>
+      </a>
+      <a class="blog-item" href="blog-rethinking-novelty-usable-security.html">
+        <span class="blog-title">rethinking novelty in usable security research</span>
+        <span class="blog-date">1 Jun 2026</span>
+      </a>
+      <a class="blog-item" href="blog-is-usable-security-science.html">
+        <span class="blog-title">is usable security science?</span>
+        <span class="blog-date">21 May 2026</span>
+      </a>
+      <a class="blog-item" href="blog-choosing-phd-direction.html">
+        <span class="blog-title">choosing my phd direction</span>
+        <span class="blog-date">19 May 2026</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── ABOUT ── -->
+
+</div><!-- /wrap -->
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 Taha</span>
       <ul class="footer-links">
-        <li><a href="#Projects">Projects</a></li>
-        <li><a href="#Research">Publications</a></li>
-        <li><a href="#About">About</a></li>
+        <li><a href="#" onclick="switchTab('publications'); return false;">Publications</a></li>
+        <li><a href="#" onclick="switchTab('blog'); return false;">Blog</a></li>
       </ul>
     </div>
   </div>
 </footer>
 
 <script>
-  // Mobile menu
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
-  function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
+  // ── TAB SWITCHING ──
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  function switchTab(name) {
+    tabBtns.forEach(b => b.classList.remove('active'));
+    tabPanels.forEach(p => p.classList.remove('active'));
+    const btn = document.querySelector(`.tab-btn[data-tab="${name}"]`);
+    const panel = document.getElementById(`tab-${name}`);
+    if (btn) btn.classList.add('active');
+    if (panel) panel.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Publication accordion
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+  });
+
+  // Activate tab from URL hash (e.g. index.html#projects or index.html#blog)
+  const _hash = window.location.hash.slice(1).toLowerCase();
+  if (_hash && document.querySelector(`.tab-btn[data-tab="${_hash}"]`)) {
+    switchTab(_hash);
+  }
+
+  // ── PUBLICATION ACCORDION ──
   function togglePub(header) {
     const item = header.parentElement;
     const isOpen = item.classList.contains('open');
@@ -930,7 +847,7 @@
     if (!isOpen) item.classList.add('open');
   }
 
-  // Project filters — UX Research active by default
+  // ── PROJECT FILTERS ──
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
@@ -941,7 +858,6 @@
     });
   }
 
-  // Init: show only UX Research on load
   applyFilter('ux');
 
   filterBtns.forEach(btn => {
@@ -949,18 +865,12 @@
       const isActive = btn.classList.contains('active');
       filterBtns.forEach(b => b.classList.remove('active'));
       if (isActive) {
-        // clicking active tab again cycles to show all
         projectCards.forEach(card => { card.style.display = ''; });
       } else {
         btn.classList.add('active');
         applyFilter(btn.dataset.filter);
       }
     });
-  });
-
-  // Smooth nav link closing on mobile
-  document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => closeMenu());
   });
 </script>
 
