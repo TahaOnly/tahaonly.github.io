@@ -62,15 +62,12 @@
 
   /* BACK LINK */
   .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    display: block;
     font-size: 13px;
     color: var(--muted);
     text-decoration: none;
     margin-top: 60px;
     margin-bottom: 48px;
-    display: block;
     transition: color 0.2s;
   }
   .back-link:hover { color: var(--text); }
@@ -193,31 +190,41 @@
 
     <div class="post-header">
       <h1 class="post-title">is usable security science?</h1>
-      <p class="post-date">21 May 2026</p>
+      <p class="post-date">13 June 2026</p>
     </div>
 
     <div class="post-body">
-      <p>There are moments when usable security researchers have to defend the legitimacy of their own work. Often these comments come from technical researchers who look at user studies and wonder whether what they are seeing is really science. I will not pretend this question has never crossed my mind.</p>
+      <p>My mother tells me that when I was young and people would ask what I wanted to be when I grew up, I would answer "a Scientist." I don't recall saying it, but I do remember imagining myself in a lab coat running experiments in a laboratory. Today, I am pursuing a PhD but I work in an office rather than a lab, and I wear fancy clothes to work instead of a lab coat. I do not look like the Scientist I used to imagine myself as back then.</p>
 
-      <p>Before we dig further, we should think about what science even is.</p>
+      <p>To give myself some credit though, I was not wrong to imagine all that. I was just ill-informed. At an early age, science is introduced to us as the study of natural phenomena through subjects like chemistry, biology, physics, and astronomy. These felt like science to me because I could observe the things they explained with my own eyes.</p>
 
-      <p>I remember in middle school there was this 'Science' book which included a flowchart. The individual components of this chart included observation, hypothesis, test, analysis and results. That schematic is usually what people mean when they invoke "the scientific method." Follow those steps in order, and you are doing science.</p>
+      <p>As I grew older, I realized science is much vaster than that. It includes doing magic with numbers through formal sciences like mathematics, and studying human behavior through social sciences like psychology. But even then, I never really thought about what actually makes these fields science. I just accepted that they were.</p>
 
-      <p>But then following a scientific process is not enough. There has to be rigor in it.<sup><a href="#fn1" id="ref1">1</a></sup> There should be defensible grounds for believing the methods actually measure what they claim to measure, in the context where they are being applied. That justification comes from either prior work that has established the method's validity and robustness or direct empirical evidence.</p>
+      <p>Then came Computer Science, and its name so proudly claimed membership in science that I never questioned it either.</p>
+
+      <p>A long time later, through a series of accidents<sup><a href="#fn1" id="ref1">1</a></sup>, I ended up in usable security. My journey in the field began as an intern at CISPA two years ago, where I got an opportunity to learn from some fantastic people. Being around usable security researchers, I found there are moments when they have to defend the legitimacy of their own work. Often these challenges come from technical researchers who look at user studies and question whether what they are seeing is really science. When I heard this question myself, I began wondering what science even is.</p>
+
+      <p>As it turns out, science is a description and explanation of a phenomenon,<sup><a href="#fn2" id="ref2">2</a></sup> accomplished through a scientific process. I remember in middle school there was a 'Science' book with a flowchart of the scientific process in one of its chapters. Observation, hypothesis, test, analysis, results, and an arrow looping back from results to hypothesis. If you follow those steps to describe a phenomenon, you are doing science.</p>
+
+      <p>But simply following a scientific process is not enough. There has to be rigor in how you study it.<sup><a href="#fn3" id="ref3">3</a></sup> The methods used must have defensible grounds for actually measuring what they claim to measure, in the context where they are being applied. That justification comes either from prior work that has established the method's validity and robustness, or from direct empirical evidence.</p>
 
       <p>The question about the science-ness of usable security is not new. It is almost a rite of passage for fields that don't fit neatly into existing boxes.</p>
-      
-      <p>When Computer Science was emerging as a discipline in the 1960s, the same question was asked of it. Is Computer Science actually science? In 1967, three of its founding figures, Herbert Simon, Alan Perlis, and Allan Newell, wrote a letter to Science magazine defending CS as a legitimate science, pushing back against critics who argued, among other things, that man-made artifacts like computers were not a valid object of scientific study.<sup><a href="#fn2" id="ref2">2</a></sup></p>
 
-      <p>Usable security researchers follow every step of the scientific processes. They observe how people interact with security systems, whether that's a developer misconfiguring a cryptographic library, or a user reusing passwords because the alternative is too cognitively demanding. They form hypotheses, design controlled studies, and measure outcomes using methods with long validated histories in psychology and human factors research, fields that predate computer science entirely. The seminal papers in usable security that got the community talking in the late 1990s<sup><a href="#fn3" id="ref3">3</a></sup> showed through careful human-subjects research that even well-designed security systems fail when they ignore the humans operating them. The methods were not new. What was new was applying them to security.</p>
+      <p>When Computer Science was emerging as a discipline in the 1960s, the same question was asked of it. Critics argued, among other things, that man-made artifacts like computers were not valid objects of scientific study, only natural phenomena were. In 1967, three professors of computer science, Newell, Perlis, and Simon, wrote a letter to Science magazine pushing back directly. The same argument, they pointed out, would rule out large parts of organic chemistry (substitute "silicones" for "computers"), physics (substitute "superconductivity" for "computers"), and even zoology (substitute "hybrid corn" for "computers"), all fields that study things that are produced or modified by human hands.<sup><a href="#fn2">2</a></sup> What matters is whether you are rigorously describing a real phenomenon.</p>
 
-      <p>So where is this question of "Is usable security science?" even coming from? The field of CS has historically been a technical field, and computer security even more so. Usable security only (kind of) officially began in the late 1990s, and it is hard to imagine security and human factors in one equation given how the field of computer security evolved, largely without the human in the picture. This is probably why technical security experts do not always perceive usable security as sufficiently rigorous. For them, there could be something uncomfortable about systems built on years of hard technical work being challenged by mere user studies. But I do not think usable security researchers are trying to undermine that work. Rather, they are pushing technical researchers to think more grounded when building systems, to ask not just whether a system is secure in theory, but whether it remains secure in the hands of actual people. Both camps need one another. It is unlikely that one would be an expert in the craft of the other. The common goal should be the same: safer and more usable technology, whatever means necessary.</p>
+      <p>Usable security researchers do exactly that. They observe how people interact with security systems, whether that's a developer misconfiguring a cryptographic library, or a user reusing passwords because the alternative is too cognitively demanding. They form hypotheses, design controlled studies, and measure outcomes using methods with long validated histories in psychology and human factors research, fields that predate computer science entirely. The seminal papers in usable security that got the community talking in the late 1990s<sup><a href="#fn4" id="ref4">4</a></sup> showed through careful human-subjects research that even well-designed security systems fail when they ignore the humans operating them. They followed a scientific approach to describe observed phenomena.</p>
+
+      <p>But I wonder why whenever we include humans anywhere in science, the science becomes more shaky. It is a strange thing, right? Humans study phenomena other than themselves and rarely question the science. But when they study other humans, questions of validity and robustness multiply quickly.<sup><a href="#fn5" id="ref5">5</a></sup> As I see it, this is primarily because human behavior is shaped by context which cannot be collapsed into universal equations. One person could answer the same question differently depending on the circumstance or their mood. Since those circumstances cannot be packed into a tidy formula, this is precisely why researchers employ user studies to study that kind of variability. I feel there should not exist any comparison between the technical/formal and human-centric methods. They just measure phenomena differently.</p>
+
+      <p>This confusion is probably why technical security experts do not always perceive usable security as sufficiently rigorous. The field of computer science has historically been a technical field, and computer security even more so. Usable security only officially began in the late 1990s, and it is hard to imagine security and human factors in one equation given how the field of computer security evolved, largely without the human in the picture. For them, there could be something uncomfortable about systems built on years of hard technical work being challenged by mere user studies. But usable security researchers are not challenging the technical work. They are asking a different question about it. Not whether the system is secure, but whether it stays secure when actual people use it. Both questions matter. The common goal should be the same: safer and more usable technology, whatever means necessary.</p>
 
       <div class="footnotes">
         <ol>
-          <li id="fn1">A colleague pointed this out and I found it super accurate. <a href="#ref1">↩</a></li>
-          <li id="fn2">This is a really insightful letter. I loved reading every bit of it. <a href="https://www.cs.cmu.edu/~choset/whatiscs.html" target="_blank" rel="noopener">cs.cmu.edu/~choset/whatiscs.html</a> <a href="#ref2">↩</a></li>
-          <li id="fn3"><a href="https://dl.acm.org/doi/10.5555/1251421.1251435" target="_blank" rel="noopener">Why Johnny can't encrypt</a> &nbsp;//&nbsp; <a href="https://dl.acm.org/doi/10.1145/322796.322806" target="_blank" rel="noopener">Users are not the enemy</a> &nbsp;//&nbsp; <a href="https://dl.acm.org/doi/10.1145/304851.304859" target="_blank" rel="noopener">User-centered security</a> <a href="#ref3">↩</a></li>
+          <li id="fn1">Master Oogway says "There are no accidents," and I believe him. Maybe the term "... happy accidents" would be better than simply accidents. <a href="#ref1">↩</a></li>
+          <li id="fn2">This is a really insightful letter. I loved reading every bit of it. <a href="https://www.cs.cmu.edu/~choset/whatiscs.html" target="_blank" rel="noopener">cs.cmu.edu/~choset/whatiscs.html</a> — Another interesting read: <a href="https://ruthstalkerfirth.com/blog/2025/06/07/phenomena-3-the-phenomena-of-computing/" target="_blank" rel="noopener">ruthstalkerfirth.com</a> <a href="#ref2">↩</a></li>
+          <li id="fn3">I was casually discussing my thoughts on this topic with a colleague of mine who pointed out the importance of robustness in research. <a href="#ref3">↩</a></li>
+          <li id="fn4"><a href="https://dl.acm.org/doi/10.5555/1251421.1251435" target="_blank" rel="noopener">Why Johnny can't encrypt</a> &nbsp;//&nbsp; <a href="https://dl.acm.org/doi/10.1145/322796.322806" target="_blank" rel="noopener">Users are not the enemy</a> &nbsp;//&nbsp; <a href="https://dl.acm.org/doi/10.1145/304851.304859" target="_blank" rel="noopener">User-centered security</a> <a href="#ref4">↩</a></li>
+          <li id="fn5">This specific point was raised in one of my discussions with a friend of mine on this topic. As a UX person, she so amazingly highlighted this contradiction. <a href="#ref5">↩</a></li>
         </ol>
       </div>
     </div>
