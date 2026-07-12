@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="i don't have anything to hide – a blog by Taha">
+<title>i don't have anything to hide – Taha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --subtle: #9a9a9a;
+    --border: #e8e4dc;
+    --tag-bg: #f0ede8;
+    --nav-height: 64px;
+    --max-w: 680px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-logo img { height: 36px; width: auto; display: block; }
+
+  /* LAYOUT */
+  main { padding-top: var(--nav-height); }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+
+  /* BACK LINK */
+  .back-link {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-top: 60px;
+    margin-bottom: 48px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--text); }
+
+  /* POST HEADER */
+  .post-header {
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+  }
+
+  .post-title {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .post-date {
+    font-size: 13px;
+    color: var(--subtle);
+  }
+
+  /* POST BODY */
+  .post-body { padding: 0 0 60px; }
+
+  .post-body p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .post-body p:last-child { margin-bottom: 0; }
+
+  sup {
+    font-size: 11px;
+    color: var(--subtle);
+    vertical-align: super;
+    line-height: 0;
+  }
+
+  sup a {
+    color: var(--subtle);
+    text-decoration: none;
+  }
+  sup a:hover { color: var(--text); }
+
+  /* FOOTNOTES */
+  .footnotes {
+    margin-top: 60px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    padding-bottom: 80px;
+  }
+
+  .footnotes ol {
+    list-style: decimal;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footnotes li {
+    font-size: 13px;
+    color: var(--subtle);
+    line-height: 1.6;
+  }
+
+  .footnotes li a {
+    color: var(--subtle);
+    text-underline-offset: 2px;
+  }
+  .footnotes li a:hover { color: var(--text); }
+
+  /* FOOTER */
+  footer { padding: 40px 0; border-top: 1px solid var(--border); }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo img { height: 28px; width: auto; display: block; }
+
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--text); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .nav-inner { padding: 0 20px; }
+    .container { padding: 0 20px; }
+    .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+    </a>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <a class="back-link" href="index.html#blog">← Back to Blogs</a>
+
+    <div class="post-header">
+      <h1 class="post-title">i don't have anything to hide</h1>
+      <p class="post-date">12 July 2026</p>
+    </div>
+
+    <div class="post-body">
+      <p>I am scared of the world we live in today. Every interaction I do online seems like one additional data point for the techno-feudalistic<sup><a href="#fn1" id="ref1">1</a></sup> companies to carve my digital personality to perfection. </p>
+        
+       <p>I do not stay longer than I would like on Instagram reels because I will begin getting more of those in the following recommendations. I do not allow Gemini access to my drive and files on my Google Workspace despite its persistent reminders because I fear it will feed on my personal files, which will become permanent in its training model. I carefully remove personally identifiable information of myself and others from the text I ask Claude to perform a grammar check on because I fear it will know me and my network more geographically.</p>
+
+      <p>It is tiring to be consciously aware of the online spaces where companies driven by their capitalistic hunger lurk around the corner like a preying cheetah, muscles flexed to pounce on the right opportunity to take away one additional aspect of human-ness from me. One wrong step, and there is no way to pull the action back. If my prompt in Claude includes a piece of personal information, I cannot retract it. If I give consent to a privacy setting in a hurry, there is no way to recover the data the product collected, even if I disallow the permission later.</p>
+
+      <p>The shape of this bargain is old. You give the State your obedience, and in return it promises you security, but speaking against it becomes costly. With private products, the trade is similar. You give them your data, they give you their services, and agency over that data is not part of the deal. However, unlike a State, you can leave a product rather easily. But engineered co-dependency, the networks of friends, the years of photos, the accounts everything else is tied to, means there is rarely anywhere to go.</p>
+
+      <p>Previously, companies would put a lot of effort into obscuring these tactics, burying them deep in their privacy policies or annual reports. Now they do not even do that. They tell you they are going to do it. Meta recently launched Muse Image that lets anyone generate images using a public Instagram account simply by tagging it; opt-out, not opt-in, and no notification if it happened to you.<sup><a href="#fn2" id="ref2">2</a></sup> Meta pulled the feature within days, after activists objected.<sup><a href="#fn3" id="ref3">3</a></sup> But the reversal is its own kind of evidence. The company did not expect to be stopped. It launched first and waited to see who would mind.</p>
+
+      <p>The fact that companies make such decisions so openly has made it feel normal. Statements like "They already know everything about me, why does it matter now?" or "I don't have anything to hide" dominate when people are asked to make privacy-conscious decisions. This is what Herman and Chomsky called <i>manufactured consent</i>.<sup><a href="#fn4" id="ref4">4</a></sup> It is a consent gathered not by convincing people that data collection is good, but by making it feel insignificant, ubiquitous, and past the point of resisting. Researchers call it <i>digital resignation</i><sup><a href="#fn5" id="ref5">5</a></sup> and they find it is to be a rational reaction to a system people correctly perceive they cannot individually fight.</p>
+
+      <p>I do not blame the people, and I will not say they should simply keep themselves informed. These extractive systems have been built on years of human experiments. Psychologists were hired to make these systems addictive. Facebook's own founding president has described its design as deliberately exploiting "a vulnerability in human psychology."<sup><a href="#fn6" id="ref6">6</a></sup> Engineers were hired to build infrastructure that could sustain such an economy. Lawyers and lobbyists were paid to keep it running legally. This machinery has been maturing for decades. And against it stands one person, someone who has barely begun to understand how the world works before discovering they are already inside a system designed to keep them dependent on it.</p>
+
+      <p>Imagine asking a low-literacy farmer from Pakistan who opens TikTok at night for entertainment to be careful when selecting privacy prompts. He just wants to enjoy some time with the limited data plan he has. It does not matter to him if TikTok is accessing his location. He is unaware of how he could be manipulated or what could go wrong. Even if he wanted to do something about it, he would not know how. Shifting the burden of privacy onto people is ridiculous. Privacy should exist by design.</p>
+
+      <p>So, why is privacy even important online?</p>
+
+      <p>While there are several arguments, I will focus on one that most people will find relevant: surveillance.</p>
+
+      <p>Throughout history, governments have misused data to support their political interests. And these efforts have run hand in hand with private companies.</p>
+
+      <p>In 1910, the Eugenics Record Office (ERO) began as a private research institute to gather biological and social information about the American population.<sup><a href="#fn7" id="ref7">7</a></sup> Its data collection and lobbying helped lead to the Immigration Act of 1924, which restricted immigration from southern and eastern Europe on the pseudoscientific claim that these populations carried more "insanity" and "feeble-mindedness." The ERO's work also helped spread compulsory sterilization laws to more than 30 states, resulting in the sterilization of over 60,000 Americans without their consent.<sup><a href="#fn8" id="ref8">8</a></sup></p>
+
+      <p>Nazi Germany openly praised the American sterilization laws. Around the same time the ERO was operating, IBM's German subsidiary was working closely with the Nazi government to run a census in Germany, partly aimed at identifying Jews. IBM's punch-card technology was later used inside concentration camps to track inmates by category (political prisoner, homosexual, Jew) and by fate.<sup><a href="#fn9" id="ref9">9</a></sup></p>
+
+      <p>Decades later, in the aftermath of the 9/11 attacks, AT&amp;T gave the NSA access to billions of emails as they flowed across its domestic networks.<sup><a href="#fn10" id="ref10">10</a></sup> It was not the first time fear had been used to justify expanded surveillance.</p>
+
+      <p>The pattern continues today. Through Project Nimbus, Google and Amazon provide the Israeli government and military with cloud infrastructure and machine learning capabilities to facilitate their genocide in Palestine.<sup><a href="#fn11" id="ref11">11</a></sup> Pakistan recently installed a Lawful Intercept Management System on major telecom providers, giving the state access to phone calls, text messages, location, and browsing history the moment a number is entered into the system.<sup><a href="#fn12" id="ref12">12</a></sup> Palantir built ICE a system called ImmigrationOS for immigration enforcement, a tool that searches Medicaid data to map people it could deport and build a dossier on each one, including where they live.<sup><a href="#fn13" id="ref13">13</a></sup></p>
+
+      <p>All of this to say, our data is important. Everything may seem all right today, but data outlives the governments it was collected under, and when their interests change, the archive is already waiting. We have watched that story repeat for a hundred years. This is why privacy cannot be left to individual vigilance. The principle of <i>data protection by design</i><sup><a href="#fn14" id="ref14">14</a></sup> must be enforced, requiring systems to be private by default.</p>
+
+      <p>I will keep making my small, probably futile moves. I still will not let Gemini into my files. I will still scrub the names out of my documents before I send them anywhere. It probably won't matter. I do it anyway. It is a scary world we live in.</p>
+
+      <div class="footnotes">
+        <ol>
+          <li id="fn1">"Techno-feudalism" is Yanis Varoufakis's term for an economy where platform owners extract rent from digital territory rather than compete in markets: Varoufakis, Y. (2023). <em>Technofeudalism: What Killed Capitalism.</em> <a href="#ref1">↩</a></li>
+          <li id="fn2"><a href="https://www.washingtonpost.com/style/2026/07/10/how-stop-meta-using-your-instagram-photos-create-ai-images/" target="_blank" rel="noopener">Washington Post — "How to stop Meta from using your Instagram photos to create AI images" (2026)</a> <a href="#ref2">↩</a></li>
+          <li id="fn3"><a href="https://www.nytimes.com/2026/07/10/technology/meta-muse-images-instagram-removal.html" target="_blank" rel="noopener">New York Times — "Meta removes AI feature on Instagram after days of backlash" (2026)</a> <a href="#ref3">↩</a></li>
+          <li id="fn4">Herman, E. S., &amp; Chomsky, N. (1988). <em>Manufacturing Consent: The Political Economy of the Mass Media.</em> <a href="https://files.libcom.org/files/2022-04/manufacturing_consent.pdf" target="_blank" rel="noopener">files.libcom.org</a> <a href="#ref4">↩</a></li>
+          <li id="fn5">Draper, N. A., &amp; Turow, J. (2019). The corporate cultivation of digital resignation. <a href="https://www.cs.cornell.edu/~shmat/courses/cs5436/draper-turow.pdf" target="_blank" rel="noopener">cs.cornell.edu</a> <a href="#ref5">↩</a></li>
+          <li id="fn6"><a href="https://www.theguardian.com/technology/2017/nov/09/facebook-sean-parker-vulnerability-brain-psychology" target="_blank" rel="noopener">The Guardian — "Ex-Facebook president Sean Parker: site made to exploit human 'vulnerability'" (2017)</a> <a href="#ref6">↩</a></li>
+          <li id="fn7">Allen, G. E. (1986). The Eugenics Record Office at Cold Spring Harbor, 1910–1940: An essay in institutional history. <a href="https://scispace.com/pdf/the-eugenics-record-office-at-cold-spring-harbor-1910-1940-3c4ehn004d.pdf" target="_blank" rel="noopener">scispace.com</a> <a href="#ref7">↩</a></li>
+          <li id="fn8">Lombardo, P. A. (2008). <em>Three Generations, No Imbeciles: Eugenics, the Supreme Court, and Buck v. Bell.</em> Johns Hopkins University Press. <a href="#ref8">↩</a></li>
+          <li id="fn9">Black, E. (2001). <em>IBM and the Holocaust: The Strategic Alliance Between Nazi Germany and America's Most Powerful Corporation.</em> <a href="#ref9">↩</a></li>
+          <li id="fn10"><a href="https://www.propublica.org/article/nsa-spying-relies-on-atts-extreme-willingness-to-help" target="_blank" rel="noopener">ProPublica — "NSA Spying Relies on AT&T's 'Extreme Willingness to Help'" (2015)</a> <a href="#ref10">↩</a></li>
+          <li id="fn11"><a href="https://www.accessnow.org/publication/artificial-genocidal-intelligence-israel-gaza/" target="_blank" rel="noopener">Access Now — "Artificial Genocidal Intelligence: how Israel is automating human rights abuses and war crimes" (2024)</a> <a href="#ref11">↩</a></li>
+          <li id="fn12"><a href="https://www.amnesty.org/en/latest/news/2025/09/pakistan-mass-surveillance-and-censorship-machine-is-fueled-by-chinese-european-emirati-and-north-american-companies/" target="_blank" rel="noopener">Amnesty International — "Pakistan: Mass surveillance and censorship machine is fueled by Chinese, European, Emirati and North American companies" (2025)</a> <a href="#ref12">↩</a></li>
+          <li id="fn13"><a href="https://english.elpais.com/usa/2025-04-25/immigrationos-by-palantir-trumps-new-tool-to-completely-monitor-immigrants-lives.html" target="_blank" rel="noopener">Elpais — "ImmigrationOS by Palantir: Trump’s new tool to ‘completely’ track immigrants’ lives" (2025)</a> <a href="#ref13">↩</a></li>
+          <li id="fn14"><a href="https://www.legiscope.com/blog/gdpr-article-25-privacy-by-design.html" target="_blank" rel="noopener">Legiscope — "GDPR Article 25: Data Protection by Design and by Default" (2026)</a> <a href="#ref14">↩</a></li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+      </a>
+      <ul class="footer-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#blog">Blogs</a></li>
+        <li><a href="index.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+</script>
+
+</body>
+</html>
