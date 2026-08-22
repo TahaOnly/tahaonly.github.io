@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="&quot;what are the most important problems in your field?&quot; – a blog by Taha">
+<title>"what are the most important problems in your field?" – Taha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --subtle: #9a9a9a;
+    --border: #e8e4dc;
+    --tag-bg: #f0ede8;
+    --nav-height: 64px;
+    --max-w: 680px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-logo img { height: 36px; width: auto; display: block; }
+
+  /* LAYOUT */
+  main { padding-top: var(--nav-height); }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+
+  /* BACK LINK */
+  .back-link {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-top: 60px;
+    margin-bottom: 48px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--text); }
+
+  /* POST HEADER */
+  .post-header {
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+  }
+
+  .post-title {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .post-date {
+    font-size: 13px;
+    color: var(--subtle);
+  }
+
+  /* POST BODY */
+  .post-body { padding: 0 0 60px; }
+
+  .post-body p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .post-body p:last-child { margin-bottom: 0; }
+
+  .post-tldr {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--subtle);
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    font-style: italic;
+  }
+
+  sup {
+    font-size: 11px;
+    color: var(--subtle);
+    vertical-align: super;
+    line-height: 0;
+  }
+
+  sup a {
+    color: var(--subtle);
+    text-decoration: none;
+  }
+  sup a:hover { color: var(--text); }
+
+  /* FOOTNOTES */
+  .footnotes {
+    margin-top: 60px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    padding-bottom: 80px;
+  }
+
+  .footnotes ol {
+    list-style: decimal;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footnotes li {
+    font-size: 13px;
+    color: var(--subtle);
+    line-height: 1.6;
+  }
+
+  .footnotes li a {
+    color: var(--subtle);
+    text-underline-offset: 2px;
+  }
+  .footnotes li a:hover { color: var(--text); }
+
+  /* FOOTER */
+  footer { padding: 40px 0; border-top: 1px solid var(--border); }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo img { height: 28px; width: auto; display: block; }
+
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--text); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .nav-inner { padding: 0 20px; }
+    .container { padding: 0 20px; }
+    .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+    </a>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <a class="back-link" href="index.html#blog">← Back to Blogs</a>
+
+    <div class="post-header">
+      <h1 class="post-title">"what are the most important problems in your field?"</h1>
+      <p class="post-date">22 August 2026</p>
+    </div>
+
+    <div class="post-body">
+
+      <p class="post-tldr">tldr: I want to build new methods and validate existing ones for studying security and privacy in populations our field has never had valid ways to study, starting with low socioeconomic status (SES) communities in Pakistan. It took some sort of a process for me to get to this point, and I think it is worth telling too.</p>
+
+      <p>A couple of months before my Qualifying Exam, which took place early this month, I was wrestling with several anxious thoughts. I had to speak in front of three professors about my progress so far in the PhD program and lay out my future PhD vision to convince them that I can do (good) research. These professors, having decades of research experience between them, had the ability to pull apart my arguments to identify a foundational question I had not deliberated over before.</p>
+
+      <p>What is a PhD, anyway, I wondered.</p>
+
+      <p>Arvind Narayanan, a professor at Princeton, wrote a <a href="https://www.linkedin.com/feed/update/urn:li:activity:7308809988620124161/" target="_blank" rel="noopener">LinkedIn post</a><sup><a href="#fn1" id="ref1">1</a></sup> in 2025 arguing that research is more effective when we pick projects, not problems, because a project is defined by "a change we want to see in the world." It shifts the researcher's focus away from narrow research questions and toward something larger.</p>
+
+      <p>I feel a PhD can be understood the same way, a project where each publication becomes a rung on a ladder climbing toward a solution. We may never finish the project within a single PhD, but we can reach a point where the solution is finally in sight. It's Newton's line, turned inward: "If I have seen further than others, it is because I've stood on the shoulders of giants [i.e. your own, in this case]."</p>
+
+      <p>A natural follow up question occurred to me: what change do I want to make in this world? I sat with that for a while. Richard Hamming used to ask his colleagues at Bell Labs what's now known as the Hamming Question, "What are the important problems of your field?". Then he'd follow up with, "What important problems are you working on?" If the answer to the second didn't match the first, Hamming would say, "If what you are doing is not important, and if you don't think it is going to lead to something important, why are you at Bell Labs working on it?"</p>
+
+      <p>The Hamming Question is a great question to sit with, but I felt the 'importance' of a problem is purely subjective. What I find important may not matter to someone else, and that's fine. All kinds of research are worth doing, regardless of how important they seem to anyone else. So instead of chasing some external definition of importance, I chose to anchor my PhD in something I could actually own i.e. my personal values.<sup><a href="#fn2" id="ref2">2</a></sup></p>
+
+      <p>But then, what are the values that I (un)consciously return to? I tried to draw a narrative around my prior publications to figure out a connection between them. I found none. Worse, I realized I had simply jumped at whatever opportunity came next, without asking why. To give myself some credit though, I was never afforded the opportunity to think this way throughout my life. I was guided toward whichever option best supported the status quo.</p>
+
+      <p>I felt stuck.</p>
+
+      <p>This was also the time when I was reading a lot: news and articles on digital safety, investigative journalism like Susan Abulhawa's anthology <em>Every Moment Is a Life</em>, and histories of colonialism like William Dalrymple's <em>The Anarchy</em>. The more I read about the state of the world and humanity's past, the more pessimistic I became about its present and future.</p>
+
+      <p>This is when I started writing.</p>
+
+      <p>In one of his essays,<sup><a href="#fn3" id="ref3">3</a></sup> Henrik Karlsson talks about how by "making things more rigid [through writing], it's easier to break them." I put my tangled thoughts into words, looking for a suitable attack to carve my way in. At the same time, I started talking more openly with friends about what was going on in my head.</p>
+
+      <p>The more I wrote and talked, the more a belief began to crystallize that research for me was a form of advocacy. I wanted my work to amplify the voices of marginalized and at-risk communities, through research aimed at improving their digital safety. My previous publications, I realized, were already a product of those values.</p>
+
+      <p>But I also noticed a critical gap in usable security and privacy research. The field doesn't have well-validated methods to even study the marginalized communities I wanted to speak for, such as people from low socioeconomic status backgrounds or immigrants. Most of what we know about how people create passwords, respond to warnings, or make privacy decisions comes from a narrow slice of the world, the Western, Educated, Industrialized, Rich, and Democratic populations. WEIRD,<sup><a href="#fn4" id="ref4">4</a></sup> for short.</p>
+
+      <p>A 2024 survey by Hasegawa et al. found that between 2017 and 2021, around 79% of usable security and privacy papers drew on Western participant samples, largely because geographic and linguistic barriers make it hard for researchers, who are predominantly affiliated with Western institutions, to reach anyone else.<sup><a href="#fn5" id="ref5">5</a></sup></p>
+
+      <p>And even when we do bridge that gap, even when we collaborate with local researchers from non-WEIRD populations, I believe we do not have validated methods that actually translate to non-WEIRD contexts.</p>
+
+      <p>Usable security and privacy borrows its methods from HCI at large (which in turn from social sciences), predominantly relying on interviews, experiments, and surveys.<sup><a href="#fn6" id="ref6">6</a></sup> Linxen et al. found that 73% of CHI's own published findings rest on Western samples.<sup><a href="#fn7" id="ref7">7</a></sup> So when we import methods built and validated almost entirely in WEIRD contexts, we import their untested assumptions along with them.</p>
+
+      <p>Take something as basic as establishing a shared vocabulary with our participants. Prior work has shown that low SES populations in Pakistan do not recognize the word "smartphone," and reach for words like "mobile" or "phone" instead.<sup><a href="#fn8" id="ref8">8</a></sup> Terms like "security" are perceived just as differently. So before we can even begin recruiting, we first need to build a shared vocabulary with our participants, through conversations that let us find the language they're actually comfortable with.</p>
+
+      <p>More personally, when piloting our harassment study<sup><a href="#fn9" id="ref9">9</a></sup> with low-literate, low-income women, we hit a wall. Several women told us that simply being seen discussing harassment could get them labeled <em>besharam</em> or shameless, risking their livelihood. We made the responsible call not to recruit them. But that gap, not knowing, and not yet having a safe way to ask, is what I wish to close with my work in the space of usable security and privacy.</p>
+
+      <p>I want my PhD to address this gap by extending usable security and privacy research beyond WEIRD populations. Not by simply recruiting more diverse participants, but by building new methods and validating existing ones, so our science can finally reach and represent communities it currently has limited valid ways to study.</p>
+
+      <p>I consider this work as a version of my advocacy, an effort to make methods accessible so more and more research could leverage these methods to amplify the voices of those systematically suppressed.</p>
+
+      <p>This matters for two reasons. First, for the people themselves: once we can properly study non-WEIRD communities, we can build systems that give them agency over their own security and privacy. And that agency leads to better safety. Second, for our science: once our methods hold up outside WEIRD populations, usable security and privacy research can be far more generalizable.</p>
+
+      <p>This is a huge project, and one PhD can only scratch the surface. So to start, I want to work specifically with low SES communities in Pakistan, to understand how they perceive and enact security and privacy. Low SES communities are marginalized by low income, limited literacy, limited digital exposure, and predominantly informal occupations, among other factors.</p>
+
+      <p>They matter to this work for three reasons. First, they make up a significant and growing share of the world's mobile userbase.<sup><a href="#fn10" id="ref10">10</a></sup> Second, designing for their constraints tends to produce systems that are more robust for everyone, sometimes called the curb-cut effect.<sup><a href="#fn11" id="ref11">11</a></sup> And third, addressing their digital exclusion is a necessary step toward closing the digital divide.<sup><a href="#fn12" id="ref12">12</a></sup></p>
+
+      <p>So the first stage of my PhD is understanding the challenges of doing usable security and privacy research with low SES populations in the first place. That means going into the field, building trust with communities, developing a shared vocabulary with them, understanding how they actually enact privacy and security, and documenting how to navigate the challenges that come up along the way.</p>
+
+      <p>The second stage of my PhD turns from understanding the problem to building new methods, giving the research community better tools to actually study low SES populations. I've already planned some studies toward that goal, which I am very excited to pursue.</p>
+
+      <p>I can already see how much this PhD is going to shape me as I go through it. I got my first paper rejection less than a year in. I've already been to my first PhD conference where I mustered up the courage to talk with researchers in my field I looked up to.</p>
+
+      <p>Forrest Gump said it best: "Life was like a box of chocolates. You never know what you're gonna get." I suspect my PhD is going to keep handing me unprecedented challenges, and I guess I'm excited, for now, to take them on, even the ones that turn out to be a dark chocolate (howcanpeopleeatthose).</p>
+
+      <div class="footnotes">
+        <ol>
+          <li id="fn1">Arvind Narayanan, Princeton. <a href="https://www.linkedin.com/feed/update/urn:li:activity:7308809988620124161/" target="_blank" rel="noopener">LinkedIn post (2025)</a> <a href="#ref1">↩</a></li>
+          <li id="fn2"><a href="https://markmanson.net/personal-values" target="_blank" rel="noopener">Personal Values: How to Know Who You Really Are</a> — Mark Manson <a href="#ref2">↩</a></li>
+          <li id="fn3">Henrik Karlsson, "How to think in writing" <a href="#ref3">↩</a></li>
+          <li id="fn4">Henrich et al. (2010), "The WEIRDest people in the world?" <a href="#ref4">↩</a></li>
+          <li id="fn5">Hasegawa et al. (2024), "How WEIRD is Usable Privacy and Security Research?" <a href="#ref5">↩</a></li>
+          <li id="fn6">Distler et al. (2021), "A Systematic Literature Review of Empirical Methods and Risk Representation in Usable Privacy and Security Research" <a href="#ref6">↩</a></li>
+          <li id="fn7">Linxen et al. (2021), "How WEIRD is CHI?" <a href="#ref7">↩</a></li>
+          <li id="fn8">Hashmi &amp; Sarfaraz et al. (2025), "Understanding the Security Advice Mechanisms of Low Socioeconomic Pakistanis" <a href="#ref8">↩</a></li>
+          <li id="fn9">Usman et al. (2026), "Understanding Gendered Experiences of Harassment Among Pakistani Young Adults Using Human-Centered Threat Modeling" <a href="#ref9">↩</a></li>
+          <li id="fn10">GSMA (2025), "The Mobile Economy" <a href="#ref10">↩</a></li>
+          <li id="fn11">Dorsey et al. (2020), "Racial Equity and Philanthropy: Disparities in Funding for Leaders of Color Leave Impact on the Table" <a href="#ref11">↩</a></li>
+          <li id="fn12">Redmiles et al. (2017), "Where is the Digital Divide?: A Survey of Security, Privacy, and Socioeconomics" <a href="#ref12">↩</a></li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+      </a>
+      <ul class="footer-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#blog">Blogs</a></li>
+        <li><a href="index.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+</script>
+
+</body>
+</html>
