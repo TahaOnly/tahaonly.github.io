@@ -230,12 +230,12 @@
     padding-left: 20px;
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 6px;
   }
 
   .honors-list li {
-    font-size: 0.9375rem;
-    line-height: 1.65;
+    font-size: 1.125rem;
+    line-height: 1.8;
     color: var(--muted);
   }
 
@@ -303,22 +303,21 @@
   .pub-entry-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 0 20px;
     align-items: center;
   }
 
-  .pub-tag {
-    display: inline-block;
-    padding: 2px 9px;
-    border: 1px solid var(--ctl);
-    border-radius: 4px;
-    font-size: 0.875rem;
-    color: var(--muted);
-    text-decoration: none;
-    background: var(--surface);
-    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  /* Standard hyperlink (see DESIGN_GUIDELINE.md > Links) */
+  .pub-link {
+    font-size: 0.9375rem;
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-thickness 0.18s;
   }
-  .pub-tag:hover { color: var(--text); border-color: var(--muted); background: var(--tag-bg); }
+  .pub-link:hover { text-decoration-thickness: 2px; }
 
   .pub-award-badge {
     font-size: 0.875rem;
@@ -583,7 +582,7 @@
   h1.header-logo { margin: 0; font-size: inherit; font-weight: inherit; line-height: 0; }
   .tab-list { display: flex; }
   .tab-btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 2px; }
-  .filter-btn, .pub-tag, .btn, .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .filter-btn, .pub-link, .btn, .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
   .cv-links { font-size: 0.9375rem; margin: 0 0 12px; color: var(--muted); }
   .cv-links a {
     color: var(--text); text-decoration: underline; text-decoration-color: currentColor;
@@ -593,6 +592,9 @@
     *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
     .project-card:hover { transform: none; box-shadow: none; border-color: var(--text); }
   }
+
+  /* Images: width/height attributes reserve space (no layout shift); CSS keeps them responsive */
+  :where(img[height]) { height: auto; }
 </style>
 </head>
 <body>
@@ -605,7 +607,7 @@
   <header>
     <div class="header-top">
       <h1 class="header-logo">
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha">
+        <img src="images/logo.svg" alt="Taha">
       </h1>
       <div class="header-text">
         <p class="header-tagline">hi. i'm taha aka taha only, taha taha, taha -,...</p>
@@ -635,7 +637,7 @@
       <!-- photo floated right — text wraps around it -->
       <div class="home-right">
         <img class="home-portrait"
-          src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66e371fa30c5f763e9a446f2_Portfolio.jpg"
+          src="images/portrait.webp" width="800" height="789" decoding="async"
           alt="Photo of Taha">
       </div>
 
@@ -690,7 +692,7 @@
           <p class="pub-entry-authors">Warda Usman*, <strong>Taha*</strong>, Saba Iqbal, Amna Batool, Daniel Zappala <em style="font-size:0.875rem; color:var(--subtle);">[* joint first authors]</em></p>
           <p class="pub-entry-venue">In ACM CHI Conference on Human Factors in Computing Systems (CHI), Barcelona, Spain</p>
           <div class="pub-entry-links">
-            <a class="pub-tag" href="https://dl.acm.org/doi/10.1145/3772318.3793807" target="_blank" rel="noopener">Paper</a>
+            <a class="pub-link" aria-label="Paper: Understanding Gendered Experiences of Harassment Among Pakistani Young Adults Using Human-Centered Threat Modeling" href="https://dl.acm.org/doi/10.1145/3772318.3793807" target="_blank" rel="noopener">Paper</a>
           </div>
         </div>
 
@@ -707,8 +709,8 @@
           <p class="pub-entry-authors">Warda Usman*, John Sadik*, <strong>Taha</strong>, Ran Elgedawy, Scott Routi, Daniel Zappala <em style="font-size:0.875rem; color:var(--subtle);">[* joint first authors]</em></p>
           <p class="pub-entry-venue">In IEEE Symposium on Security and Privacy (S&amp;P), San Francisco, USA</p>
           <div class="pub-entry-links">
-            <a class="pub-tag" href="https://ieeexplore.ieee.org/document/11023485" target="_blank" rel="noopener">Paper</a>
-            <a class="pub-tag" href="https://github.com/Usable-Security-and-Privacy-Lab/IEEESP-Immigrants/blob/main/Research_Paper.pdf" target="_blank" rel="noopener">PDF</a>
+            <a class="pub-link" aria-label="Paper: The Security and Privacy Experiences of First- and Second-Generation Pakistani Immigrants to America: Challenges, Parent-Child Dynamics, and Threat Models" href="https://ieeexplore.ieee.org/document/11023485" target="_blank" rel="noopener">Paper</a>
+            <a class="pub-link" aria-label="PDF: The Security and Privacy Experiences of First- and Second-Generation Pakistani Immigrants to America: Challenges, Parent-Child Dynamics, and Threat Models" href="https://github.com/Usable-Security-and-Privacy-Lab/IEEESP-Immigrants/blob/main/Research_Paper.pdf" target="_blank" rel="noopener">PDF</a>
           </div>
         </div>
 
@@ -725,8 +727,8 @@
           <p class="pub-entry-authors">Afaq Ashraf*, <strong>Taha*</strong>, Nida ul Habib Bajwa, Cornelius J. König, Mobin Javed, Maryam Mustafa <em style="font-size:0.875rem; color:var(--subtle);">[* joint first authors]</em></p>
           <p class="pub-entry-venue">In Symposium on Usable Privacy and Security (SOUPS), Anaheim, USA &nbsp;·&nbsp; <span class="pub-award-badge"><span role="img" aria-label="Award:">🏆</span> IAPP SOUPS Privacy Award</span></p>
           <div class="pub-entry-links">
-            <a class="pub-tag" href="https://www.usenix.org/conference/soups2023/presentation/ashraf" target="_blank" rel="noopener">Paper</a>
-            <a class="pub-tag" href="https://www.youtube.com/watch?v=1Dz4PG6WOVU" target="_blank" rel="noopener">Video</a>
+            <a class="pub-link" aria-label="Paper: &quot;Stalking is immoral but not illegal&quot;: Understanding Security, Cyber Crimes and Threats in Pakistan" href="https://www.usenix.org/conference/soups2023/presentation/ashraf" target="_blank" rel="noopener">Paper</a>
+            <a class="pub-link" aria-label="Video: &quot;Stalking is immoral but not illegal&quot;: Understanding Security, Cyber Crimes and Threats in Pakistan" href="https://www.youtube.com/watch?v=1Dz4PG6WOVU" target="_blank" rel="noopener">Video</a>
           </div>
         </div>
 
@@ -748,7 +750,7 @@
     <div class="projects-grid">
 
       <a class="project-card" href="ideawave.html" data-tags="ux">
-        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08efb86ee29db88804_Frame%2017-2.jpg" alt="" loading="lazy">
+        <img class="project-card-img" src="images/card-ideawave.webp" width="840" height="613" decoding="async" alt="" loading="lazy">
         <div class="project-card-body">
           <h3 class="project-title">IdeaWave</h3>
           <p class="project-subtitle">How to make brainstorming fun and effective for nonexperts?</p>
@@ -757,7 +759,7 @@
       </a>
 
       <a class="project-card" href="shopping.html" data-tags="ux">
-        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08e521f96303f31429_Frame%2042.png" alt="" loading="lazy">
+        <img class="project-card-img" src="images/card-shopping.webp" width="840" height="613" decoding="async" alt="" loading="lazy">
         <div class="project-card-body">
           <h3 class="project-title">Embodied Shopping</h3>
           <p class="project-subtitle">How to incorporate critical thinking in kids through shopping?</p>
@@ -766,7 +768,7 @@
       </a>
 
       <a class="project-card" href="urdu.html" data-tags="ux">
-        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08e310dce802dcb54f_Frame%2043.png" alt="" loading="lazy">
+        <img class="project-card-img" src="images/card-urdu.webp" width="840" height="613" decoding="async" alt="" loading="lazy">
         <div class="project-card-body">
           <h3 class="project-title">Designing for Urdu</h3>
           <p class="project-subtitle">How to create a design guideline for Urdu language?</p>
@@ -775,7 +777,7 @@
       </a>
 
       <div class="project-card no-link" data-tags="visual">
-        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/6716ec29ffd66e4318724e84_Tamaam.png" alt="" loading="lazy">
+        <img class="project-card-img" src="images/card-tamaam-e-muhabbat.webp" width="377" height="229" decoding="async" alt="" loading="lazy">
         <div class="project-card-body">
           <h3 class="project-title">Tamaam-e-Muhabbat</h3>
           <p class="project-subtitle">A VR experience on folktales of Pakistan</p>
@@ -788,7 +790,7 @@
       </div>
 
       <div class="project-card no-link" data-tags="visual">
-        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bb9feeb119147aa3391c9_Silent%20Strides.png" alt="" loading="lazy">
+        <img class="project-card-img" src="images/card-silent-strides.webp" width="377" height="229" decoding="async" alt="" loading="lazy">
         <div class="project-card-body">
           <h3 class="project-title">Silent Strides</h3>
           <p class="project-subtitle">A web application for people with disabilities to share their daily experiences</p>
@@ -799,7 +801,7 @@
       </div>
 
       <div class="project-card no-link" data-tags="visual">
-        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bf09f2e05d0ae2e3e7ea2_Draft%207-min%201.png" alt="" loading="lazy">
+        <img class="project-card-img" src="images/card-baby-names-legacy.webp" width="377" height="229" decoding="async" alt="" loading="lazy">
         <div class="project-card-body">
           <h3 class="project-title">Baby Names Legacy</h3>
           <p class="project-subtitle">A visualization on the popularity of baby names in US</p>
@@ -811,7 +813,7 @@
       </div>
 
       <a class="project-card full" href="band-baaja-baraat.html" data-tags="product">
-        <img class="project-card-img" src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bf97b226af9a6fa325a80_Frame%2045.png" alt="" loading="lazy">
+        <img class="project-card-img" src="images/card-band-baaja-baraat.webp" width="377" height="275" decoding="async" alt="" loading="lazy">
         <div class="project-card-body">
           <h3 class="project-title">Band Baaja Baraat</h3>
           <p class="project-subtitle">A marketplace for wedding industry vendors</p>

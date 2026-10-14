@@ -72,7 +72,7 @@
 
   .back-link {
     display: inline-flex; align-items: center; gap: 6px;
-    font-size: 0.875rem; color: var(--muted); text-decoration: none;
+    font-size: 0.9375rem; color: var(--muted); text-decoration: none;
     margin-bottom: 36px; transition: color 0.2s;
   }
   .back-link:hover { color: var(--text); }
@@ -90,7 +90,7 @@
   }
 
   .project-page-tagline {
-    font-size: 1.125rem; color: var(--muted); line-height: 1.7;
+    font-size: 1.1875rem; color: var(--muted); line-height: 1.7;
     max-width: 680px; margin-bottom: 40px;
   }
 
@@ -104,19 +104,19 @@
     font-size: 0.875rem; font-weight: 500; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--subtle); display: block; margin-bottom: 8px;
   }
-  .meta-value { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
+  .meta-value { font-size: 0.9375rem; color: var(--muted); line-height: 1.5; }
 
   figure { margin: 32px 0; }
   figure:first-child { margin-top: 0; }
   figure:last-child { margin-bottom: 0; }
   figure img { width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block; }
-  figcaption { font-size: 0.875rem; color: var(--subtle); text-align: center; margin-top: 10px; line-height: 1.5; }
+  figcaption { font-size: 0.9375rem; color: var(--subtle); text-align: center; margin-top: 10px; line-height: 1.5; }
 
   .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 32px 0; }
   .image-grid.three { grid-template-columns: 1fr 1fr 1fr; }
 
   .prose {
-    font-size: 1rem; color: var(--muted); line-height: 1.8;
+    font-size: 1.125rem; color: var(--muted); line-height: 1.8;
     max-width: 720px; margin-bottom: 20px;
   }
   .prose:last-child { margin-bottom: 0; }
@@ -160,7 +160,7 @@
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px; align-items: flex-start;
   }
   .i-bullet { font-size: 0.875rem; color: var(--subtle); flex-shrink: 0; line-height: 1.6; margin-top: 0; }
-  .insight-item p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+  .insight-item p { font-size: 1rem; color: var(--muted); line-height: 1.6; }
 
   /* STAT CALLOUT */
   .stat-box {
@@ -211,7 +211,7 @@
   }
   .finding-item:last-child { border-bottom: none; }
   .f-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink: 0; margin-top: 8px; }
-  .finding-item p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+  .finding-item p { font-size: 1rem; color: var(--muted); line-height: 1.6; }
 
   /* WEBSITE VERSIONS */
   .versions-grid {
@@ -243,11 +243,11 @@
     text-transform: uppercase; color: var(--subtle); margin-bottom: 4px;
   }
 
-  .version-card-body p { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
+  .version-card-body p { font-size: 1rem; color: var(--muted); line-height: 1.5; }
 
   /* QUOTE */
   .callout {
-    font-size: 1.0625rem; font-style: italic; color: var(--muted);
+    font-size: 1.125rem; font-style: italic; color: var(--muted);
     line-height: 1.7; padding: 24px 28px; border-left: 3px solid var(--border);
     margin: 28px 0;
   }
@@ -275,11 +275,11 @@
   }
 
   .outcome-card-body { padding: 16px; }
-  .outcome-card-body p { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
+  .outcome-card-body p { font-size: 1rem; color: var(--muted); line-height: 1.5; }
 
   /* REFLECTION */
   .reflection-box {
-    font-size: 1rem; font-style: italic; color: var(--muted);
+    font-size: 1.125rem; font-style: italic; color: var(--muted);
     line-height: 1.8; padding: 32px;
     background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
   }
@@ -298,7 +298,7 @@
   .footer-inner { display: flex; align-items: center; justify-content: space-between; }
   .footer-logo img { height: 28px; width: auto; display: block; }
   .footer-links { display: flex; gap: 24px; list-style: none; }
-  .footer-links a { text-decoration: none; color: var(--muted); font-size: 0.875rem; transition: color 0.2s; }
+  .footer-links a { text-decoration: none; color: var(--muted); font-size: 0.9375rem; transition: color 0.2s; }
   .footer-links a:hover { color: var(--text); }
 
   @media (max-width: 700px) {
@@ -338,6 +338,9 @@
     *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
     .btn:hover { transform: none; }
   }
+
+  /* Images: width/height attributes reserve space (no layout shift); CSS keeps them responsive */
+  :where(img[height]) { height: auto; }
 </style>
 </head>
 <body>
@@ -347,7 +350,7 @@
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
-      <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
+      <img src="images/logo.svg" alt="Taha – home">
     </a>
   </div>
 </nav>
@@ -374,7 +377,7 @@
       </div>
 
       <figure style="margin: 0;">
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bf97b226af9a6fa325a80_Frame%2045.png" alt="Band Baaja Baraat wedding marketplace" loading="eager">
+        <img src="images/card-band-baaja-baraat.webp" width="377" height="275" decoding="async" fetchpriority="high" alt="Band Baaja Baraat landing page: red headline “Helping you to connect and book reliable vendors of the wedding industry”, a “Fill our form” button and a couple illustration" loading="eager">
         <figcaption>Band Baaja Baraat — a one-stop marketplace for Pakistani wedding planning.</figcaption>
       </figure>
     </div>
@@ -440,22 +443,22 @@
 
       <div class="image-grid">
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67202dea0b7b2b422372c7f2_wedding%20hall.jpg" alt="Wedding hall in Faisal Town" loading="lazy">
+          <img src="images/bbb-wedding-hall.webp" width="840" height="472" decoding="async" alt="Wedding hall lobby in Faisal Town with a decorated ceiling and pillars, and a few people standing at the far end" loading="lazy">
           <figcaption>Visiting a wedding hall in Faisal Town to understand the booking procedure, and get an estimate of the expenses involved. Wedding hall owners only allowed the customers to choose from their selected list of vendors.</figcaption>
         </figure>
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67202e273b6403d743d91914_vendor%20sheet.jpg" alt="Vendor pricing sheets" loading="lazy">
+          <img src="images/bbb-vendor-sheet.webp" width="840" height="607" decoding="async" alt="A hand holding a banquet hall’s printed menu and price sheet, listing Menu 1 to Menu 4 with prices and terms and conditions" loading="lazy">
           <figcaption>We gathered the menu items, and business cards from all venues to analyze how the rates differed region to region.</figcaption>
         </figure>
       </div>
 
       <div class="image-grid" style="margin-top: 0;">
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67202e3d119fb7e0980e929e_florists%20(2).jpg" alt="Interviews with florists" loading="lazy">
+          <img src="images/bbb-florists.webp" width="840" height="840" decoding="async" alt="Florists selling flower garlands and bouquets from stalls along a covered street at night" loading="lazy">
           <figcaption>We interviewed florists of Allama Iqbal Town to check if they could use mobile applications. The vendors used WhatsApp for bookings and kept digital catalogues in the form of pictures.</figcaption>
         </figure>
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67202e55befd4e6492f4fbc1_wedding%20cards.jpg" alt="Wedding card market" loading="lazy">
+          <img src="images/bbb-wedding-card-market.webp" width="840" height="840" decoding="async" alt="Wedding card shops with Urdu signboards advertising wedding card printing and listing phone numbers" loading="lazy">
           <figcaption>Shadman Market is famous for wedding card vendors. The vendors were seriously concerned about theft of their card designs which is the major reason they did not want to open online shops.</figcaption>
         </figure>
       </div>
@@ -492,11 +495,11 @@
 
       <div class="image-grid">
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67214025c56d94ca50de8f7f_logo%20iteration.jpg" alt="Logo iteration sketches" loading="lazy">
+          <img src="images/bbb-logo-sketches.webp" width="638" height="638" decoding="async" alt="Pen sketches of logo ideas on lined paper, showing joined letter b shapes" loading="lazy">
           <figcaption>Early logo sketches exploring the triple-B concept.</figcaption>
         </figure>
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/6721403cdeea100e23189d3f_logo.jpg" alt="Final Band Baaja Baraat logo" loading="lazy">
+          <img src="images/bbb-logo.webp" width="500" height="500" decoding="async" alt="Final Band Baaja Baraat logo: a bold red letter b with layered shadows" loading="lazy">
           <figcaption>The final logo — a triple-B monogram in signature red.</figcaption>
         </figure>
       </div>
@@ -513,21 +516,21 @@
 
       <div class="versions-grid">
         <div class="version-card">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67214315868bc92ceeda7d83_website%20zero%20version.png" alt="Website version zero" loading="lazy">
+          <img src="images/bbb-website-v0.webp" width="840" height="374" decoding="async" alt="Early website mock-up on a dark background with a bride seated by a pool at night, a login form for email and password, and a navigation bar" loading="lazy">
           <div class="version-card-body">
             <p class="version-label">Version 0</p>
             <p>Initial launch — a simple static page with a contact form and brief pitch.</p>
           </div>
         </div>
         <div class="version-card">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67214333d0c23c36f596823a_website%20first%20version.png" alt="Website first iteration" loading="lazy">
+          <img src="images/bbb-website-v1.webp" width="840" height="813" decoding="async" alt="Second website version split into four blocks: blue wedding illustrations of a couple with fireworks, a centered sign-up area, and an About us text block" loading="lazy">
           <div class="version-card-body">
             <p class="version-label">Version 1</p>
             <p>First iteration — added vendor categories and improved information structure.</p>
           </div>
         </div>
         <div class="version-card">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/671bfe8b2b6bb0d87cb162a9_website.png" alt="Website third iteration" loading="lazy">
+          <img src="images/bbb-website-v3.webp" width="840" height="672" decoding="async" alt="Final website design with a red headline, an illustration of a couple, an About us list of four services, and a newsletter sign-up form" loading="lazy">
           <div class="version-card-body">
             <p class="version-label">Version 3</p>
             <p>Final iteration — refined design with clearer CTAs and expanded vendor listings.</p>
@@ -549,13 +552,13 @@
 
       <div class="outcome-grid">
         <div class="outcome-card">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67214b159a4e977e69b035ae_serving%20customers.jpg" alt="Serving customers" loading="lazy">
+          <img src="images/bbb-serving-customers.webp" width="840" height="473" decoding="async" alt="Floral gift baskets of roses and white flowers with a printed wedding invitation card" loading="lazy">
           <div class="outcome-card-body">
             <p>Documentation from a customer service session — matching vendors to wedding requirements.</p>
           </div>
         </div>
         <div class="outcome-card">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/67214b3c614df579c5caa81c_wedding%20card.jpg" alt="Wedding card sample" loading="lazy">
+          <img src="images/bbb-wedding-card-sample.webp" width="840" height="951" decoding="async" alt="Sample digital wedding invitation on a navy background with the title “Barat 26/11” and ceremony details, with the venue lines blurred" loading="lazy">
           <div class="outcome-card-body">
             <p>A wedding card sample sourced through a vendor partnership — part of our curated vendor network.</p>
           </div>
@@ -600,7 +603,7 @@
           <p class="next-label">Back to start</p>
           <p class="next-title">IdeaWave →</p>
         </div>
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08efb86ee29db88804_Frame%2017-2.jpg" alt="IdeaWave" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border);">
+        <img src="images/card-ideawave.webp" width="840" height="613" decoding="async" alt="" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border);">
       </a>
     </div>
   </section>
@@ -611,7 +614,7 @@
   <div class="container">
     <div class="footer-inner">
       <a class="footer-logo" href="index.html">
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
+        <img src="images/logo.svg" alt="Taha – home">
       </a>
       <ul class="footer-links">
         <li><a href="index.html#projects">Projects</a></li>

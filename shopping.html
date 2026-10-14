@@ -74,7 +74,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--muted);
     text-decoration: none;
     margin-bottom: 36px;
@@ -105,7 +105,7 @@
   }
 
   .project-page-tagline {
-    font-size: 1.125rem;
+    font-size: 1.1875rem;
     color: var(--muted);
     line-height: 1.7;
     max-width: 680px;
@@ -131,7 +131,7 @@
     margin-bottom: 8px;
   }
 
-  .meta-value { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
+  .meta-value { font-size: 0.9375rem; color: var(--muted); line-height: 1.5; }
 
   figure { margin: 32px 0; }
   figure:first-child { margin-top: 0; }
@@ -145,7 +145,7 @@
   }
 
   figcaption {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--subtle);
     text-align: center;
     margin-top: 10px;
@@ -162,7 +162,7 @@
   .image-grid.three { grid-template-columns: 1fr 1fr 1fr; }
 
   .prose {
-    font-size: 1rem;
+    font-size: 1.125rem;
     color: var(--muted);
     line-height: 1.8;
     max-width: 720px;
@@ -192,7 +192,7 @@
     margin-top: 2px;
   }
 
-  .insight-item p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+  .insight-item p { font-size: 1rem; color: var(--muted); line-height: 1.6; }
 
   /* COMPETENCY CARDS */
   .competency-grid {
@@ -219,13 +219,13 @@
   .competency-card-body { padding: 16px; }
 
   .competency-card-body h4 {
-    font-size: 0.9375rem;
+    font-size: 1.0625rem;
     font-weight: 500;
     color: var(--text);
     margin-bottom: 4px;
   }
 
-  .competency-card-body p { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
+  .competency-card-body p { font-size: 1rem; color: var(--muted); line-height: 1.5; }
 
   /* STEPS */
   .steps-grid {
@@ -260,7 +260,7 @@
     margin-bottom: 4px;
   }
 
-  .step-card-body p { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
+  .step-card-body p { font-size: 1rem; color: var(--muted); line-height: 1.5; }
 
   /* OBSERVATION AGES */
   .age-list { display: flex; flex-direction: column; }
@@ -282,11 +282,11 @@
     padding-top: 2px;
   }
 
-  .age-item p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+  .age-item p { font-size: 1rem; color: var(--muted); line-height: 1.6; }
 
   /* REFLECTION */
   .reflection-box {
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-style: italic;
     color: var(--muted);
     line-height: 1.8;
@@ -326,7 +326,7 @@
   .footer-inner { display: flex; align-items: center; justify-content: space-between; }
   .footer-logo img { height: 28px; width: auto; display: block; }
   .footer-links { display: flex; gap: 24px; list-style: none; }
-  .footer-links a { text-decoration: none; color: var(--muted); font-size: 0.875rem; transition: color 0.2s; }
+  .footer-links a { text-decoration: none; color: var(--muted); font-size: 0.9375rem; transition: color 0.2s; }
   .footer-links a:hover { color: var(--text); }
 
   @media (max-width: 700px) {
@@ -367,6 +367,9 @@
     *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
     .btn:hover { transform: none; }
   }
+
+  /* Images: width/height attributes reserve space (no layout shift); CSS keeps them responsive */
+  :where(img[height]) { height: auto; }
 </style>
 </head>
 <body>
@@ -376,7 +379,7 @@
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
-      <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
+      <img src="images/logo.svg" alt="Taha – home">
     </a>
   </div>
 </nav>
@@ -411,7 +414,7 @@
       </div>
 
       <figure style="margin: 0;">
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66e359d279e250e136db28a6_compressed%20fin%20resp.jpg" alt="Embodied Shopping grocery toolkit for children" loading="eager">
+        <img src="images/shopping-toolkit.webp" width="1560" height="1250" decoding="async" fetchpriority="high" alt="Flat layout of the pink and navy Embodied Shopping toolkit: a “Let’s go shopping!” instruction sheet, grocery and budget lists, paper currency, and piggy-bank and wallet pouches" loading="eager">
         <figcaption>The Embodied Shopping toolkit — a physical kit designed to make grocery shopping educational and engaging for children aged 7–12.</figcaption>
       </figure>
     </div>
@@ -471,13 +474,13 @@
 
       <div class="image-grid three" style="margin-bottom: 32px;">
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb1cc9e467640e926daba0_1.png" alt="Observation 1 at Walmart" loading="lazy">
+          <img src="images/shopping-walmart-observation-1.webp" width="532" height="510" decoding="async" alt="A parent and two children walking down a Walmart aisle lined with household goods" loading="lazy">
         </figure>
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb1cdbb5ff4e0f988ac005_2.png" alt="Observation 2 at Walmart" loading="lazy">
+          <img src="images/shopping-walmart-observation-2.webp" width="535" height="511" decoding="async" alt="Two children and an adult watching a video-game display next to the book section of a Walmart" loading="lazy">
         </figure>
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb1ceef9e43ee2235d696f_3.png" alt="Observation 3 at Walmart" loading="lazy">
+          <img src="images/shopping-walmart-observation-3.webp" width="537" height="520" decoding="async" alt="Two children sitting on the floor playing with toys in a Walmart toy aisle while two adults browse the shelves" loading="lazy">
         </figure>
       </div>
 
@@ -509,27 +512,27 @@
       <p class="prose">After having an understanding of our target user, we decided to build a toolkit for the 7-12 year olds which they can use while shopping. We performed Crazy-4 ideation to identify core cognitive development competencies that could be incorporated in our grocery toolkit. We chose to focus on: Financial responsibility, Nutritional awareness, and Decision-making.</p>
 
       <figure>
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb1f8f2a92c7f08016ae74_Persona.png" alt="User persona for a child aged 7–12" loading="lazy">
+        <img src="images/shopping-persona.webp" width="1560" height="961" decoding="async" alt="“Meet Jess!” persona for a 10-year-old from Lafayette, Indiana: background, attitudes, aspirations, parental influence, personality, tech proficiency, and hobbies" loading="lazy">
         <figcaption>User persona representing a child aged 7–12 who actively participates in family grocery shopping.</figcaption>
       </figure>
 
       <div class="competency-grid">
         <div class="competency-card">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb431a7edca567f9a0995c_fin-min.png" alt="Financial responsibility" loading="lazy">
+          <img src="images/shopping-concept-financial.webp" width="1200" height="557" decoding="async" alt="Concept slide for Financial Responsibility: sketches of grocery lists, budget sheets and a piggy bank beside a note on Cambridge University research about children and money" loading="lazy">
           <div class="competency-card-body">
             <h4>Financial Responsibility</h4>
             <p>Understanding budgets, comparing prices, and making value-based purchasing decisions.</p>
           </div>
         </div>
         <div class="competency-card">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb435a4b35afc213fcce26_nut.png" alt="Nutritional awareness" loading="lazy">
+          <img src="images/shopping-concept-nutrition.webp" width="1200" height="565" decoding="async" alt="Concept slide for Nutritional Information: two hand-drawn worksheets for reading food labels and comparing fruits and vegetables" loading="lazy">
           <div class="competency-card-body">
             <h4>Nutritional Awareness</h4>
             <p>Reading food labels, identifying healthy options, and understanding nutritional information.</p>
           </div>
         </div>
         <div class="competency-card">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb436c82e4556a97015995_dec-min.png" alt="Decision-making" loading="lazy">
+          <img src="images/shopping-concept-decision.webp" width="1200" height="566" decoding="async" alt="Concept slide for Decision-making: small hand-drawn sketches of store maps and decision trees, with text about problem solving and communication between parents and children" loading="lazy">
           <div class="competency-card-body">
             <h4>Decision-Making</h4>
             <p>Evaluating options, weighing tradeoffs, and making confident, reasoned choices.</p>
@@ -547,35 +550,35 @@
 
       <div class="steps-grid">
         <div class="step-card">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb569dece5f6d83acf8503_Step%201-min%20(1)-min_compressed.webp" alt="Step 1: Budget Planning" loading="lazy">
+          <img src="images/shopping-step-1.webp" width="1200" height="1276" decoding="async" alt="Step 1, Budget Planning: annotated layout of the grocery list, priority stickers, paper currency, wallet and savings pocket" loading="lazy">
           <div class="step-card-body">
             <p class="step-num">Step 01</p>
             <p>Budget Planning — set a shopping budget before entering the store and learn to plan spending in advance.</p>
           </div>
         </div>
         <div class="step-card">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb56ae34c9b768dc218f47_Step%202.png" alt="Step 2: Store Layout Navigation" loading="lazy">
+          <img src="images/shopping-step-2.webp" width="1200" height="734" decoding="async" alt="Step 2, Store Layout Navigation: a simplified colored store map with departments such as Toys, Home, Garden, Health and Checkout" loading="lazy">
           <div class="step-card-body">
             <p class="step-num">Step 02</p>
             <p>Store Layout Navigation — use a store map to find sections efficiently and understand how supermarkets are organized.</p>
           </div>
         </div>
         <div class="step-card">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb56bca163d69db6510d37_Step%203-min%20(1).png" alt="Step 3: Product Information Review" loading="lazy">
+          <img src="images/shopping-step-3.webp" width="1200" height="857" decoding="async" alt="Step 3, Product Information Review: a worksheet explaining the nutrition facts label, nutrients, expiry dates and unit prices" loading="lazy">
           <div class="step-card-body">
             <p class="step-num">Step 03</p>
             <p>Product Information Review — read nutrition labels and ingredient lists to evaluate product choices critically.</p>
           </div>
         </div>
         <div class="step-card">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb56d2eaf40d01b1034e5f_Step%204-min%20(1).png" alt="Step 4: Gamified Produce Selection" loading="lazy">
+          <img src="images/shopping-step-4.webp" width="1200" height="1698" decoding="async" alt="Step 4, Gamified Produce Selection: a flow chart for picking a fresh apple by checking its color, texture and firmness, with check marks and crosses" loading="lazy">
           <div class="step-card-body">
             <p class="step-num">Step 04</p>
             <p>Gamified Produce Selection — use a decision tree to identify and select the freshest fruit and vegetables.</p>
           </div>
         </div>
         <div class="step-card" style="grid-column: 1 / -1; max-width: 50%;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb5c04b35b23e7a19fb98d_Step%205-min%20(1).png" alt="Step 5: Family Reflection" loading="lazy">
+          <img src="images/shopping-step-5.webp" width="1200" height="873" decoding="async" alt="Step 5, Family Reflection: a mini-game board where the child and the parent place “Me” and “Mom/Dad” stickers on fresh fruit, with the rules beside it" loading="lazy">
           <div class="step-card-body">
             <p class="step-num">Step 05</p>
             <p>Family Reflection — discuss the shopping experience together and reinforce the lessons learned during the trip.</p>
@@ -592,7 +595,7 @@
       <p class="prose">We approached 2 children with families at Walmart and shadowed them while they used our grocery toolkit. We found that:</p>
 
       <figure>
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66eb6275b35b23e7a1a60637_eval.jpg" alt="Usability testing evaluation session at Walmart" loading="lazy">
+        <img src="images/shopping-evaluation-questionnaire.webp" width="1560" height="2564" decoding="async" alt="Evaluation questionnaire titled “Was grocery shopping fun?” with emoji rating scales, a checklist of favorite kit activities, and open questions about what the child learned" loading="lazy">
         <figcaption>Observing a family using the grocery toolkit during a live shopping session at Walmart.</figcaption>
       </figure>
 
@@ -637,7 +640,7 @@
           <p class="next-label">Next Project</p>
           <p class="next-title">Designing for Urdu →</p>
         </div>
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08e310dce802dcb54f_Frame%2043.png" alt="Designing for Urdu" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border);">
+        <img src="images/card-urdu.webp" width="840" height="613" decoding="async" alt="" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border);">
       </a>
     </div>
   </section>
@@ -648,7 +651,7 @@
   <div class="container">
     <div class="footer-inner">
       <a class="footer-logo" href="index.html">
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
+        <img src="images/logo.svg" alt="Taha – home">
       </a>
       <ul class="footer-links">
         <li><a href="index.html#projects">Projects</a></li>

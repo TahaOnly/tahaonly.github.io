@@ -75,7 +75,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--muted);
     text-decoration: none;
     margin-bottom: 36px;
@@ -107,7 +107,7 @@
   }
 
   .project-page-tagline {
-    font-size: 1.125rem;
+    font-size: 1.1875rem;
     color: var(--muted);
     line-height: 1.7;
     max-width: 680px;
@@ -135,7 +135,7 @@
   }
 
   .meta-value {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--muted);
     line-height: 1.5;
   }
@@ -153,7 +153,7 @@
   }
 
   figcaption {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--subtle);
     text-align: center;
     margin-top: 10px;
@@ -172,7 +172,7 @@
 
   /* PROSE */
   .prose {
-    font-size: 1rem;
+    font-size: 1.125rem;
     color: var(--muted);
     line-height: 1.8;
     max-width: 720px;
@@ -201,14 +201,14 @@
   }
 
   .numbered-item h3 {
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 500;
     color: var(--text);
     margin-bottom: 6px;
   }
 
   .numbered-item p {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--muted);
     line-height: 1.6;
   }
@@ -229,7 +229,7 @@
   }
 
   .tool-cat h4 {
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -239,7 +239,7 @@
 
   .tool-cat ul { list-style: none; }
   .tool-cat ul li {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--muted);
     padding: 6px 0;
     border-bottom: 1px solid var(--border);
@@ -271,7 +271,7 @@
   }
 
   .finding-item p {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--muted);
     line-height: 1.6;
   }
@@ -299,14 +299,14 @@
   }
 
   .card-type h4 {
-    font-size: 0.9375rem;
+    font-size: 1.0625rem;
     font-weight: 500;
     color: var(--text);
     margin-bottom: 8px;
   }
 
   .card-type > p {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--muted);
     line-height: 1.6;
     margin-bottom: 8px;
@@ -314,7 +314,7 @@
 
   .card-type ul { list-style: none; }
   .card-type ul li {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--muted);
     padding: 5px 0;
     border-top: 1px solid var(--border);
@@ -331,7 +331,7 @@
   }
 
   .gameplay h3 {
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 500;
     color: var(--text);
     margin-bottom: 20px;
@@ -344,7 +344,7 @@
   .gameplay-step:last-child { border-bottom: none; }
 
   .gameplay-step strong {
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--text);
     display: block;
@@ -352,14 +352,14 @@
   }
 
   .gameplay-step p {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--muted);
     line-height: 1.6;
   }
 
   /* REFLECTION BOX */
   .reflection-box {
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-style: italic;
     color: var(--muted);
     line-height: 1.8;
@@ -412,7 +412,7 @@
   .footer-links a {
     text-decoration: none;
     color: var(--muted);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     transition: color 0.2s;
   }
   .footer-links a:hover { color: var(--text); }
@@ -424,7 +424,7 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     text-decoration: none;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 500;
     color: var(--text);
     background: var(--surface);
@@ -471,6 +471,9 @@
     *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
     .btn:hover { transform: none; }
   }
+
+  /* Images: width/height attributes reserve space (no layout shift); CSS keeps them responsive */
+  :where(img[height]) { height: auto; }
 </style>
 </head>
 <body>
@@ -480,7 +483,7 @@
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
-      <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
+      <img src="images/logo.svg" alt="Taha – home">
     </a>
   </div>
 </nav>
@@ -515,7 +518,7 @@
       </div>
 
       <figure style="margin: 0;">
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66892f664132d9484d5d8a35_Main%20cards.png" alt="IdeaWave card game – deck, wooden box and sticker covering" loading="eager">
+        <img src="images/ideawave-main-cards.webp" width="1560" height="439" decoding="async" fetchpriority="high" alt="The IdeaWave card game: a white “Journey through Brainstorming” box beside yellow Idea, purple Idea Booster, green Yes, and… and red Skip card decks" loading="eager">
         <figcaption>The components of the final product included a stock-paper printed deck of cards, laser-cut wooden box, and sticker covering.</figcaption>
       </figure>
     </div>
@@ -569,7 +572,7 @@
       <p class="prose">I wanted to solve this problem. But how?</p>
 
       <figure>
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66896871c9cbde934810bef5_Design%20Process%203.png" alt="Map of frequently used brainstorming techniques" loading="lazy">
+        <img src="images/ideawave-technique-map.webp" width="1560" height="473" decoding="async" alt="Digital whiteboard mapping brainstorming techniques such as Starbursting, Crazy 8s, Reverse Brainstorming, Round-Robin and Brainwriting, with colored sticky notes" loading="lazy">
         <figcaption>Understanding the frequently used brainstorming techniques.</figcaption>
       </figure>
 
@@ -649,11 +652,11 @@
 
       <div class="image-grid">
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66896847fb6f0b82b87a7282_Design%20Process%201.png" alt="Crazy 8s ideation sketches" loading="lazy">
+          <img src="images/ideawave-crazy-8s.webp" width="785" height="449" decoding="async" alt="Handwritten Crazy 8s sketches on a sheet of paper folded into eight panels, showing rough drawings of product ideas" loading="lazy">
           <figcaption>Ideating on potential solutions to solve brainstorming challenges using Crazy 8's.</figcaption>
         </figure>
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/6689688615980610243e254c_Design%20Process%204.png" alt="Compiled analysis of existing ideation toolkits" loading="lazy">
+          <img src="images/ideawave-toolkit-analysis.webp" width="840" height="254" decoding="async" alt="Whiteboard collage of existing card-game and ideation toolkits, with photos of decks and boxes annotated by green, blue and orange sticky notes" loading="lazy">
           <figcaption>Compiling and understanding the existing ideation toolkits used by design teams.</figcaption>
         </figure>
       </div>
@@ -666,7 +669,7 @@
       <h2 class="section-label">Prototype Testing</h2>
 
       <figure>
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66896f5fe1f09926e87e4103_Evaluation%201.png" alt="Prototype evolution across evaluation sessions" loading="lazy">
+        <img src="images/ideawave-prototype-evolution.webp" width="1560" height="507" decoding="async" alt="Four prototype generations on a wooden table: handwritten sticky-note cards, a teal “Blurt Bay” deck, a pink “Brainstorm” deck, and a polished white box with yellow cards" loading="lazy">
         <figcaption>The evolution of prototype from left to right after every evaluation session.</figcaption>
       </figure>
 
@@ -676,11 +679,11 @@
       <p class="prose">We conducted 2 separate sessions with students from my design class. After providing instructions on the basic gameplay, we assigned them a task and allowed them to explore the game independently. The students suggested:</p>
       <div class="image-grid">
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/668a68129ca239f243262669_Session.png" alt="Design students brainstorming during testing session" loading="lazy">
+          <img src="images/ideawave-session-1.webp" width="785" height="449" decoding="async" alt="Five design students seated around a round table brainstorming with cards, sticky notes and notebooks during a testing session" loading="lazy">
           <figcaption>Design students brainstorming on organizing a grand festival for Purdue's graduating batch.</figcaption>
         </figure>
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/668a6828670b770cea60315c_session%202.png" alt="Researcher taking observation notes" loading="lazy">
+          <img src="images/ideawave-session-2.webp" width="784" height="449" decoding="async" alt="Students seated around a round table during a playtest, with cards and a phone on the table while the researcher writes notes on paper" loading="lazy">
           <figcaption>I am taking notes of my observations from the activity.</figcaption>
         </figure>
       </div>
@@ -699,11 +702,11 @@
       <p class="prose">After incorporating feedback from undergraduate students, we tested the ideation cards with graduate students. This group pointed out:</p>
       <div class="image-grid">
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/668a68a0ae9969ce3687fbd8_grad%20session%201.png" alt="Graduate students reviewing instruction sheet" loading="lazy">
+          <img src="images/ideawave-grad-session-1.webp" width="785" height="449" decoding="async" alt="Graduate students at a white table holding cards and reading a printed instruction sheet, with snacks and phones on the table" loading="lazy">
           <figcaption>The students used the instruction sheet to understand the gameplay.</figcaption>
         </figure>
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/668a68ae2f605adb1d939ed6_grad%20session%202.png" alt="Student explaining idea using Blurt card" loading="lazy">
+          <img src="images/ideawave-grad-session-2.webp" width="784" height="449" decoding="async" alt="A graduate student gesturing as he explains an idea to peers who hold blue, pink and green cards around a gray table" loading="lazy">
           <figcaption>A student explaining their idea by playing the 'Blurt' card.</figcaption>
         </figure>
       </div>
@@ -727,37 +730,37 @@
 
       <div class="image-grid three" style="margin-top: 32px;">
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/668a6b064b006debcf301bca_final%201.png" alt="The full IdeaWave card deck" loading="lazy">
+          <img src="images/ideawave-final-deck.webp" width="840" height="346" decoding="async" alt="Two IdeaWave card boxes on a wooden table, one silver-white and one blue, printed with a wave pattern and the IdeaWave logo" loading="lazy">
           <figcaption>The deck of IdeaWave.</figcaption>
         </figure>
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/668a6b1da28d1459a0e5bd0c_Final%202.png" alt="CAD model for the wooden box" loading="lazy">
+          <img src="images/ideawave-final-box-cad.webp" width="785" height="731" decoding="async" alt="Box cutting template drawn in white and red lines on a dark background, labeled with measurements such as 6.08, 9.4, 3.0 and 1.0" loading="lazy">
           <figcaption>CAD model for the box. The model was used to laser cut the edges from a thin wooden sheet.</figcaption>
         </figure>
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/668a6b34f6e4d87e64b281aa_Final%203.png" alt="Sticker design for the box" loading="lazy">
+          <img src="images/ideawave-final-box-sticker.webp" width="785" height="743" decoding="async" alt="Flat print template for the box sticker with the blue IdeaWave logo, a wave illustration and a quotation, outlined with red fold and cut lines" loading="lazy">
           <figcaption>Sticker design for the box.</figcaption>
         </figure>
       </div>
 
       <div class="image-grid" style="margin-top: 20px;">
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/668a6b344cd68b3596a463b1_Final%204.png" alt="Card back design" loading="lazy">
+          <img src="images/ideawave-final-card-back.webp" width="1200" height="442" decoding="async" alt="Card backs in blue (IdeaWave), orange (Icebreakers) and purple (Idea Booster and Idea Sorter), each with a white wave pattern" loading="lazy">
           <figcaption>The backside of the IdeaWave cards.</figcaption>
         </figure>
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/668a6b333b15a0a671cc1092_Final%205.png" alt="Card color categories" loading="lazy">
+          <img src="images/ideawave-final-card-colors.webp" width="1200" height="273" decoding="async" alt="Row of seven card fronts with colored bands: yellow Idea; red Random Pick, Skip and Blurt; green Yes, and… and Yes, but…; and purple Brainstorm" loading="lazy">
           <figcaption>Yellow (Idea Card), Red (Wild Card), Green (Yes Card), Purple (Brainy Card).</figcaption>
         </figure>
       </div>
 
       <div class="image-grid" style="margin-top: 20px;">
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/668a6b346f483d26e0a676d6_Final%206.png" alt="Idea Sorter and Idea Booster cards" loading="lazy">
+          <img src="images/ideawave-final-idea-sorter.webp" width="1200" height="382" decoding="async" alt="Purple Idea Sorter cards with numbered steps for Parking Lot, Sketch It Out, Vote, Priority Map and Affinity Mapping" loading="lazy">
           <figcaption>Idea Sorter Cards (Top) and Idea Booster Cards (Bottom).</figcaption>
         </figure>
         <figure style="margin: 0;">
-          <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/668a6b34c45de2d297176958_Final%207.png" alt="Card detail close-up" loading="lazy">
+          <img src="images/ideawave-final-idea-booster.webp" width="1200" height="382" decoding="async" alt="Purple Idea Booster cards with numbered steps for Inputs, Round Robin, SCAMPER, Mind Map and Crazy Eights" loading="lazy">
           <figcaption>Idea Sorter Cards (top) and Idea Booster Cards (bottom).</figcaption>
         </figure>
       </div>
@@ -837,7 +840,7 @@
           <p class="next-label">Next Project</p>
           <p class="next-title">Embodied Shopping →</p>
         </div>
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66f48d08e521f96303f31429_Frame%2042.png" alt="Embodied Shopping" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border);">
+        <img src="images/card-shopping.webp" width="840" height="613" decoding="async" alt="" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border);">
       </a>
     </div>
   </section>
@@ -849,7 +852,7 @@
   <div class="container">
     <div class="footer-inner">
       <a class="footer-logo" href="index.html">
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
+        <img src="images/logo.svg" alt="Taha – home">
       </a>
       <ul class="footer-links">
         <li><a href="index.html#projects">Projects</a></li>
