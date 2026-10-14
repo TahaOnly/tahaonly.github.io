@@ -15,21 +15,21 @@
     --bg: #faf9f7;
     --surface: #ffffff;
     --text: #1a1a1a;
-    --muted: #6b6b6b;
-    --subtle: #9a9a9a;
+    --muted: #4a4a4a;
+    --subtle: #555555;
     --border: #e8e4dc;
     --tag-bg: #f0ede8;
     --nav-height: 64px;
     --max-w: 860px;
   }
 
-  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
   body {
     font-family: 'Inter', sans-serif;
     background: var(--bg);
     color: var(--text);
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
@@ -63,7 +63,7 @@
   section:last-of-type { border-bottom: none; }
 
   .section-label {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: -0.01em;
     color: var(--text);
@@ -74,7 +74,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 13px;
+    font-size: 0.875rem;
     color: var(--muted);
     text-decoration: none;
     margin-bottom: 36px;
@@ -84,7 +84,7 @@
 
   .project-tag-chip {
     display: inline-block;
-    font-size: 11px;
+    font-size: 0.875rem;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -97,7 +97,7 @@
 
   .project-page-title {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
     line-height: 1.15;
     color: var(--text);
@@ -105,7 +105,7 @@
   }
 
   .project-page-tagline {
-    font-size: 18px;
+    font-size: 1.125rem;
     color: var(--muted);
     line-height: 1.7;
     max-width: 680px;
@@ -122,7 +122,7 @@
   }
 
   .meta-label {
-    font-size: 11px;
+    font-size: 0.875rem;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -131,7 +131,7 @@
     margin-bottom: 8px;
   }
 
-  .meta-value { font-size: 14px; color: var(--muted); line-height: 1.5; }
+  .meta-value { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
 
   figure { margin: 32px 0; }
   figure:first-child { margin-top: 0; }
@@ -145,7 +145,7 @@
   }
 
   figcaption {
-    font-size: 13px;
+    font-size: 0.875rem;
     color: var(--subtle);
     text-align: center;
     margin-top: 10px;
@@ -162,7 +162,7 @@
   .image-grid.three { grid-template-columns: 1fr 1fr 1fr; }
 
   .prose {
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--muted);
     line-height: 1.8;
     max-width: 720px;
@@ -185,14 +185,14 @@
 
   .i-num {
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    color: var(--border);
+    font-size: 1.25rem;
+    color: #6b6b6b;
     flex-shrink: 0;
     line-height: 1;
     margin-top: 2px;
   }
 
-  .insight-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .insight-item p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
 
   /* COMPETENCY CARDS */
   .competency-grid {
@@ -219,13 +219,13 @@
   .competency-card-body { padding: 16px; }
 
   .competency-card-body h4 {
-    font-size: 15px;
+    font-size: 0.9375rem;
     font-weight: 500;
     color: var(--text);
     margin-bottom: 4px;
   }
 
-  .competency-card-body p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .competency-card-body p { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
 
   /* STEPS */
   .steps-grid {
@@ -252,7 +252,7 @@
   .step-card-body { padding: 16px 18px; }
 
   .step-num {
-    font-size: 11px;
+    font-size: 0.875rem;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -260,7 +260,7 @@
     margin-bottom: 4px;
   }
 
-  .step-card-body p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+  .step-card-body p { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
 
   /* OBSERVATION AGES */
   .age-list { display: flex; flex-direction: column; }
@@ -275,18 +275,18 @@
   .age-item:last-child { border-bottom: 1px solid var(--border); }
 
   .age-range {
-    font-size: 13px;
+    font-size: 0.875rem;
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--subtle);
     padding-top: 2px;
   }
 
-  .age-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .age-item p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
 
   /* REFLECTION */
   .reflection-box {
-    font-size: 16px;
+    font-size: 1rem;
     font-style: italic;
     color: var(--muted);
     line-height: 1.8;
@@ -309,7 +309,7 @@
   }
   .next-project:hover { opacity: 0.7; }
   .next-label {
-    font-size: 11px;
+    font-size: 0.875rem;
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -317,7 +317,7 @@
     margin-bottom: 8px;
   }
   .next-title {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 500;
     color: var(--text);
   }
@@ -326,7 +326,7 @@
   .footer-inner { display: flex; align-items: center; justify-content: space-between; }
   .footer-logo img { height: 28px; width: auto; display: block; }
   .footer-links { display: flex; gap: 24px; list-style: none; }
-  .footer-links a { text-decoration: none; color: var(--muted); font-size: 13px; transition: color 0.2s; }
+  .footer-links a { text-decoration: none; color: var(--muted); font-size: 0.875rem; transition: color 0.2s; }
   .footer-links a:hover { color: var(--text); }
 
   @media (max-width: 700px) {
@@ -345,21 +345,43 @@
   @media (max-width: 480px) {
     .meta-grid { grid-template-columns: 1fr; }
     .image-grid.three { grid-template-columns: 1fr; }
-    .project-page-title { font-size: 28px; }
+    .project-page-title { font-size: 1.75rem; }
+  }
+
+  /* ── ACCESSIBILITY ── */
+  :root { --focus: #1a4fd6; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 3px; }
+  .skip-link {
+    position: absolute; left: 12px; top: -64px; z-index: 200;
+    background: var(--text); color: var(--bg);
+    padding: 10px 16px; border-radius: 6px;
+    font-size: 0.9375rem; text-decoration: none;
+  }
+  .skip-link:focus { top: 12px; }
+  main:focus { outline: none; }
+  .nav-logo, .footer-logo { display: inline-flex; align-items: center; min-height: 44px; }
+  .back-link { display: flex; width: fit-content; align-items: center; min-height: 44px; margin-top: 48px; margin-bottom: 36px; }
+  .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .btn { display: inline-flex; align-items: center; min-height: 44px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    .btn:hover { transform: none; }
   }
 </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
-      <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+      <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
     </a>
   </div>
 </nav>
 
-<main>
+<main id="main" tabindex="-1">
 
   <!-- HERO -->
   <section style="padding-top: 60px;">
@@ -398,20 +420,20 @@
   <!-- WALMART OBSERVATIONS -->
   <section>
     <div class="container">
-      <p class="section-label">We went observing at Walmart</p>
+      <h2 class="section-label">We went observing at Walmart</h2>
       <p class="prose">As a part of our course project, we were tasked with optimizing the grocery shopping experience. We started off by visiting Walmart and observing shopping behaviors.</p>
       <p class="prose">We observed:</p>
       <div class="insight-list">
         <div class="insight-item">
-          <span class="i-num">→</span>
+          <span class="i-num" aria-hidden="true">→</span>
           <p>Customers (e.g. families, elderly, students' groups, individual shoppers)</p>
         </div>
         <div class="insight-item">
-          <span class="i-num">→</span>
+          <span class="i-num" aria-hidden="true">→</span>
           <p>Employees (e.g. cashiers, warehouse workers)</p>
         </div>
         <div class="insight-item">
-          <span class="i-num">→</span>
+          <span class="i-num" aria-hidden="true">→</span>
           <p>Store locations (e.g. check-out, section layouts, product placements)</p>
         </div>
       </div>
@@ -421,7 +443,7 @@
   <!-- WHY KIDS -->
   <section>
     <div class="container">
-      <p class="section-label">Kids influence shopping behaviors</p>
+      <h2 class="section-label">Kids influence shopping behaviors</h2>
       <p class="prose">After reflecting on our observations and brainstorming amongst each other, we decided to center our solution around kids who go for shopping with their parents because:</p>
       <div class="insight-list">
         <div class="insight-item">
@@ -443,7 +465,7 @@
   <!-- OBSERVING CHILDREN -->
   <section>
     <div class="container">
-      <p class="section-label">We went observing children at Walmart</p>
+      <h2 class="section-label">We went observing children at Walmart</h2>
       <p class="prose">Having narrowed down our user base, we went to Walmart again. This time, we shadowed around 30 families with kids to gather insights.</p>
       <p class="prose">We found that:</p>
 
@@ -479,7 +501,7 @@
   <!-- 7–12 FOCUS -->
   <section>
     <div class="container">
-      <p class="section-label">Shopping can be educational for 7–12 year-olds</p>
+      <h2 class="section-label">Shopping can be educational for 7–12 year-olds</h2>
       <p class="prose">We noticed grocery shopping could be a valuable source of cognitive development among children aged between 7-12 years since they take interest in shopping and actively participate in the experience with their parents.</p>
 
       <p class="prose">To get a better sense of our user needs and pain points, we developed a user persona of 7-12 year olds based off our observations and field interviews with children and families.</p>
@@ -520,7 +542,7 @@
   <!-- THE TOOLKIT: 5 STEPS -->
   <section>
     <div class="container">
-      <p class="section-label">Step-by-Step Grocery Toolkit</p>
+      <h2 class="section-label">Step-by-Step Grocery Toolkit</h2>
       <p class="prose">We started sketching ideas for a grocery toolkit and developed a step-by-step guide for using it:</p>
 
       <div class="steps-grid">
@@ -566,7 +588,7 @@
   <!-- USABILITY TESTING -->
   <section>
     <div class="container">
-      <p class="section-label">We asked kids how they felt about the kit</p>
+      <h2 class="section-label">We asked kids how they felt about the kit</h2>
       <p class="prose">We approached 2 children with families at Walmart and shadowed them while they used our grocery toolkit. We found that:</p>
 
       <figure>
@@ -576,19 +598,19 @@
 
       <div class="insight-list" style="margin-top: 32px;">
         <div class="insight-item">
-          <span class="i-num">→</span>
+          <span class="i-num" aria-hidden="true">→</span>
           <p>The store layout map (Step 2) was not comprehensive and the "Know your product" sheet (Step 3) was too text-heavy for skimming.</p>
         </div>
         <div class="insight-item">
-          <span class="i-num">→</span>
+          <span class="i-num" aria-hidden="true">→</span>
           <p>The "Know your product" (Step 3) sparked a conversation between parents and the child about nutritional value of products.</p>
         </div>
         <div class="insight-item" style="background: #f5f3ef;">
-          <span class="i-num">✓</span>
+          <span class="i-num" aria-hidden="true">✓</span>
           <p>The gamified decision tree (Step 4) helped children identify fresh produce items.</p>
         </div>
         <div class="insight-item" style="background: #f5f3ef;">
-          <span class="i-num">✓</span>
+          <span class="i-num" aria-hidden="true">✓</span>
           <p>After the qualitative interview, we asked participants to provide feedback about their experience on the evaluation sheet.</p>
         </div>
       </div>
@@ -598,7 +620,7 @@
   <!-- REFLECTION -->
   <section>
     <div class="container">
-      <p class="section-label">Reflection</p>
+      <h2 class="section-label">Reflection</h2>
       <div class="reflection-box">
         <p>This was my first project where I extensively performed ethnographic observations and conducted shadowing exercises. This was also the first time I worked with children. The design choices in the toolkit's layout were carefully thought-out. For instance, we incorporated avatars and playful interactions to make the toolkit look fun to the kids. Moreover, we used emojis to signify the likert scale ratings, which made the questions more understandable for the children.</p>
         <br>
@@ -626,7 +648,7 @@
   <div class="container">
     <div class="footer-inner">
       <a class="footer-logo" href="index.html">
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
       </a>
       <ul class="footer-links">
         <li><a href="index.html#projects">Projects</a></li>

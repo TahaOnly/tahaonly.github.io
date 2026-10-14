@@ -15,21 +15,21 @@
     --bg: #faf9f7;
     --surface: #ffffff;
     --text: #1a1a1a;
-    --muted: #6b6b6b;
-    --subtle: #9a9a9a;
+    --muted: #4a4a4a;
+    --subtle: #555555;
     --border: #e8e4dc;
     --tag-bg: #f0ede8;
     --nav-height: 64px;
     --max-w: 860px;
   }
 
-  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
   body {
     font-family: 'Inter', sans-serif;
     background: var(--bg);
     color: var(--text);
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
@@ -63,7 +63,7 @@
   section:last-of-type { border-bottom: none; }
 
   .section-label {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: -0.01em;
     color: var(--text);
@@ -72,25 +72,25 @@
 
   .back-link {
     display: inline-flex; align-items: center; gap: 6px;
-    font-size: 13px; color: var(--muted); text-decoration: none;
+    font-size: 0.875rem; color: var(--muted); text-decoration: none;
     margin-bottom: 36px; transition: color 0.2s;
   }
   .back-link:hover { color: var(--text); }
 
   .project-tag-chip {
-    display: inline-block; font-size: 11px; font-weight: 500;
+    display: inline-block; font-size: 0.875rem; font-weight: 500;
     letter-spacing: 0.1em; text-transform: uppercase; color: var(--subtle);
     background: var(--tag-bg); padding: 4px 10px; border-radius: 4px; margin-bottom: 20px;
   }
 
   .project-page-title {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700; line-height: 1.15; color: var(--text); margin-bottom: 20px;
   }
 
   .project-page-tagline {
-    font-size: 18px; color: var(--muted); line-height: 1.7;
+    font-size: 1.125rem; color: var(--muted); line-height: 1.7;
     max-width: 680px; margin-bottom: 40px;
   }
 
@@ -101,22 +101,22 @@
   }
 
   .meta-label {
-    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    font-size: 0.875rem; font-weight: 500; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--subtle); display: block; margin-bottom: 8px;
   }
-  .meta-value { font-size: 14px; color: var(--muted); line-height: 1.5; }
+  .meta-value { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
 
   figure { margin: 32px 0; }
   figure:first-child { margin-top: 0; }
   figure:last-child { margin-bottom: 0; }
   figure img { width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block; }
-  figcaption { font-size: 13px; color: var(--subtle); text-align: center; margin-top: 10px; line-height: 1.5; }
+  figcaption { font-size: 0.875rem; color: var(--subtle); text-align: center; margin-top: 10px; line-height: 1.5; }
 
   .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 32px 0; }
   .image-grid.three { grid-template-columns: 1fr 1fr 1fr; }
 
   .prose {
-    font-size: 16px; color: var(--muted); line-height: 1.8;
+    font-size: 1rem; color: var(--muted); line-height: 1.8;
     max-width: 720px; margin-bottom: 20px;
   }
   .prose:last-child { margin-bottom: 0; }
@@ -141,14 +141,14 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 10px 16px;
-    font-size: 13px;
+    font-size: 0.875rem;
     color: var(--muted);
     white-space: nowrap;
   }
 
   .step-arrow {
-    font-size: 16px;
-    color: var(--border);
+    font-size: 1rem;
+    color: #6b6b6b;
     padding: 0 8px;
     flex-shrink: 0;
   }
@@ -159,8 +159,8 @@
     display: flex; gap: 16px; padding: 16px 20px;
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px; align-items: flex-start;
   }
-  .i-bullet { font-size: 14px; color: var(--subtle); flex-shrink: 0; line-height: 1.6; margin-top: 0; }
-  .insight-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .i-bullet { font-size: 0.875rem; color: var(--subtle); flex-shrink: 0; line-height: 1.6; margin-top: 0; }
+  .insight-item p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
 
   /* STAT CALLOUT */
   .stat-box {
@@ -176,7 +176,7 @@
 
   .stat-number {
     font-family: 'Inter', sans-serif;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 400;
     color: var(--text);
     flex-shrink: 0;
@@ -184,7 +184,7 @@
   }
 
   .stat-desc {
-    font-size: 15px;
+    font-size: 0.9375rem;
     color: var(--muted);
     line-height: 1.6;
   }
@@ -194,7 +194,7 @@
   .finding-group:last-child { margin-bottom: 0; }
 
   .finding-group-label {
-    font-size: 13px;
+    font-size: 0.875rem;
     font-weight: 500;
     color: var(--text);
     margin-bottom: 12px;
@@ -211,7 +211,7 @@
   }
   .finding-item:last-child { border-bottom: none; }
   .f-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink: 0; margin-top: 8px; }
-  .finding-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .finding-item p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
 
   /* WEBSITE VERSIONS */
   .versions-grid {
@@ -239,15 +239,15 @@
   .version-card-body { padding: 14px 16px; }
 
   .version-label {
-    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    font-size: 0.875rem; font-weight: 500; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--subtle); margin-bottom: 4px;
   }
 
-  .version-card-body p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .version-card-body p { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
 
   /* QUOTE */
   .callout {
-    font-size: 17px; font-style: italic; color: var(--muted);
+    font-size: 1.0625rem; font-style: italic; color: var(--muted);
     line-height: 1.7; padding: 24px 28px; border-left: 3px solid var(--border);
     margin: 28px 0;
   }
@@ -275,11 +275,11 @@
   }
 
   .outcome-card-body { padding: 16px; }
-  .outcome-card-body p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+  .outcome-card-body p { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
 
   /* REFLECTION */
   .reflection-box {
-    font-size: 16px; font-style: italic; color: var(--muted);
+    font-size: 1rem; font-style: italic; color: var(--muted);
     line-height: 1.8; padding: 32px;
     background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
   }
@@ -291,14 +291,14 @@
     border-top: 1px solid var(--border); transition: opacity 0.2s;
   }
   .next-project:hover { opacity: 0.7; }
-  .next-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--subtle); margin-bottom: 8px; }
-  .next-title { font-size: 18px; font-weight: 500; color: var(--text); }
+  .next-label { font-size: 0.875rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--subtle); margin-bottom: 8px; }
+  .next-title { font-size: 1.125rem; font-weight: 500; color: var(--text); }
 
   footer { padding: 40px 0; }
   .footer-inner { display: flex; align-items: center; justify-content: space-between; }
   .footer-logo img { height: 28px; width: auto; display: block; }
   .footer-links { display: flex; gap: 24px; list-style: none; }
-  .footer-links a { text-decoration: none; color: var(--muted); font-size: 13px; transition: color 0.2s; }
+  .footer-links a { text-decoration: none; color: var(--muted); font-size: 0.875rem; transition: color 0.2s; }
   .footer-links a:hover { color: var(--text); }
 
   @media (max-width: 700px) {
@@ -316,21 +316,43 @@
 
   @media (max-width: 480px) {
     .image-grid.three { grid-template-columns: 1fr; }
-    .project-page-title { font-size: 28px; }
+    .project-page-title { font-size: 1.75rem; }
+  }
+
+  /* ── ACCESSIBILITY ── */
+  :root { --focus: #1a4fd6; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 3px; }
+  .skip-link {
+    position: absolute; left: 12px; top: -64px; z-index: 200;
+    background: var(--text); color: var(--bg);
+    padding: 10px 16px; border-radius: 6px;
+    font-size: 0.9375rem; text-decoration: none;
+  }
+  .skip-link:focus { top: 12px; }
+  main:focus { outline: none; }
+  .nav-logo, .footer-logo { display: inline-flex; align-items: center; min-height: 44px; }
+  .back-link { display: flex; width: fit-content; align-items: center; min-height: 44px; margin-top: 48px; margin-bottom: 36px; }
+  .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .btn { display: inline-flex; align-items: center; min-height: 44px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    .btn:hover { transform: none; }
   }
 </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
-      <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+      <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
     </a>
   </div>
 </nav>
 
-<main>
+<main id="main" tabindex="-1">
 
   <!-- HERO -->
   <section style="padding-top: 60px;">
@@ -361,7 +383,7 @@
   <!-- INTRODUCTION -->
   <section>
     <div class="container">
-      <p class="section-label">The Context</p>
+      <h2 class="section-label">The Context</h2>
       <p class="prose">2021 was an interesting year for the Pakistani startup space. Pakistan raised close to $350 million in VC funding. Airlift and Bazaar were at the forefront, leading the entrepreneurial wave of the country. Investors were pooling money into the fifth most populous country, having one of the world's largest youth markets.</p>
       <p class="prose">It felt good. It sounded cool. As a Junior year student, I could see myself working on a moonshot project. I started reading Paul Graham's essays in my free time, watching Y-Combinator's summer school playlist while eating breakfast, and scanning through books on entrepreneurship during study breaks.</p>
       <p class="prose">All set with the theoretical knowledge, in the summer of 2021, it was time to do something big. And that is where Band Baaja Baraat started.</p>
@@ -369,19 +391,19 @@
       <div class="process-steps">
         <div class="process-step">
           <span class="step-pill">Problem Identification</span>
-          <span class="step-arrow">→</span>
+          <span class="step-arrow" aria-hidden="true">→</span>
         </div>
         <div class="process-step">
           <span class="step-pill">User Research</span>
-          <span class="step-arrow">→</span>
+          <span class="step-arrow" aria-hidden="true">→</span>
         </div>
         <div class="process-step">
           <span class="step-pill">Designed Solution</span>
-          <span class="step-arrow">→</span>
+          <span class="step-arrow" aria-hidden="true">→</span>
         </div>
         <div class="process-step">
           <span class="step-pill">MVP Development</span>
-          <span class="step-arrow">→</span>
+          <span class="step-arrow" aria-hidden="true">→</span>
         </div>
         <div class="process-step">
           <span class="step-pill">Outcome</span>
@@ -393,7 +415,7 @@
   <!-- PROBLEM -->
   <section>
     <div class="container">
-      <p class="section-label">The Problem</p>
+      <h2 class="section-label">The Problem</h2>
 
       <div class="stat-box">
         <span class="stat-number">₨900B</span>
@@ -409,7 +431,7 @@
   <!-- USER RESEARCH -->
   <section>
     <div class="container">
-      <p class="section-label">User Research</p>
+      <h2 class="section-label">User Research</h2>
       <p class="prose">Vendors: Any businesses or individuals who contribute to the planning and execution of a wedding event. These may include videographers, florists, or wedding planners.</p>
 
       <p class="prose">Customers: Individuals seeking goods or services related to planning and executing a wedding event.</p>
@@ -465,7 +487,7 @@
   <!-- BRAND -->
   <section>
     <div class="container">
-      <p class="section-label">Brand Development</p>
+      <h2 class="section-label">Brand Development</h2>
       <p class="prose">We named our startup after a famous Bollywood movie, Band Baaja Baraat (BBB). The movie is about the challenges two youngsters face when they start a wedding enterprise in India. Since the name has three words all starting from a 'B,' we chose to base our logo on the same premise. Similarly, we chose red color to display strong emotion of love and passion.</p>
 
       <div class="image-grid">
@@ -486,7 +508,7 @@
   <!-- MVP -->
   <section>
     <div class="container">
-      <p class="section-label">MVP Development</p>
+      <h2 class="section-label">MVP Development</h2>
       <p class="prose">With vendors on board, we decided to launch our MVP to finally start serving our first customers. Abdullah and I settled on creating a static website and releasing a form for the customers to avail our services. Since we did not have any knowledge on how websites are made, I took up an online course on web development. Within a week, after quick iterations on the design, we launched the MVP.</p>
 
       <div class="versions-grid">
@@ -518,7 +540,7 @@
   <!-- OUTCOME -->
   <section>
     <div class="container">
-      <p class="section-label">Outcome</p>
+      <h2 class="section-label">Outcome</h2>
       <p class="prose">Yes! But for a while…</p>
 
       <p class="prose">We had started serving actual customers. We provided them with a tailored list of vendors according to their requirements, provided deals and discounts, accompanied them to wedding planners and wedding card outlets.</p>
@@ -561,7 +583,7 @@
   <!-- REFLECTION -->
   <section>
     <div class="container">
-      <p class="section-label">Reflection</p>
+      <h2 class="section-label">Reflection</h2>
       <div class="reflection-box">
         <p>Band Baaja Baraat taught me more about product thinking and user research than any course could. The most valuable lesson was being wrong about our users — we assumed we were building for young, tech-savvy couples when the real decision-makers were family elders who valued personal relationships and physical trust signals over digital convenience.</p>
         <br>
@@ -589,7 +611,7 @@
   <div class="container">
     <div class="footer-inner">
       <a class="footer-logo" href="index.html">
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
       </a>
       <ul class="footer-links">
         <li><a href="index.html#projects">Projects</a></li>

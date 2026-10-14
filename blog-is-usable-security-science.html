@@ -15,21 +15,21 @@
     --bg: #faf9f7;
     --surface: #ffffff;
     --text: #1a1a1a;
-    --muted: #6b6b6b;
-    --subtle: #9a9a9a;
+    --muted: #4a4a4a;
+    --subtle: #555555;
     --border: #e8e4dc;
     --tag-bg: #f0ede8;
     --nav-height: 64px;
     --max-w: 680px;
   }
 
-  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
   body {
     font-family: 'Inter', sans-serif;
     background: var(--bg);
     color: var(--text);
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
@@ -63,7 +63,7 @@
   /* BACK LINK */
   .back-link {
     display: block;
-    font-size: 13px;
+    font-size: 0.9375rem;
     color: var(--muted);
     text-decoration: none;
     margin-top: 60px;
@@ -80,7 +80,7 @@
   }
 
   .post-title {
-    font-size: clamp(28px, 5vw, 40px);
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.02em;
@@ -89,7 +89,7 @@
   }
 
   .post-date {
-    font-size: 13px;
+    font-size: 0.9375rem;
     color: var(--subtle);
   }
 
@@ -97,7 +97,7 @@
   .post-body { padding: 0 0 60px; }
 
   .post-body p {
-    font-size: 17px;
+    font-size: 1.1875rem;
     line-height: 1.8;
     color: var(--muted);
     margin-bottom: 28px;
@@ -105,7 +105,7 @@
   .post-body p:last-child { margin-bottom: 0; }
 
   sup {
-    font-size: 11px;
+    font-size: 0.75em;
     color: var(--subtle);
     vertical-align: super;
     line-height: 0;
@@ -134,7 +134,7 @@
   }
 
   .footnotes li {
-    font-size: 13px;
+    font-size: 0.9375rem;
     color: var(--subtle);
     line-height: 1.6;
   }
@@ -160,7 +160,7 @@
   .footer-links a {
     text-decoration: none;
     color: var(--muted);
-    font-size: 13px;
+    font-size: 0.9375rem;
     transition: color 0.2s;
   }
   .footer-links a:hover { color: var(--text); }
@@ -171,19 +171,42 @@
     .container { padding: 0 20px; }
     .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
   }
+
+  /* ── ACCESSIBILITY ── */
+  :root { --focus: #1a4fd6; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 3px; }
+  .skip-link {
+    position: absolute; left: 12px; top: -64px; z-index: 200;
+    background: var(--text); color: var(--bg);
+    padding: 10px 16px; border-radius: 6px;
+    font-size: 0.9375rem; text-decoration: none;
+  }
+  .skip-link:focus { top: 12px; }
+  main:focus { outline: none; }
+  .nav-logo, .footer-logo { display: inline-flex; align-items: center; min-height: 44px; }
+  .back-link { display: flex; width: fit-content; align-items: center; min-height: 44px; margin-top: 48px; margin-bottom: 36px; }
+  .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .post-body p a { color: var(--text); text-decoration: underline; text-decoration-color: currentColor; text-underline-offset: 3px; }
+  .post-body sup a { padding: 10px 6px; margin: -10px -6px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    .btn:hover { transform: none; }
+  }
 </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
-      <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+      <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
     </a>
   </div>
 </nav>
 
-<main>
+<main id="main" tabindex="-1">
   <div class="container">
 
     <a class="back-link" href="index.html#blog">← Back to Blogs</a>
@@ -202,29 +225,29 @@
 
       <p>Then came Computer Science, and its name so proudly claimed membership in science that I never questioned it either.</p>
 
-      <p>A long time later, through a series of accidents<sup><a href="#fn1" id="ref1">1</a></sup>, I ended up in usable security. My journey in the field began as an intern at CISPA two years ago, where I got an opportunity to learn from some fantastic people. Being around usable security researchers, I found there are moments when they have to defend the legitimacy of their own work. Often these challenges come from technical researchers who look at user studies and question whether what they are seeing is really science. When I heard this question myself, I began wondering what science even is.</p>
+      <p>A long time later, through a series of accidents<sup><a href="#fn1" id="ref1" role="doc-noteref" aria-label="Footnote 1">1</a></sup>, I ended up in usable security. My journey in the field began as an intern at CISPA two years ago, where I got an opportunity to learn from some fantastic people. Being around usable security researchers, I found there are moments when they have to defend the legitimacy of their own work. Often these challenges come from technical researchers who look at user studies and question whether what they are seeing is really science. When I heard this question myself, I began wondering what science even is.</p>
 
-      <p>As it turns out, science is a description and explanation of a phenomenon,<sup><a href="#fn2" id="ref2">2</a></sup> accomplished through a scientific process. I remember in middle school there was a 'Science' book with a flowchart of the scientific process in one of its chapters. Observation, hypothesis, test, analysis, results, and an arrow looping back from results to hypothesis. If you follow those steps to describe a phenomenon, you are doing science.</p>
+      <p>As it turns out, science is a description and explanation of a phenomenon,<sup><a href="#fn2" id="ref2" role="doc-noteref" aria-label="Footnote 2">2</a></sup> accomplished through a scientific process. I remember in middle school there was a 'Science' book with a flowchart of the scientific process in one of its chapters. Observation, hypothesis, test, analysis, results, and an arrow looping back from results to hypothesis. If you follow those steps to describe a phenomenon, you are doing science.</p>
 
-      <p>But simply following a scientific process is not enough. There has to be rigor in how you study it.<sup><a href="#fn3" id="ref3">3</a></sup> The methods used must have defensible grounds for actually measuring what they claim to measure, in the context where they are being applied. That justification comes either from prior work that has established the method's validity and robustness, or from direct empirical evidence.</p>
+      <p>But simply following a scientific process is not enough. There has to be rigor in how you study it.<sup><a href="#fn3" id="ref3" role="doc-noteref" aria-label="Footnote 3">3</a></sup> The methods used must have defensible grounds for actually measuring what they claim to measure, in the context where they are being applied. That justification comes either from prior work that has established the method's validity and robustness, or from direct empirical evidence.</p>
 
       <p>The question about the science-ness of usable security is not new. It is almost a rite of passage for fields that don't fit neatly into existing boxes.</p>
 
-      <p>When Computer Science was emerging as a discipline in the 1960s, the same question was asked of it. Critics argued, among other things, that man-made artifacts like computers were not valid objects of scientific study, only natural phenomena were. In 1967, three professors of computer science, Newell, Perlis, and Simon, wrote a letter to Science magazine pushing back directly. The same argument, they pointed out, would rule out large parts of organic chemistry (substitute "silicones" for "computers"), physics (substitute "superconductivity" for "computers"), and even zoology (substitute "hybrid corn" for "computers"), all fields that study things that are produced or modified by human hands.<sup><a href="#fn2">2</a></sup> What matters is whether you are rigorously describing a real phenomenon.</p>
+      <p>When Computer Science was emerging as a discipline in the 1960s, the same question was asked of it. Critics argued, among other things, that man-made artifacts like computers were not valid objects of scientific study, only natural phenomena were. In 1967, three professors of computer science, Newell, Perlis, and Simon, wrote a letter to Science magazine pushing back directly. The same argument, they pointed out, would rule out large parts of organic chemistry (substitute "silicones" for "computers"), physics (substitute "superconductivity" for "computers"), and even zoology (substitute "hybrid corn" for "computers"), all fields that study things that are produced or modified by human hands.<sup><a href="#fn2" role="doc-noteref" aria-label="Footnote 2">2</a></sup> What matters is whether you are rigorously describing a real phenomenon.</p>
 
-      <p>Usable security researchers do exactly that. They observe how people interact with security systems, whether that's a developer misconfiguring a cryptographic library, or a user reusing passwords because the alternative is too cognitively demanding. They form hypotheses, design controlled studies, and measure outcomes using methods with long validated histories in psychology and human factors research, fields that predate computer science entirely. The seminal papers in usable security that got the community talking in the late 1990s<sup><a href="#fn4" id="ref4">4</a></sup> showed through careful human-subjects research that even well-designed security systems fail when they ignore the humans operating them. They followed a scientific approach to describe observed phenomena.</p>
+      <p>Usable security researchers do exactly that. They observe how people interact with security systems, whether that's a developer misconfiguring a cryptographic library, or a user reusing passwords because the alternative is too cognitively demanding. They form hypotheses, design controlled studies, and measure outcomes using methods with long validated histories in psychology and human factors research, fields that predate computer science entirely. The seminal papers in usable security that got the community talking in the late 1990s<sup><a href="#fn4" id="ref4" role="doc-noteref" aria-label="Footnote 4">4</a></sup> showed through careful human-subjects research that even well-designed security systems fail when they ignore the humans operating them. They followed a scientific approach to describe observed phenomena.</p>
 
-      <p>But I wonder why whenever we include humans anywhere in science, the science becomes more shaky. It is a strange thing, right? Humans study phenomena other than themselves and rarely question the science. But when they study other humans, questions of validity and robustness multiply quickly.<sup><a href="#fn5" id="ref5">5</a></sup> As I see it, this is primarily because human behavior is shaped by context which cannot be collapsed into universal equations. One person could answer the same question differently depending on the circumstance or their mood. Since those circumstances cannot be packed into a tidy formula, this is precisely why researchers employ user studies to study that kind of variability. I feel there should not exist any comparison between the technical/formal and human-centric methods. They just measure phenomena differently.</p>
+      <p>But I wonder why whenever we include humans anywhere in science, the science becomes more shaky. It is a strange thing, right? Humans study phenomena other than themselves and rarely question the science. But when they study other humans, questions of validity and robustness multiply quickly.<sup><a href="#fn5" id="ref5" role="doc-noteref" aria-label="Footnote 5">5</a></sup> As I see it, this is primarily because human behavior is shaped by context which cannot be collapsed into universal equations. One person could answer the same question differently depending on the circumstance or their mood. Since those circumstances cannot be packed into a tidy formula, this is precisely why researchers employ user studies to study that kind of variability. I feel there should not exist any comparison between the technical/formal and human-centric methods. They just measure phenomena differently.</p>
 
       <p>This confusion is probably why technical security experts do not always perceive usable security as sufficiently rigorous. The field of computer science has historically been a technical field, and computer security even more so. Usable security only officially began in the late 1990s, and it is hard to imagine security and human factors in one equation given how the field of computer security evolved, largely without the human in the picture. For them, there could be something uncomfortable about systems built on years of hard technical work being challenged by mere user studies. But usable security researchers are not challenging the technical work. They are asking a different question about it. Not whether the system is secure, but whether it stays secure when actual people use it. Both questions matter. The common goal should be the same: safer and more usable technology, whatever means necessary.</p>
 
-      <div class="footnotes">
+      <div class="footnotes" role="doc-endnotes" aria-label="Footnotes">
         <ol>
-          <li id="fn1">Master Oogway says "There are no accidents," and I believe him. Maybe the term "... happy accidents" would be better than simply accidents. <a href="#ref1">↩</a></li>
-          <li id="fn2">This is a really insightful letter. I loved reading every bit of it. <a href="https://www.cs.cmu.edu/~choset/whatiscs.html" target="_blank" rel="noopener">cs.cmu.edu/~choset/whatiscs.html</a> — Another interesting read: <a href="https://ruthstalkerfirth.com/blog/2025/06/07/phenomena-3-the-phenomena-of-computing/" target="_blank" rel="noopener">ruthstalkerfirth.com</a> <a href="#ref2">↩</a></li>
-          <li id="fn3">I was casually discussing my thoughts on this topic with a colleague of mine who pointed out the importance of robustness in research. <a href="#ref3">↩</a></li>
-          <li id="fn4"><a href="https://dl.acm.org/doi/10.5555/1251421.1251435" target="_blank" rel="noopener">Why Johnny can't encrypt</a> &nbsp;//&nbsp; <a href="https://dl.acm.org/doi/10.1145/322796.322806" target="_blank" rel="noopener">Users are not the enemy</a> &nbsp;//&nbsp; <a href="https://dl.acm.org/doi/10.1145/304851.304859" target="_blank" rel="noopener">User-centered security</a> <a href="#ref4">↩</a></li>
-          <li id="fn5">This specific point was raised in one of my discussions with a friend of mine on this topic. As a UX person, she so amazingly highlighted this contradiction. <a href="#ref5">↩</a></li>
+          <li id="fn1" role="doc-endnote">Master Oogway says "There are no accidents," and I believe him. Maybe the term "... happy accidents" would be better than simply accidents. <a href="#ref1" role="doc-backlink" aria-label="Back to reference 1">↩</a></li>
+          <li id="fn2" role="doc-endnote">This is a really insightful letter. I loved reading every bit of it. <a href="https://www.cs.cmu.edu/~choset/whatiscs.html" target="_blank" rel="noopener">cs.cmu.edu/~choset/whatiscs.html</a> — Another interesting read: <a href="https://ruthstalkerfirth.com/blog/2025/06/07/phenomena-3-the-phenomena-of-computing/" target="_blank" rel="noopener">ruthstalkerfirth.com</a> <a href="#ref2" role="doc-backlink" aria-label="Back to reference 2">↩</a></li>
+          <li id="fn3" role="doc-endnote">I was casually discussing my thoughts on this topic with a colleague of mine who pointed out the importance of robustness in research. <a href="#ref3" role="doc-backlink" aria-label="Back to reference 3">↩</a></li>
+          <li id="fn4" role="doc-endnote"><a href="https://dl.acm.org/doi/10.5555/1251421.1251435" target="_blank" rel="noopener">Why Johnny can't encrypt</a> &nbsp;//&nbsp; <a href="https://dl.acm.org/doi/10.1145/322796.322806" target="_blank" rel="noopener">Users are not the enemy</a> &nbsp;//&nbsp; <a href="https://dl.acm.org/doi/10.1145/304851.304859" target="_blank" rel="noopener">User-centered security</a> <a href="#ref4" role="doc-backlink" aria-label="Back to reference 4">↩</a></li>
+          <li id="fn5" role="doc-endnote">This specific point was raised in one of my discussions with a friend of mine on this topic. As a UX person, she so amazingly highlighted this contradiction. <a href="#ref5" role="doc-backlink" aria-label="Back to reference 5">↩</a></li>
         </ol>
       </div>
     </div>
@@ -237,7 +260,7 @@
   <div class="container">
     <div class="footer-inner">
       <a class="footer-logo" href="index.html">
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
       </a>
       <ul class="footer-links">
         <li><a href="index.html#projects">Projects</a></li>

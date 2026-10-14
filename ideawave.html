@@ -15,21 +15,21 @@
     --bg: #faf9f7;
     --surface: #ffffff;
     --text: #1a1a1a;
-    --muted: #6b6b6b;
-    --subtle: #9a9a9a;
+    --muted: #4a4a4a;
+    --subtle: #555555;
     --border: #e8e4dc;
     --tag-bg: #f0ede8;
     --nav-height: 64px;
     --max-w: 860px;
   }
 
-  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
   body {
     font-family: 'Inter', sans-serif;
     background: var(--bg);
     color: var(--text);
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
@@ -63,7 +63,7 @@
   section:last-of-type { border-bottom: none; }
 
   .section-label {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: -0.01em;
     color: var(--text);
@@ -75,7 +75,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 13px;
+    font-size: 0.875rem;
     color: var(--muted);
     text-decoration: none;
     margin-bottom: 36px;
@@ -86,7 +86,7 @@
   /* PROJECT HEADER */
   .project-tag-chip {
     display: inline-block;
-    font-size: 11px;
+    font-size: 0.875rem;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -99,7 +99,7 @@
 
   .project-page-title {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
     line-height: 1.15;
     color: var(--text);
@@ -107,7 +107,7 @@
   }
 
   .project-page-tagline {
-    font-size: 18px;
+    font-size: 1.125rem;
     color: var(--muted);
     line-height: 1.7;
     max-width: 680px;
@@ -125,7 +125,7 @@
   }
 
   .meta-label {
-    font-size: 11px;
+    font-size: 0.875rem;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -135,7 +135,7 @@
   }
 
   .meta-value {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--muted);
     line-height: 1.5;
   }
@@ -153,7 +153,7 @@
   }
 
   figcaption {
-    font-size: 13px;
+    font-size: 0.875rem;
     color: var(--subtle);
     text-align: center;
     margin-top: 10px;
@@ -172,7 +172,7 @@
 
   /* PROSE */
   .prose {
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--muted);
     line-height: 1.8;
     max-width: 720px;
@@ -194,21 +194,21 @@
 
   .n-num {
     font-family: 'Inter', sans-serif;
-    font-size: 28px;
-    color: var(--border);
+    font-size: 1.75rem;
+    color: #6b6b6b;
     line-height: 1;
     padding-top: 4px;
   }
 
   .numbered-item h3 {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--text);
     margin-bottom: 6px;
   }
 
   .numbered-item p {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--muted);
     line-height: 1.6;
   }
@@ -229,7 +229,7 @@
   }
 
   .tool-cat h4 {
-    font-size: 11px;
+    font-size: 0.875rem;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -239,7 +239,7 @@
 
   .tool-cat ul { list-style: none; }
   .tool-cat ul li {
-    font-size: 13px;
+    font-size: 0.875rem;
     color: var(--muted);
     padding: 6px 0;
     border-bottom: 1px solid var(--border);
@@ -263,15 +263,15 @@
 
   .f-num {
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    color: var(--border);
+    font-size: 1.25rem;
+    color: #6b6b6b;
     flex-shrink: 0;
     line-height: 1;
     margin-top: 2px;
   }
 
   .finding-item p {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--muted);
     line-height: 1.6;
   }
@@ -299,14 +299,14 @@
   }
 
   .card-type h4 {
-    font-size: 15px;
+    font-size: 0.9375rem;
     font-weight: 500;
     color: var(--text);
     margin-bottom: 8px;
   }
 
   .card-type > p {
-    font-size: 13px;
+    font-size: 0.875rem;
     color: var(--muted);
     line-height: 1.6;
     margin-bottom: 8px;
@@ -314,7 +314,7 @@
 
   .card-type ul { list-style: none; }
   .card-type ul li {
-    font-size: 13px;
+    font-size: 0.875rem;
     color: var(--muted);
     padding: 5px 0;
     border-top: 1px solid var(--border);
@@ -331,7 +331,7 @@
   }
 
   .gameplay h3 {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--text);
     margin-bottom: 20px;
@@ -344,7 +344,7 @@
   .gameplay-step:last-child { border-bottom: none; }
 
   .gameplay-step strong {
-    font-size: 13px;
+    font-size: 0.875rem;
     font-weight: 500;
     color: var(--text);
     display: block;
@@ -352,14 +352,14 @@
   }
 
   .gameplay-step p {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--muted);
     line-height: 1.6;
   }
 
   /* REFLECTION BOX */
   .reflection-box {
-    font-size: 16px;
+    font-size: 1rem;
     font-style: italic;
     color: var(--muted);
     line-height: 1.8;
@@ -383,7 +383,7 @@
   .next-project:hover { opacity: 0.7; }
 
   .next-label {
-    font-size: 11px;
+    font-size: 0.875rem;
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -392,7 +392,7 @@
   }
 
   .next-title {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 500;
     color: var(--text);
   }
@@ -412,7 +412,7 @@
   .footer-links a {
     text-decoration: none;
     color: var(--muted);
-    font-size: 13px;
+    font-size: 0.875rem;
     transition: color 0.2s;
   }
   .footer-links a:hover { color: var(--text); }
@@ -424,7 +424,7 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 0.875rem;
     font-weight: 500;
     color: var(--text);
     background: var(--surface);
@@ -449,21 +449,43 @@
   @media (max-width: 480px) {
     .meta-grid { grid-template-columns: 1fr; }
     .image-grid.three { grid-template-columns: 1fr; }
-    .project-page-title { font-size: 28px; }
+    .project-page-title { font-size: 1.75rem; }
+  }
+
+  /* ── ACCESSIBILITY ── */
+  :root { --focus: #1a4fd6; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 3px; }
+  .skip-link {
+    position: absolute; left: 12px; top: -64px; z-index: 200;
+    background: var(--text); color: var(--bg);
+    padding: 10px 16px; border-radius: 6px;
+    font-size: 0.9375rem; text-decoration: none;
+  }
+  .skip-link:focus { top: 12px; }
+  main:focus { outline: none; }
+  .nav-logo, .footer-logo { display: inline-flex; align-items: center; min-height: 44px; }
+  .back-link { display: flex; width: fit-content; align-items: center; min-height: 44px; margin-top: 48px; margin-bottom: 36px; }
+  .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .btn { display: inline-flex; align-items: center; min-height: 44px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    .btn:hover { transform: none; }
   }
 </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
-      <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+      <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
     </a>
   </div>
 </nav>
 
-<main>
+<main id="main" tabindex="-1">
 
   <!-- HERO -->
   <section style="padding-top: 60px;">
@@ -502,7 +524,7 @@
   <!-- ABOUT -->
   <section>
     <div class="container">
-      <p class="section-label">About</p>
+      <h2 class="section-label">About</h2>
       <p class="prose">IdeaWave is a card game developed for design students and employees new to brainstorming. The game is optimized for a team of 5, who take turns playing their cards. These cards are randomly distributed among the players from 4 decks, each serving a unique purpose.</p>
     </div>
   </section>
@@ -510,7 +532,7 @@
   <!-- THE PROBLEM -->
   <section>
     <div class="container">
-      <p class="section-label">The Problem</p>
+      <h2 class="section-label">The Problem</h2>
       <p class="prose">Based on our secondary research and ethnographic observations in a design class at Purdue, we identified the following challenges faced by design teams in the brainstorming process:</p>
       <div class="numbered-list">
         <div class="numbered-item">
@@ -541,7 +563,7 @@
   <!-- MARKET RESEARCH -->
   <section>
     <div class="container">
-      <p class="section-label">Finding the Market Gap</p>
+      <h2 class="section-label">Finding the Market Gap</h2>
 
       <p class="prose">In Spring 2024, I served as an instructor for a 100-level undergraduate design course taken mostly by freshmen. I observed students did not know how to brainstorm. They fell victim to the challenges stated in the section above.</p>
       <p class="prose">I wanted to solve this problem. But how?</p>
@@ -600,7 +622,7 @@
   <!-- USER RESEARCH -->
   <section>
     <div class="container">
-      <p class="section-label">Understanding Users</p>
+      <h2 class="section-label">Understanding Users</h2>
       <p class="prose">We engaged in ethnographic observations in my design class to explore student collaboration during brainstorming sessions. Additionally, we conducted 4 interviews with experts to gain insights into their experiences and challenges with brainstorming. Our findings revealed:</p>
       <div class="finding-list">
         <div class="finding-item">
@@ -622,7 +644,7 @@
   <!-- DESIGN PROCESS -->
   <section>
     <div class="container">
-      <p class="section-label">Design Process</p>
+      <h2 class="section-label">Design Process</h2>
       <p class="prose">We utilized the Crazy 8's technique to individually brainstorm eight potential solutions and unanimously decided to develop a card game. We then thoroughly studied different phases of game development, and analyzed the gameplay of various card games (including UNO and Exploding Kittens). I created the initial draft of our ideation game, which was subsequently iterated to refine the final gameplay.</p>
 
       <div class="image-grid">
@@ -641,7 +663,7 @@
   <!-- PROTOTYPE TESTING -->
   <section>
     <div class="container">
-      <p class="section-label">Prototype Testing</p>
+      <h2 class="section-label">Prototype Testing</h2>
 
       <figure>
         <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/66896f5fe1f09926e87e4103_Evaluation%201.png" alt="Prototype evolution across evaluation sessions" loading="lazy">
@@ -650,7 +672,7 @@
 
       <p class="prose" style="margin-top: 32px;">Based on the initial gameplay, we created paper prototypes of the ideation cards and tested them with undergraduate and graduate design students at Purdue. The design insights gathered from these sessions were recorded and documented to iterate and refine the product.</p>
 
-      <p class="section-label" style="margin-top: 40px; margin-bottom: 20px;">Round 1 — Undergraduate Students</p>
+      <h2 class="section-label" style="margin-top: 40px; margin-bottom: 20px;">Round 1 — Undergraduate Students</h2>
       <p class="prose">We conducted 2 separate sessions with students from my design class. After providing instructions on the basic gameplay, we assigned them a task and allowed them to explore the game independently. The students suggested:</p>
       <div class="image-grid">
         <figure style="margin: 0;">
@@ -664,16 +686,16 @@
       </div>
       <div class="finding-list" style="margin-top: 20px;">
         <div class="finding-item">
-          <span class="f-num">→</span>
+          <span class="f-num" aria-hidden="true">→</span>
           <p>Adding a "satisfying" ending to the game. Initially, the game was designed to conclude when the team members mutually decided to stop playing.</p>
         </div>
         <div class="finding-item">
-          <span class="f-num">→</span>
+          <span class="f-num" aria-hidden="true">→</span>
           <p>Implementing a structured system for taking turns. Initially, players took turns whenever they had an idea or critique to share.</p>
         </div>
       </div>
 
-      <p class="section-label" style="margin-top: 48px; margin-bottom: 20px;">Round 2 — Graduate Students</p>
+      <h2 class="section-label" style="margin-top: 48px; margin-bottom: 20px;">Round 2 — Graduate Students</h2>
       <p class="prose">After incorporating feedback from undergraduate students, we tested the ideation cards with graduate students. This group pointed out:</p>
       <div class="image-grid">
         <figure style="margin: 0;">
@@ -687,11 +709,11 @@
       </div>
       <div class="finding-list" style="margin-top: 20px;">
         <div class="finding-item">
-          <span class="f-num">→</span>
+          <span class="f-num" aria-hidden="true">→</span>
           <p>Clarity issues in the instructions written on the cards.</p>
         </div>
         <div class="finding-item">
-          <span class="f-num">→</span>
+          <span class="f-num" aria-hidden="true">→</span>
           <p>Concerns about certain cards that seemed similar to others.</p>
         </div>
       </div>
@@ -701,7 +723,7 @@
   <!-- THE SOLUTION -->
   <section>
     <div class="container">
-      <p class="section-label">The Solution</p>
+      <h2 class="section-label">The Solution</h2>
 
       <div class="image-grid three" style="margin-top: 32px;">
         <figure style="margin: 0;">
@@ -741,7 +763,7 @@
       </div>
 
       <!-- CARD TYPES -->
-      <p class="section-label" style="margin-top: 52px; margin-bottom: 16px;">Card Types</p>
+      <h2 class="section-label" style="margin-top: 52px; margin-bottom: 16px;">Card Types</h2>
       <div class="card-types">
         <div class="card-type">
           <div class="card-dot" style="background: #f5c842;"></div>
@@ -800,7 +822,7 @@
   <!-- REFLECTION -->
   <section>
     <div class="container">
-      <p class="section-label">Reflection</p>
+      <h2 class="section-label">Reflection</h2>
       <div class="reflection-box">
         <p>IdeaWave was my first physical prototyping project. Initially, I had thought of coding an ideation device that could point toward team members in random so they could speak up. However, after desk research and ethnographic fieldwork, I changed the idea to a card game. Even the game went through a significant transformation where it evolved from a simple paper prototype to a complete product. My intention with the project was to make a marketable product which people would need. I still believe the game could be improved further through additional evaluation. It was fun to create a research-backed product.</p>
       </div>
@@ -827,7 +849,7 @@
   <div class="container">
     <div class="footer-inner">
       <a class="footer-logo" href="index.html">
-        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha logo">
+        <img src="https://cdn.prod.website-files.com/65dd546c278a2ace8a9cbbcd/65de101033a4d7519f557073_%D8%B7%DB%81.svg" alt="Taha – home">
       </a>
       <ul class="footer-links">
         <li><a href="index.html#projects">Projects</a></li>
