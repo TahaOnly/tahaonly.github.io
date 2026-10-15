@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="i'm loosing, the more i'm learning - a poem – a blog by Taha">
+<title>i'm loosing, the more i'm learning - a poem – Taha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --muted: #4a4a4a;
+    --subtle: #555555;
+    --border: #e8e4dc;
+    --tag-bg: #f0ede8;
+    --nav-height: 64px;
+    --max-w: 680px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-logo img { height: 36px; width: auto; display: block; }
+
+  /* LAYOUT */
+  main { padding-top: var(--nav-height); }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+
+  /* BACK LINK */
+  .back-link {
+    display: block;
+    font-size: 0.9375rem;
+    color: var(--muted);
+    text-decoration: none;
+    margin-top: 60px;
+    margin-bottom: 48px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--text); }
+
+  /* POST HEADER */
+  .post-header {
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+  }
+
+  .post-title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .post-date {
+    font-size: 0.9375rem;
+    color: var(--subtle);
+  }
+
+  /* POST BODY */
+  .post-body { padding: 0 0 60px; }
+
+  .post-body p {
+    font-size: 1.1875rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .post-body p:last-child { margin-bottom: 0; }
+
+
+  sup {
+    font-size: 0.75em;
+    color: var(--subtle);
+    vertical-align: super;
+    line-height: 0;
+  }
+
+  sup a {
+    color: var(--subtle);
+    text-decoration: none;
+  }
+  sup a:hover { color: var(--text); }
+
+  /* FOOTNOTES */
+  .footnotes {
+    margin-top: 60px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    padding-bottom: 80px;
+  }
+
+  .footnotes ol {
+    list-style: decimal;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footnotes li {
+    font-size: 0.9375rem;
+    color: var(--subtle);
+    line-height: 1.6;
+  }
+
+  .footnotes li a {
+    color: var(--subtle);
+    text-underline-offset: 2px;
+  }
+  .footnotes li a:hover { color: var(--text); }
+
+  /* FOOTER */
+  footer { padding: 40px 0; border-top: 1px solid var(--border); }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo img { height: 28px; width: auto; display: block; }
+
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--text); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .nav-inner { padding: 0 20px; }
+    .container { padding: 0 20px; }
+    .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+  }
+
+  /* POEM: Roman Urdu | English, stanza-aligned (stacked on small screens) */
+  .poem { margin: 8px 0 28px; }
+  .poem-head { display: none; }
+  .stanza { margin-bottom: 32px; }
+  .post-body .stanza p { margin: 0; font-size: 1.1875rem; line-height: 1.8; }
+  .poem .ln { display: block; padding-left: 1.5rem; text-indent: -1.5rem; }
+  .poem .ur { color: var(--text); }
+  .poem .en { color: var(--muted); margin-top: 8px; padding-left: 16px; border-left: 2px solid var(--border); }
+  @media (min-width: 961px) {
+    .poem { width: min(960px, calc(100vw - 80px)); margin-left: calc(50% - min(480px, (100vw - 80px) / 2)); }
+    .poem-head, .stanza { display: grid; grid-template-columns: 1.2fr 1fr; column-gap: 48px; }
+    .poem-head {
+      margin-bottom: 24px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
+      font-size: 0.9375rem; font-weight: 500; color: var(--subtle);
+    }
+    .poem .en { margin-top: 0; padding-left: 0; border-left: 0; }
+  }
+
+  /* ── ACCESSIBILITY ── */
+  :root { --focus: #1a4fd6; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 3px; }
+  .skip-link {
+    position: absolute; left: 12px; top: -64px; z-index: 200;
+    background: var(--text); color: var(--bg);
+    padding: 10px 16px; border-radius: 6px;
+    font-size: 0.9375rem; text-decoration: none;
+  }
+  .skip-link:focus { top: 12px; }
+  main:focus { outline: none; }
+  .nav-logo, .footer-logo { display: inline-flex; align-items: center; min-height: 44px; }
+  .back-link { display: flex; width: fit-content; align-items: center; min-height: 44px; margin-top: 48px; margin-bottom: 36px; }
+  .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .post-body p a { color: var(--text); text-decoration: underline; text-decoration-color: currentColor; text-underline-offset: 3px; }
+  .post-body sup a { padding: 10px 6px; margin: -10px -6px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    .btn:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="images/logo.svg" alt="Taha – home">
+    </a>
+  </div>
+</nav>
+
+<main id="main" tabindex="-1">
+  <div class="container">
+
+    <a class="back-link" href="index.html#blog">← Back to Blogs</a>
+
+    <div class="post-header">
+      <h1 class="post-title">i'm loosing, the more i'm learning - a poem</h1>
+      <p class="post-date">October 2026</p>
+    </div>
+
+    <div class="post-body">
+
+      <p>Sounds of <em lang="ur-Latn">ghazal</em> playing in the background, I take another slurp of chai. I can't help but wonder why the world is in such a shitty state.</p>
+
+      <p>This has been happening for the past few weeks. (Part of) Addison Crump's essay does a good job of explaining my state of mind.<sup><a href="#fn1" id="ref1" role="doc-noteref" aria-label="Footnote 1">1</a></sup></p>
+
+      <p>The military's suppression in Pakistan. Student protests in India. New immigration rules in the US. Big tech making yet another mindless move to feed its capitalist hunger. The rise of the right wing in Germany. Protests in France, Spain, Kazakhstan, the UK. Saudi Arabia's military campaign in Yemen. The genocide in Palestine.</p>
+
+      <p>Then one day I wanted to write it all down. It came out as a <em lang="ur-Latn">nazm</em> (or poem).</p>
+
+      <section class="poem" aria-label="Poem in Roman Urdu with English translation">
+        <div class="poem-head" aria-hidden="true"><span>Roman Urdu</span><span>English</span></div>
+        <div class="stanza">
+          <p class="ur" lang="ur-Latn"><span class="ln">Mein haar raha hoon</span><span class="ln">Jaisay jaisay jaan raha hoon</span></p>
+          <p class="en" lang="en"><span class="ln">I'm loosing,</span><span class="ln">The more I'm learning</span></p>
+        </div>
+        <div class="stanza">
+          <p class="ur" lang="ur-Latn"><span class="ln">Iqtasadiat ki iss jung mein</span><span class="ln">Gadagar ki siskiaan sun raha hoon</span></p>
+          <p class="en" lang="en"><span class="ln">In this war of personal interests,</span><span class="ln">I'm hearing the sobs of the helpless</span></p>
+        </div>
+        <div class="stanza">
+          <p class="ur" lang="ur-Latn"><span class="ln">Zulm o barbariat kay natak ko</span><span class="ln">Zanjeeroon mein jakra hua seh raha hoon</span></p>
+          <p class="en" lang="en"><span class="ln">This theater of cruelty,</span><span class="ln">I'm enduring in chains</span></p>
+        </div>
+        <div class="stanza">
+          <p class="ur" lang="ur-Latn"><span class="ln">Awaaz uthanay waloon ka garaybaan</span><span class="ln">Askariyat kay haathoon chaak hota dekh raha hoon</span></p>
+          <p class="en" lang="en"><span class="ln">The collars of those speaking up,</span><span class="ln">I'm watching being torn by military hands</span></p>
+        </div>
+        <div class="stanza">
+          <p class="ur" lang="ur-Latn"><span class="ln">Haqeeqat jaan-nay kay bawajood</span><span class="ln">Qadam say qadam milanay say kaamp raha hoon</span></p>
+          <p class="en" lang="en"><span class="ln">Despite knowing the truth,</span><span class="ln">I'm trembling to walk beside them</span></p>
+        </div>
+        <div class="stanza">
+          <p class="ur" lang="ur-Latn"><span class="ln">Apni hee cheekhoon ko sun kar</span><span class="ln">Andar hee andar damm tor raha hoon</span></p>
+          <p class="en" lang="en"><span class="ln">Listening to my own screams,</span><span class="ln">I'm suffocating inside</span></p>
+        </div>
+        <div class="stanza">
+          <p class="ur" lang="ur-Latn"><span class="ln">Mein haar raha hoon aur</span><span class="ln">Ahista ahista emaan kho raha hoon</span></p>
+          <p class="en" lang="en"><span class="ln">I'm loosing and,</span><span class="ln">Slowly losing faith</span></p>
+        </div>
+      </section>
+
+      <div class="footnotes" role="doc-endnotes" aria-label="Footnotes">
+        <ol>
+          <li id="fn1" role="doc-endnote"><a href="https://addisoncrump.info/research/crashing-out/" target="_blank" rel="noopener">Crashing Out by Addison Crump</a> <a href="#ref1" role="doc-backlink" aria-label="Back to reference 1">↩</a></li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">
+        <img src="images/logo.svg" alt="Taha – home">
+      </a>
+      <ul class="footer-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#blog">Blogs</a></li>
+        <li><a href="index.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+</script>
+
+</body>
+</html>

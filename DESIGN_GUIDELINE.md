@@ -122,18 +122,22 @@ radius 100 px, 0.9375 rem; active = `--text` background with `--bg` text.
 - CV: link row (“Open CV in a new tab · Download PDF”) above the titled iframe.
 - Publications: grouped by year (`h3.pub-year-label`, label style). Entry = title (500, 1.125 rem), authors (`--muted`, `<strong>` for Taha, `*` joint first authors note), venue (italic `--subtle`), then a row of **standard hyperlinks** (`.pub-link`: Paper · PDF · Video…), award as `🏆` wrapped in `role="img" aria-label="Award:"`.
 - Projects: filter pills (`aria-pressed`, hidden `role=status` count) + 2-column card grid; card = image (`alt=""`, because the title sits next to it) + h3 + subtitle + CTA.
-- Blog list: one row per post: lowercase title left, date right (`13 Jun 2026`), newest first. Posts not listed are fine.
+- Blog list: one row per post: lowercase title left, date right as **month and year only** (`Jun 2026`), newest first. Posts not listed are fine.
 - Footer: `© 2026 Taha` + real in-page links.
 
 ### 6.2 Blog post (`blog-<slug>.html`)
 Skeleton: skip link → `<nav>` (logo only, aligned to content width) → `<main id="main" tabindex="-1">` →
-`← Back to Blogs` (`index.html#blog`) → `.post-header` (h1 lowercase title, date `13 June 2026`) → `.post-body` paragraphs →
+`← Back to Blogs` (`index.html#blog`) → `.post-header` (h1 lowercase title, date as **month and year only**, e.g. `June 2026`) → `.post-body` paragraphs →
 `.footnotes` → footer. Filename: `blog-<kebab-case-title>.html`. Add the post to the **top** of the blog list in `index.html` (`d Mon yyyy`).
 - Optional `tldr:` lead paragraph: italic, `--subtle`, 1.0625 rem, bottom border.
 - **Footnotes**: marker `<sup><a href="#fnN" id="refN" role="doc-noteref" aria-label="Footnote N">N</a></sup>` placed right after the punctuation or phrase;
   list in `<div class="footnotes" role="doc-endnotes" aria-label="Footnotes"><ol>` with `<li id="fnN" role="doc-endnote">`.
   Content pattern: `Author (year), "Title"` or `Title — Publisher`, **link on the title/source**; add
   `<a href="#refN" role="doc-backlink" aria-label="Back to reference N">↩</a>` at the end. Number in order of first appearance.
+- **Poems / bilingual text** (`blog-im-loosing-the-more-im-learning.html`): `<section class="poem" aria-label="…">` of `.stanza` blocks, each holding `p.ur` (`lang="ur-Latn"`, `--text`) and `p.en` (`lang="en"`, `--muted`);
+  one `<span class="ln">` per verse line (hanging indent for wrapped lines). From 961 px the section breaks out of the 680 px text column
+  (max 960 px) into two stanza-aligned columns `1.2fr 1fr` with hidden-from-AT column labels in normal case (`Roman Urdu` | `English`, 0.9375 rem, `--subtle`); below 961 px each stanza stacks
+  (Roman Urdu, then English with a 2 px `--border` left rule). Poem text uses *long-form reading* size (1.1875 rem/1.8). Intro prose stays standard blog paragraphs.
 - Foreign-language words get `lang` (e.g. `<em lang="ur-Latn">besharam</em>`).
 - Copyright: quote sparingly; the author's own words only.
 
@@ -208,3 +212,5 @@ How to test: open the page, Tab through it, run the contrast script (compute eac
 
 - **2026-10-14** – Guideline created from the existing site. Standardised: body text 1.125 rem/1.8 (honours list now matches body lists), standard hyperlink style (publication “Paper/PDF/Video” changed from pill buttons to underlined links with descriptive `aria-label`s), case-study type scale and contrast brought in line with the landing page, alt-text rules and full alt text for all case-study images. Added accessibility checklist.
 - **2026-10-14** – Images moved from Webflow's CDN to local `images/` as compressed WebP (37.7 MB → 3.7 MB, −90 %; per-page 0.3–2 MB). Added the image-file rules in §7 (sizing, quality tiers, `width`/`height`, naming, hero `fetchpriority`).
+- **2026-10-15** – Added the poem/bilingual layout (§6.2) and the month-only date format (`October 2026` / `Oct 2026`).
+- **2026-10-15** – All blog dates are now month and year only (`June 2026` on posts, `Jun 2026` in the list). Poem column labels use normal case instead of uppercase.
