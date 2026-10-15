@@ -134,11 +134,12 @@ Skeleton: skip link → `<nav>` (logo only, aligned to content width) → `<main
   list in `<div class="footnotes" role="doc-endnotes" aria-label="Footnotes"><ol>` with `<li id="fnN" role="doc-endnote">`.
   Content pattern: `Author (year), "Title"` or `Title — Publisher`, **link on the title/source**; add
   `<a href="#refN" role="doc-backlink" aria-label="Back to reference N">↩</a>` at the end. Number in order of first appearance.
-- **Poems / bilingual text** (`blog-im-loosing-the-more-im-learning.html`): `<section class="poem" aria-label="…">` of `.stanza` blocks, each holding `p.ur` (`lang="ur-Latn"`, `--text`) and `p.en` (`lang="en"`, `--muted`);
+- **Poems / bilingual text** (`blog-im-loosing-the-more-im-learning.html`): `<section class="poem" aria-label="…">` of `.stanza` blocks, each holding `p.ur` (Roman Urdu, `--text`, no `lang`) and `p.en` (`lang="en"`, `--muted`);
   one `<span class="ln">` per verse line (hanging indent for wrapped lines). From 961 px the section breaks out of the 680 px text column
   (max 960 px) into two stanza-aligned columns `1.2fr 1fr` with hidden-from-AT column labels in normal case (`Roman Urdu` | `English`, 0.9375 rem, `--subtle`); below 961 px each stanza stacks
   (Roman Urdu, then English with a 2 px `--border` left rule). Poem text uses *long-form reading* size (1.1875 rem/1.8). Intro prose stays standard blog paragraphs.
-- Foreign-language words get `lang` (e.g. `<em lang="ur-Latn">besharam</em>`).
+- Foreign-language words are italicised (`<em>besharam</em>`). **Do not put `lang="ur-Latn"`/`lang="ur"` on Roman Urdu (Latin-script) text** — browsers
+  then swap the site font for an Arabic-script system font. Use `lang` only for genuine non-Latin script (e.g. `<span lang="ur">زبان</span>`) and for non-Latin-script languages generally.
 - Copyright: quote sparingly; the author's own words only.
 
 ### 6.3 Case study
@@ -188,7 +189,7 @@ Footer links: Projects · Blogs · About → `index.html#projects`, `#blog`, `in
 - Links: standard hyperlink style, meaningful text/`aria-label`, no `href="#"`.
 - Interactive targets ≥ 44 × 44 px (min 24 px), visible 3 px focus ring (`:focus-visible`), logical tab order, no keyboard traps.
 - All sizes in rem, nothing < 14 px; page works at 200 % zoom and 375 px width without horizontal scroll.
-- Every image has alt per §7 and is a local, compressed WebP with `width`/`height`; iframes have a `title`; `lang` on foreign-language fragments.
+- Every image has alt per §7 and is a local, compressed WebP with `width`/`height`; iframes have a `title`; `lang` on non-Latin-script fragments (not on Roman Urdu, §6.2).
 - Motion: smooth scroll and hover transforms only under `prefers-reduced-motion: no-preference`.
 - Tab/filter/toggle widgets expose state (`aria-selected`, `aria-pressed`) and announce results via a status region.
 
@@ -214,3 +215,4 @@ How to test: open the page, Tab through it, run the contrast script (compute eac
 - **2026-10-14** – Images moved from Webflow's CDN to local `images/` as compressed WebP (37.7 MB → 3.7 MB, −90 %; per-page 0.3–2 MB). Added the image-file rules in §7 (sizing, quality tiers, `width`/`height`, naming, hero `fetchpriority`).
 - **2026-10-15** – Added the poem/bilingual layout (§6.2) and the month-only date format (`October 2026` / `Oct 2026`).
 - **2026-10-15** – All blog dates are now month and year only (`June 2026` on posts, `Jun 2026` in the list). Poem column labels use normal case instead of uppercase.
+- **2026-10-15** – Removed `lang="ur-Latn"` from Roman Urdu text (poem, *ghazal*/*nazm*/*besharam*, transliterations): it made browsers render those words in a different font. Rule recorded in §6.2.
