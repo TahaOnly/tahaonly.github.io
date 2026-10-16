@@ -50,16 +50,16 @@ All sizes in **rem** (so browser font-size settings work). **Nothing below 0.875
 
 | Role | Size | Weight | Line-height | Colour | Notes |
 |---|---|---|---|---|---|
-| Page title (case study) | `clamp(2rem, 5vw, 3rem)` | 700 | 1.15 | `--text` | 1.75 rem under 480 px |
+| Page title (case study) | 70 px | 700 | 80 px | `--text` | `h1.heading-jumbo` (Webflow original; see §6.3) |
 | Blog post title | `clamp(1.75rem, 5vw, 2.5rem)` | 600 | 1.2 | `--text` | letter-spacing −0.02em, lowercase |
 | Section heading (landing tabs) | `clamp(1.375rem, 3.5vw, 2rem)` | 600 | 1.1 | `--text` | −0.02em |
-| Section heading (case study) | 1.25 rem | 600 | – | `--text` | `<h2 class="section-label">` |
+| Section heading (case study) | 36 px | 500 | – | `--text` | `h2.project-title-h1`; sub-headings 20 px (`h3.project-title-h3`) — Webflow original |
 | Item heading (h3 in lists/grids) | 1.125 rem | 500–600 | 1.3 | `--text` | card titles on index: 1.1875 rem |
 | Sub-item heading (h4) | 1 – 1.0625 rem | 500 | 1.3 | `--text` | |
 | Lead / tagline | 1.1875 rem | 400 | 1.7 | `--muted` | |
-| **Standard body text** | **1.125 rem** | 400 | **1.8** | `--muted` | landing page paragraphs and bullet lists, honours list, case-study `.prose`, reflection box |
+| **Standard body text** | **1.125 rem** | 400 | **1.8** | `--muted` | landing page paragraphs and bullet lists, honours list |
 | Long-form reading | 1.1875 rem | 400 | 1.8 | `--muted` | blog post paragraphs only |
-| Compact body (inside cards/grids) | 1 rem | 400 | 1.6 | `--muted` | descriptions in case-study cards, steps, tables |
+| Compact body (inside cards/grids) | 1 rem | 400 | 1.6 | `--muted` | descriptions inside cards and grids |
 | Secondary text | 0.9375 rem | 400 | 1.5–1.6 | `--subtle`/`--muted` | captions, meta values, dates, authors/venue, footnotes, footer links, hyperlink rows |
 | Label | 0.875 rem | 500 | – | `--subtle` | UPPERCASE chips/labels with letter-spacing 0.08–0.12em, year labels, table headers |
 
@@ -77,11 +77,11 @@ Rules
 |---|---|---|
 | Landing page (`.wrap`) | 780 px | 40 px (20 px ≤ 640 px) |
 | Blog post (`.container`) | 680 px | 40 px (20 px ≤ 700 px) |
-| Case study (`.container`) | 860 px | 40 px (20 px ≤ 700 px) |
+| Case study (`body.body-2/3`) | 10 % side margins up to 1150 px wide; on wider screens the column is capped at **920 px** (centred); text, images, boxes, tabs and tables all fill that same column | Webflow breakpoints 991 / 767 / 479 px |
 
 - Page background `--bg`; cards `--surface` with `1px solid var(--border)` and `border-radius: 12px` (images 10–12 px).
 - Vertical rhythm: paragraph gap 16–28 px (match the page type), sections 52–72 px, tab panels `padding-bottom: 80px`.
-- Breakpoints: 640 px (landing), 700 px (sub-pages), 480 px (case-study grids collapse to one column).
+- Breakpoints: 640 px (landing), 700 px (sub-pages), 991 / 767 / 479 px (case studies follow the Webflow breakpoints).
 - No horizontal scroll at 375 px width (verify after any layout change).
 
 ---
@@ -106,6 +106,8 @@ text-underline-offset: 3px;
 
 **Buttons** are for actions (filter pills, display toggles), not navigation. Pill: `border: 1px solid var(--ctl)`,
 radius 100 px, 0.9375 rem; active = `--text` background with `--bg` text.
+**Compact link buttons** (project-card `.btn`: Process Book, Trailer, Figma Prototype…): 32 px tall, `padding: 0 14px`, 0.875 rem/500, radius 6 px —
+never 44 px (they sit in rows with 8 px gaps, so the 24 px WCAG 2.2 minimum target is met).
 
 ---
 
@@ -121,7 +123,7 @@ radius 100 px, 0.9375 rem; active = `--text` background with `--bg` text.
 - Home: portrait floated right (`210 px`, wraps text), bio paragraphs = *standard body text*, “Selected Honors & Awards” = `h3.home-subheading` + `ul.honors-list` (same style as `.home-bio-list`).
 - CV: link row (“Open CV in a new tab · Download PDF”) above the titled iframe.
 - Publications: grouped by year (`h3.pub-year-label`, label style). Entry = title (500, 1.125 rem), authors (`--muted`, `<strong>` for Taha, `*` joint first authors note), venue (italic `--subtle`), then a row of **standard hyperlinks** (`.pub-link`: Paper · PDF · Video…), award as `🏆` wrapped in `role="img" aria-label="Award:"`.
-- Projects: filter pills (`aria-pressed`, hidden `role=status` count) + 2-column card grid; card = image (`alt=""`, because the title sits next to it) + h3 + subtitle + CTA.
+- Projects: filter pills **All · UX Research · Visual Design · Product** (All is first and selected by default, so every project shows first; `aria-pressed`, hidden `role=status` count) + 2-column card grid; card = image (`alt=""`, because the title sits next to it) + h3 + subtitle + CTA. The Band Baaja Baraat card is a normal one-column card; it spans both columns (`.projects-grid.wide-single`, set by the filter script) only when the grid is filtered to **Product**. A card may link to an external case study (e.g. **Resonate** → Canva): the whole card is the `<a>`, with `target="_blank" rel="noopener"`. Card thumbnails are `card-<name>.webp`, 840 px wide, ~10–15 KB. Thumbnails are shown in a 4:3 frame with `object-fit: cover`; reframe a wide image with an inline `style="object-position: X% 50%"` on the `<img>` (0 % = show the left edge, 100 % = the right edge).
 - Blog list: one row per post: lowercase title left, date right as **month and year only** (`Jun 2026`), newest first. Posts not listed are fine.
 - Footer: `© 2026 Taha` + real in-page links.
 
@@ -143,12 +145,33 @@ Skeleton: skip link → `<nav>` (logo only, aligned to content width) → `<main
 - Copyright: quote sparingly; the author's own words only.
 
 ### 6.3 Case study
-Skeleton: skip link → nav (logo only, `alt="Taha – home"`) → `<main id="main" tabindex="-1">` → hero section (back link `← Back to Projects`,
-`.project-tag-chip`, `h1.project-page-title`, tagline, `.meta-grid` Role/Duration/Tools/Methods, hero image) → sections each starting with
-`<h2 class="section-label">` → “Next project” link → footer.
-- Body copy = `.prose` (*standard body text*). Cards/steps/tables = *compact body* (1 rem). Captions = *secondary* (0.9375 rem).
-- Decorative numerals (`01`, `1`) are `#6b6b6b`; arrows/ticks that only decorate get `aria-hidden="true"`.
-- Table: header row labels, `--text`/`--muted` cells; best/worst colours from §2 status colours.
+**The four case studies reproduce the Webflow originals exactly** (text, order, structure, layout). They are generated from the
+Webflow page markup, not retyped, and share `css/case-study.css` and `js/case-study.js`.
+- **Text is sacred:** never edit, correct, reword or re-punctuate case-study copy (typos like “a a card-game” and the duplicated “4.” in the
+  methods list are in the source). Compare the visible text of a page against its Webflow source before shipping (target: zero differences).
+- **Structure** (class names are the Webflow names): skip link → header `.navigation` (logo only) → `<main>` →
+  `.researchsection > .work-section`: `a.back-link` “← Back to Projects” (top-left, above the title; → `index.html#projects`) · `h1.heading-jumbo` (title) · `p.project-slogan` · intro `p.body-text` · hero image with caption ·
+  `.flex-block-2` metadata box of four `.tiles` (My Role / Duration / Design Tools / R&D Methods) · sections `h2.project-title-h1` with
+  `h3.project-title-h3` sub-sections · `p.body-text` (70 % wide) · lists `.list-2` · image rows `.w-layout-layout` / `.w-layout-grid` (column
+  templates live on the `#w-node-…` ids, which are kept) · `figcaption`-style `p.project-captions` · tinted `.container-10` call-out ·
+  `.category__tabs` galleries · `.accordion-item` (collapsed by default) · div-based results table · “Reflection” · **end navigation** · footer.
+- **End navigation** (`nav.case-nav`, so readers never scroll back up): “More case studies” cards linking to the *other* case studies (title + slogan) and a
+  second “← Back to Projects” link. When a case study is added, add it to every other case study’s end navigation.
+- **One column:** text (`.body-text`, `.list-2`) spans the full 920 px content column so its left/right edges line up with the images and boxes. Do not give text its own narrower max-width.
+- **Highlights:** `.text-span` (blue), `.urdu-span` (light blue), `.bbb` (red) mark key phrases. Do not use them for decoration.
+- **Typography is the Webflow scale** (body text 15 px `#666`, headings Inter 700/500, etc.) — it intentionally differs from the landing page scale (§3).
+  Font is **Inter** everywhere (the original’s Montserrat body font is *not* used).
+- **Accessible versions of Webflow widgets:** tabs are `role=tablist/tab/tabpanel` (←/→/Home/End); the accordion is a heading containing a
+  `<button aria-expanded>`; the table keeps its div layout with `role=table/row/columnheader/cell` (the duplicate mobile header row is `aria-hidden`);
+  `a` without `href` are not used. Tag changes for correct semantics (one `h1`, `h2` sections, `h3` sub-sections, `p` instead of `h5`) are
+  compensated by `.wf-from-*` helper classes so spacing stays identical — keep them when adding content.
+- **Contrast tweaks to the Webflow colours** (the only visual deviations, listed at the end of `css/case-study.css`):
+  `.text-span #1d6fc2`, `.urdu-span #3270b8`, `.bbb #d62828`, table headings/rows `#6b6b78`, `.table-data` 14 px.
+- **Page shell additions** (not in the original): skip link, landmarks, 3 px focus ring, “← Back to Projects” links, end navigation, footer with logo + Projects/Blogs/About links.
+- Images follow §7 (local WebP). Webflow’s own `width` attribute is copied onto each `<img>` because it drives the original layout;
+  `style="aspect-ratio: W / H"` reserves space. Category-card images have `alt=""` (the tool name is the link text).
+- New case study: copy a Webflow page’s `.work-section` markup, keep its class names/ids, map images to `images/…`, add the card on the Projects tab, verify
+  text parity and layout at 1440 / 768 / 375 px.
 
 ### 6.4 Navigation on sub-pages
 Logo only (left aligned to content width), no menu. Back links: `index.html#projects` (case studies) and `index.html#blog` (posts).
@@ -170,8 +193,8 @@ Footer links: Projects · Blogs · About → `index.html#projects`, `#blog`, `in
 - **All images are served locally from `images/`; never hot-link another host** (no Webflow/CDN URLs). Only linked PDFs may stay remote.
 - Format **WebP** (alpha supported). Logo is `images/logo.svg`. Names are lowercase kebab-case with a page prefix:
   `ideawave-…`, `shopping-…`, `urdu-…`, `bbb-…`, `card-…` (project-card thumbnails), `portrait`.
-- Every `<img>` carries `width` and `height` (the file's real pixel size) and `decoding="async"`; a global
-  `:where(img[height]) { height: auto; }` keeps them responsive and prevents layout shift.
+- Every `<img>` carries `decoding="async"` and reserves its space: landing/blog pages use `width`/`height` (the file's real pixel size) with a global
+  `:where(img[height]) { height: auto; }`; case studies use the Webflow `width` plus `style="aspect-ratio: W / H"` (§6.3).
 - **Size** the file to about 2× its largest rendered CSS width (2.5× on phones): minimum 800 px wide, 1200 px for text-dense
   infographics/UI screens, maximum 1600 px. Never upscale. Strip metadata and apply EXIF rotation.
 - **Quality** (cwebp, `-m 6 -sharp_yuv`): photos q≈60–78, flat graphics/UI q≈70–90, line-art with fine text near-lossless or lossless.
@@ -187,7 +210,7 @@ Footer links: Projects · Blogs · About → `index.html#projects`, `#blog`, `in
 - Text contrast ≥ 4.5 : 1 (target ≥ 7 : 1); UI borders ≥ 3 : 1. Use the tokens, don't pick new colours.
 - Exactly one `<h1>`; no skipped heading levels; `<main>` present with `id="main"`; skip link works.
 - Links: standard hyperlink style, meaningful text/`aria-label`, no `href="#"`.
-- Interactive targets ≥ 44 × 44 px (min 24 px), visible 3 px focus ring (`:focus-visible`), logical tab order, no keyboard traps.
+- Interactive targets ≥ 44 × 44 px (min 24 px; compact `.btn` link buttons are 32 px), visible 3 px focus ring (`:focus-visible`), logical tab order, no keyboard traps.
 - All sizes in rem, nothing < 14 px; page works at 200 % zoom and 375 px width without horizontal scroll.
 - Every image has alt per §7 and is a local, compressed WebP with `width`/`height`; iframes have a `title`; `lang` on non-Latin-script fragments (not on Roman Urdu, §6.2).
 - Motion: smooth scroll and hover transforms only under `prefers-reduced-motion: no-preference`.
@@ -216,3 +239,9 @@ How to test: open the page, Tab through it, run the contrast script (compute eac
 - **2026-10-15** – Added the poem/bilingual layout (§6.2) and the month-only date format (`October 2026` / `Oct 2026`).
 - **2026-10-15** – All blog dates are now month and year only (`June 2026` on posts, `Jun 2026` in the list). Poem column labels use normal case instead of uppercase.
 - **2026-10-15** – Removed `lang="ur-Latn"` from Roman Urdu text (poem, *ghazal*/*nazm*/*besharam*, transliterations): it made browsers render those words in a different font. Rule recorded in §6.2.
+- **2026-10-15** – Case studies rebuilt from the Webflow originals: text identical to source (0 differences), same structure/layout (verified element-by-element at 1440/900/768/600/375 px), shared `css/case-study.css` + `js/case-study.js`, accessible tabs/accordion/table, 17 previously missing images imported (tool galleries, BBB website and social screenshots). Documented in §6.3.
+- **2026-10-16** – Case studies: “← Back to Projects” moved from the header to the top-left of the content; end-of-page navigation (other case studies + back to Projects); content column capped at 920 px and text measure at 640 px for readable line length. Projects tab: added **All** filter (first, default).
+- **2026-10-16** – Case-study text now fills the same 920 px column as the images (removed the 640 px text cap). Project-card `.btn` buttons made compact (32 px tall, `0 14px` padding).
+- **2026-10-16** – Added the **Resonate** project card (UX Research) linking to its Canva case study; project cards may link to external case studies.
+- **2026-10-16** – Band Baaja Baraat card is one column in All/other views and spans both columns only in the Product filter.
+- **2026-10-16** – Resonate thumbnail reframed with `object-position: 15% 50%` (documented in §6.1).

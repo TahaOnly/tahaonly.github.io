@@ -409,16 +409,17 @@
   }
   .project-cta::after { content: ' →'; }
 
-  .project-card.full {
+  /* the Band Baaja Baraat card is a normal one-column card, and spans both columns only when the grid is filtered to Product */
+  .projects-grid.wide-single .project-card.full {
     grid-column: 1 / -1;
     flex-direction: row;
   }
-  .project-card.full .project-card-img {
+  .projects-grid.wide-single .project-card.full .project-card-img {
     width: 40%;
     aspect-ratio: auto;
     flex-shrink: 0;
   }
-  .project-card.full .project-card-body { padding: 24px; }
+  .projects-grid.wide-single .project-card.full .project-card-body { padding: 24px; }
 
   .project-card.no-link { cursor: default; }
   .project-card.no-link:hover { transform: none; box-shadow: none; }
@@ -426,8 +427,11 @@
   .project-links { display: flex; gap: 8px; flex-wrap: wrap; }
 
   .btn {
-    display: inline-block;
-    padding: 7px 14px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;           /* compact; above the WCAG 2.2 minimum target of 24px */
+    padding: 0 14px;
+    line-height: 1.2;
     border: 1px solid var(--ctl);
     border-radius: 6px;
     text-decoration: none;
@@ -557,8 +561,8 @@
     }
 
     .projects-grid { grid-template-columns: 1fr; }
-    .project-card.full { flex-direction: column; }
-    .project-card.full .project-card-img { width: 100%; aspect-ratio: 4/3; }
+    .projects-grid.wide-single .project-card.full { flex-direction: column; }
+    .projects-grid.wide-single .project-card.full .project-card-img { width: 100%; aspect-ratio: 4/3; }
 
     .exp-period, .exp-location { display: none; }
 
@@ -582,7 +586,7 @@
   h1.header-logo { margin: 0; font-size: inherit; font-weight: inherit; line-height: 0; }
   .tab-list { display: flex; }
   .tab-btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 2px; }
-  .filter-btn, .pub-link, .btn, .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .filter-btn, .pub-link, .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
   .cv-links { font-size: 0.9375rem; margin: 0 0 12px; color: var(--muted); }
   .cv-links a {
     color: var(--text); text-decoration: underline; text-decoration-color: currentColor;
@@ -741,7 +745,8 @@
   <div class="tab-panel" id="tab-projects" role="tabpanel" aria-labelledby="tab-btn-projects" tabindex="0">
     <h2 class="sr-only">Projects</h2>
     <div class="project-filters" role="group" aria-label="Filter projects by category">
-      <button class="filter-btn active" data-filter="ux" aria-pressed="true">UX Research</button>
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter-btn" data-filter="ux" aria-pressed="false">UX Research</button>
       <button class="filter-btn" data-filter="visual" aria-pressed="false">Visual Design</button>
       <button class="filter-btn" data-filter="product" aria-pressed="false">Product</button>
     </div>
@@ -772,6 +777,15 @@
         <div class="project-card-body">
           <h3 class="project-title">Designing for Urdu</h3>
           <p class="project-subtitle">How to create a design guideline for Urdu language?</p>
+          <span class="project-cta">See Project</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://canva.link/tbce901t5bzbze5" target="_blank" rel="noopener" data-tags="ux">
+        <img class="project-card-img" src="images/card-resonate.webp" width="840" height="507" alt="" loading="lazy" decoding="async" style="object-position: 15% 50%;">
+        <div class="project-card-body">
+          <h3 class="project-title">Resonate</h3>
+          <p class="project-subtitle">How to create a platform for lived experiences of people with disabilities?</p>
           <span class="project-cta">See Project</span>
         </div>
       </a>
@@ -948,28 +962,26 @@
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
+  const projectsGrid = document.querySelector('.projects-grid');
+
   function applyFilter(filter) {
+    projectsGrid.classList.toggle('wide-single', filter === 'product');
     projectCards.forEach(card => {
       const tags = card.dataset.tags || '';
-      card.style.display = tags.includes(filter) ? '' : 'none';
+      card.style.display = (filter === 'all' || tags.includes(filter)) ? '' : 'none';
     });
   }
 
-  applyFilter('ux');
+  applyFilter('all');   // all projects first; the other buttons filter them
 
   const filterStatus = document.getElementById('filter-status');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const isActive = btn.classList.contains('active');
       filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
-      if (isActive) {
-        projectCards.forEach(card => { card.style.display = ''; });
-      } else {
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
-        applyFilter(btn.dataset.filter);
-      }
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+      applyFilter(btn.dataset.filter);
       const shown = Array.from(projectCards).filter(c => c.style.display !== 'none').length;
       filterStatus.textContent = `${shown} project${shown === 1 ? '' : 's'} shown`;
     });
